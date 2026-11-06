@@ -4,29 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maison Polow | Persian Rice Atelier • Delhi NCR</title>
-  <meta name="description" content="Aromatic saffron grains, golden crispy tahdig, and heirloom rice ateliers. Discover Delhi NCR's premier Persian rice experience.">
+  <meta name="description" content="Aromatic saffron grains, golden crispy tahdig, and heirloom Persian rice ateliers. Discover Delhi NCR's premier Persian rice experience.">
   
   <!-- Favicon & Brand Icons -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231B1816'/%3E%3Ccircle cx='50' cy='50' r='43' stroke='%23C59B27' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='50' cy='50' r='40' stroke='%23F4EFEA' stroke-width='0.75' stroke-dasharray='1.5 1.5' fill='none'/%3E%3Ctext x='50' y='61' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F4EFEA' text-anchor='middle'%3EMP%3E%3C/text%3E%3C/svg%3E">
-  <meta name="theme-color" content="#F4EFEA">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231B1816'/%3E%3Ccircle cx='50' cy='50' r='43' stroke='%23C59B27' stroke-width='1.5' fill='none'/%3E%3Ctext x='50' y='61' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F4EFEA' text-anchor='middle'%3EMP%3E%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#12100E">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --aubergine: #1B1816;
-      --aubergine-dark: #12100E;
+      --bg-dark: #12100E;
+      --bg-card: #1B1816;
+      --bg-card-hover: #24201D;
+      --emerald: #1B3B2B;
+      --emerald-light: #2A5A42;
       --gold: #C59B27;
+      --gold-light: #E0BA51;
       --gold-subtle: rgba(197, 155, 39, 0.15);
-      --ivory: #F4EFEA;
-      --ivory-card: #FFFFFF;
+      --cream: #F5EFEB;
+      --cream-muted: #D5CEC7;
       --charcoal: #1C1917;
-      --charcoal-soft: #292524;
-      --gray-muted: #78716C;
-      --border-color: rgba(197, 155, 39, 0.2);
+      --border-gold: rgba(197, 155, 39, 0.3);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
@@ -46,8 +48,8 @@
     }
 
     body {
-      background-color: var(--ivory);
-      color: var(--charcoal);
+      background-color: var(--bg-dark);
+      color: var(--cream);
       font-family: var(--font-sans);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -71,7 +73,7 @@
       background-color: var(--gold-subtle);
       padding: 6px 14px;
       border-radius: 50px;
-      border: 1px solid rgba(197, 155, 39, 0.35);
+      border: 1px solid var(--border-gold);
       margin-bottom: 1rem;
     }
 
@@ -80,9 +82,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(244, 239, 234, 0.94);
+      background: rgba(18, 16, 14, 0.94);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-gold);
       padding: 0.85rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -123,9 +125,10 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(197, 155, 39, 0.25);
+      box-shadow: 0 2px 12px rgba(197, 155, 39, 0.35);
       object-fit: cover;
       display: block;
+      border: 1px solid var(--gold);
       pointer-events: none;
     }
 
@@ -138,28 +141,28 @@
       font-family: var(--font-serif);
       font-size: 1.5rem;
       font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--aubergine);
+      letter-spacing: 1.5px;
+      color: var(--cream);
     }
 
     .brand-title span:last-child {
       font-size: 0.65rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       color: var(--gold);
     }
 
     nav ul {
       display: flex;
       list-style: none;
-      gap: 1.25rem;
+      gap: 1.5rem;
       align-items: center;
     }
 
     nav a {
       text-decoration: none;
-      color: var(--charcoal-soft);
+      color: var(--cream-muted);
       font-size: 0.85rem;
       font-weight: 500;
       transition: color 0.2s ease;
@@ -172,24 +175,24 @@
 
     .btn-primary {
       display: inline-block;
-      background: var(--aubergine);
-      color: var(--ivory);
+      background: var(--gold);
+      color: var(--bg-dark);
       padding: 11px 24px;
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 8px;
       text-decoration: none;
       transition: all 0.2s ease;
-      border: 1px solid var(--gold);
+      border: none;
       cursor: pointer;
       text-align: center;
+      letter-spacing: 0.5px;
     }
 
     .btn-primary:hover {
-      background: var(--gold);
-      color: var(--aubergine);
+      background: var(--gold-light);
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(197, 155, 39, 0.25);
+      box-shadow: 0 6px 20px rgba(197, 155, 39, 0.35);
     }
 
     .btn-primary:disabled {
@@ -200,52 +203,82 @@
 
     /* Hero Section */
     .hero {
-      padding: 5rem 2rem 4rem;
+      padding: 6rem 2rem 5rem;
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1.15fr 1fr;
       gap: 4rem;
       align-items: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(27,59,43,0.3) 0%, rgba(18,16,14,0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-content h1 {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      color: var(--aubergine);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      color: var(--cream);
       margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    .hero-content h1 span {
+      color: var(--gold);
+      font-style: italic;
     }
 
     .hero-content p {
       font-size: clamp(1rem, 2vw, 1.15rem);
-      color: var(--charcoal-soft);
+      color: var(--cream-muted);
       margin-bottom: 2rem;
       max-width: 520px;
     }
 
     .hero-card {
-      background: #fff;
+      background: var(--bg-card);
       border-radius: 28px;
       padding: 2.8rem 2.2rem;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
       text-align: center;
       position: relative;
+      z-index: 1;
     }
 
     .hero-logo-container {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       margin: 0 auto 1.5rem;
       position: relative;
       animation: gentleFloat 4s ease-in-out infinite;
       cursor: pointer;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      padding: 4px;
+      background: var(--bg-dark);
+      box-shadow: 0 10px 30px rgba(197, 155, 39, 0.3);
     }
 
     .hero-logo-img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      box-shadow: 0 10px 25px rgba(197, 155, 39, 0.25);
       object-fit: cover;
       transition: transform 0.3s ease;
     }
@@ -259,7 +292,7 @@
       50% { transform: translateY(-7px); }
     }
 
-    /* Waitlist & Form Styling */
+    /* Waitlist Form */
     .waitlist-form {
       display: flex;
       flex-direction: column;
@@ -269,21 +302,26 @@
     }
 
     .waitlist-form input, .waitlist-form select {
-      padding: 12px 16px;
-      border: 1px solid #D6D3D1;
+      padding: 13px 16px;
+      border: 1px solid var(--border-gold);
       border-radius: 8px;
       font-family: inherit;
       font-size: 0.95rem;
       outline: none;
-      background: var(--ivory);
+      background: var(--bg-dark);
+      color: var(--cream);
       transition: all 0.2s;
       width: 100%;
     }
 
+    .waitlist-form input::placeholder {
+      color: #8C847B;
+    }
+
     .waitlist-form input:focus, .waitlist-form select:focus {
       border-color: var(--gold);
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15);
+      background: #1B1816;
+      box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.2);
     }
 
     .form-feedback {
@@ -298,24 +336,24 @@
 
     .form-feedback.success {
       display: block;
-      background: var(--gold-subtle);
-      color: var(--aubergine);
-      border: 1px solid rgba(197, 155, 39, 0.45);
+      background: rgba(27, 59, 43, 0.8);
+      color: var(--cream);
+      border: 1px solid var(--gold);
     }
 
     .form-feedback.error {
       display: block;
-      background: #FEE2E2;
-      color: #991B1B;
+      background: rgba(153, 27, 27, 0.8);
+      color: #FEE2E2;
       border: 1px solid #FCA5A5;
     }
 
     /* Craft Section */
     .craft-section {
-      background: #fff;
-      padding: 5rem 2rem;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
+      background: var(--bg-card);
+      padding: 6rem 2rem;
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
     }
 
     .section-header {
@@ -325,9 +363,13 @@
     }
 
     .section-header h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      color: var(--aubergine);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--cream);
       margin-bottom: 0.75rem;
+    }
+
+    .section-header p {
+      color: var(--cream-muted);
     }
 
     .grid-3 {
@@ -339,15 +381,16 @@
     }
 
     .craft-card {
-      background: var(--ivory);
-      padding: 2.2rem 2rem;
-      border-radius: 18px;
-      border: 1px solid var(--border-color);
-      transition: transform 0.2s ease;
+      background: var(--bg-dark);
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      border: 1px solid var(--border-gold);
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
     .craft-card:hover {
       transform: translateY(-4px);
+      border-color: var(--gold);
     }
 
     .craft-card h3 {
@@ -356,18 +399,16 @@
       color: var(--gold);
     }
 
-    /* Shared Sliders */
-    .menu-preview {
-      max-width: 1200px;
-      margin: 5rem auto;
-      padding: 0 2rem;
+    .craft-card p {
+      color: var(--cream-muted);
+      font-size: 0.92rem;
     }
 
-    .polow-section {
-      background: #EFE9DE;
-      padding: 5.5rem 2rem;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
+    /* Sliders */
+    .menu-preview {
+      max-width: 1200px;
+      margin: 6rem auto;
+      padding: 0 2rem;
     }
 
     .sku-slider-container {
@@ -419,22 +460,22 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      background: var(--ivory-card);
+      background: var(--bg-card);
       border-radius: 28px;
       overflow: hidden;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 12px 35px rgba(0,0,0,0.04);
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.4);
       min-height: 480px;
     }
 
     .sku-media {
-      background: radial-gradient(circle at center, #2e2820 0%, #151210 100%);
+      background: radial-gradient(circle at center, #1B3B2B 0%, #12100E 100%);
       padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: var(--ivory);
+      color: var(--cream);
       text-align: center;
       position: relative;
     }
@@ -446,8 +487,8 @@
       height: 330px;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(197, 155, 39, 0.3);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--gold);
     }
 
     .sku-product-img {
@@ -467,7 +508,7 @@
     .sku-img-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.55) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.6) 100%);
       pointer-events: none;
     }
 
@@ -475,7 +516,7 @@
       position: absolute;
       top: 14px;
       left: 14px;
-      background: rgba(27, 24, 22, 0.88);
+      background: rgba(18, 16, 14, 0.9);
       backdrop-filter: blur(8px);
       color: var(--gold);
       font-size: 0.72rem;
@@ -484,7 +525,7 @@
       text-transform: uppercase;
       padding: 5px 14px;
       border-radius: 50px;
-      border: 1px solid rgba(197, 155, 39, 0.35);
+      border: 1px solid var(--border-gold);
       z-index: 2;
     }
 
@@ -493,7 +534,7 @@
       font-family: var(--font-serif);
       font-size: 1.25rem;
       font-style: italic;
-      color: #E7E5E4;
+      color: var(--cream-muted);
       letter-spacing: 0.5px;
     }
 
@@ -507,7 +548,7 @@
     .sku-details h3 {
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       margin-bottom: 0.4rem;
-      color: var(--aubergine);
+      color: var(--cream);
     }
 
     .sku-price {
@@ -515,6 +556,12 @@
       font-weight: 700;
       color: var(--gold);
       margin-bottom: 1.25rem;
+    }
+
+    .sku-details p {
+      color: var(--cream-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
     }
 
     .ingredient-tags {
@@ -525,16 +572,16 @@
     }
 
     .ingredient-tags span {
-      background: var(--ivory);
-      padding: 5px 12px;
+      background: var(--bg-dark);
+      padding: 6px 12px;
       border-radius: 6px;
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--charcoal-soft);
-      border: 1px solid var(--border-color);
+      color: var(--cream-muted);
+      border: 1px solid var(--border-gold);
     }
 
-    /* Slider Controls & Navigation */
+    /* Slider Controls */
     .slider-nav-bar {
       display: flex;
       align-items: center;
@@ -576,21 +623,21 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: #FFFFFF;
-      border: 1px solid var(--border-color);
-      color: var(--charcoal);
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      color: var(--cream);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       transition: all 0.25s ease;
       outline: none;
     }
 
     .slider-btn:hover {
       background: var(--gold);
-      color: var(--aubergine);
+      color: var(--bg-dark);
       border-color: var(--gold);
       transform: translateY(-2px);
     }
@@ -601,12 +648,12 @@
       fill: currentColor;
     }
 
-    /* Emblem Crest Story Section */
+    /* Emblem Section */
     .emblem-section {
-      background: #FFFFFF;
+      background: var(--bg-card);
       padding: 6rem 2rem;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
     }
 
     .emblem-wrap {
@@ -620,11 +667,11 @@
 
     .emblem-artwork-container {
       position: relative;
-      background: radial-gradient(circle at center, #F4EFEA 0%, #EFE8DC 100%);
+      background: radial-gradient(circle at center, #1B3B2B 0%, #12100E 100%);
       border-radius: 28px;
       padding: 2.5rem;
-      border: 1px solid rgba(197, 155, 39, 0.35);
-      box-shadow: 0 20px 45px rgba(197, 155, 39, 0.08);
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -652,8 +699,8 @@
       aspect-ratio: 1 / 1;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
-      border: 2px solid rgba(197, 155, 39, 0.3);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      border: 2px solid var(--gold);
       background: #FAF7F0;
       position: relative;
     }
@@ -670,7 +717,7 @@
       position: absolute;
       bottom: 14px;
       right: 14px;
-      background: rgba(27, 24, 22, 0.85);
+      background: rgba(18, 16, 14, 0.9);
       backdrop-filter: blur(8px);
       color: var(--gold);
       font-size: 0.72rem;
@@ -679,19 +726,18 @@
       text-transform: uppercase;
       padding: 5px 12px;
       border-radius: 50px;
-      border: 1px solid rgba(197, 155, 39, 0.35);
-      opacity: 0.85;
+      border: 1px solid var(--border-gold);
     }
 
     .emblem-story-content h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      color: var(--aubergine);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--cream);
       margin-bottom: 0.75rem;
     }
 
     .emblem-intro {
       font-size: 1.05rem;
-      color: var(--charcoal-soft);
+      color: var(--cream-muted);
       margin-bottom: 2rem;
       line-height: 1.7;
     }
@@ -703,36 +749,33 @@
     }
 
     .emblem-pillar-card {
-      background: var(--ivory);
-      padding: 1.4rem 1.3rem;
+      background: var(--bg-dark);
+      padding: 1.5rem;
       border-radius: 14px;
       border-left: 3px solid var(--gold);
-      border-top: 1px solid var(--border-color);
-      border-right: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
+      border-top: 1px solid var(--border-gold);
+      border-right: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
     }
 
     .emblem-pillar-card h4 {
       font-size: 1.05rem;
-      color: var(--aubergine);
+      color: var(--gold);
       font-weight: 700;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 6px;
     }
 
     .emblem-pillar-card p {
       font-size: 0.85rem;
-      color: var(--charcoal-soft);
+      color: var(--cream-muted);
       line-height: 1.5;
     }
 
     /* Careers */
     .careers-section {
-      background: #EFE9DE;
-      padding: 5rem 2rem;
-      border-top: 1px solid var(--border-color);
+      background: var(--bg-dark);
+      padding: 6rem 2rem;
+      border-top: 1px solid var(--border-gold);
     }
 
     .careers-wrap {
@@ -743,6 +786,12 @@
       gap: 3.5rem;
     }
 
+    .careers-wrap p {
+      color: var(--cream-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
     .roles-list {
       display: flex;
       flex-direction: column;
@@ -751,25 +800,40 @@
     }
 
     .role-item {
-      background: #fff;
+      background: var(--bg-card);
       padding: 1.25rem;
       border-radius: 12px;
       border-left: 4px solid var(--gold);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      border-top: 1px solid var(--border-gold);
+      border-right: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    .role-item h4 {
+      font-size: 1.1rem;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .role-item p {
+      font-size: 0.85rem;
+      color: var(--cream-muted);
+      margin-bottom: 0;
     }
 
     .hiring-box {
-      background: #fff;
+      background: var(--bg-card);
       padding: 2.5rem;
       border-radius: 20px;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border-gold);
     }
 
     /* Footer */
     footer {
-      background: var(--aubergine);
-      color: var(--ivory);
+      background: #0D0B0A;
+      color: var(--cream);
       padding: 4.5rem 2rem 2.5rem;
+      border-top: 1px solid var(--border-gold);
     }
 
     .footer-inner {
@@ -805,8 +869,8 @@
       height: 72px;
       border-radius: 14px;
       object-fit: cover;
-      border: 1.5px solid rgba(197, 155, 39, 0.45);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
       background: #FAF7F0;
       display: block;
       flex-shrink: 0;
@@ -827,9 +891,10 @@
     }
 
     .footer-col a {
-      color: #D6D3D1;
+      color: var(--cream-muted);
       text-decoration: none;
       font-size: 0.88rem;
+      transition: color 0.2s;
     }
 
     .footer-col a:hover {
@@ -850,10 +915,17 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(244, 239, 234, 0.08);
-      border: 1px solid rgba(197, 155, 39, 0.3);
+      background: rgba(197, 155, 39, 0.1);
+      border: 1px solid var(--border-gold);
       color: var(--gold);
       text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .social-icon-btn:hover {
+      background: var(--gold);
+      color: var(--bg-dark);
+      transform: translateY(-2px);
     }
 
     .social-icon-btn svg {
@@ -866,12 +938,12 @@
       max-width: 1200px;
       margin: 0 auto;
       padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(197, 155, 39, 0.15);
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 0.8rem;
-      color: #A8A29E;
+      color: #8C847B;
     }
 
     /* Modal */
@@ -879,7 +951,7 @@
       position: fixed;
       inset: 0;
       z-index: 99999;
-      background: rgba(15, 12, 11, 0.88);
+      background: rgba(15, 12, 11, 0.9);
       backdrop-filter: blur(12px);
       display: none;
       align-items: center;
@@ -906,7 +978,7 @@
       height: min(380px, 80vw);
       border-radius: 24px;
       background: #FAF7F0;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(197, 155, 39, 0.6);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 0 2px var(--gold);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -927,7 +999,7 @@
       height: 40px;
       border-radius: 50%;
       background: #FFFFFF;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border-gold);
       color: var(--charcoal);
       font-size: 1.3rem;
       display: flex;
@@ -935,6 +1007,11 @@
       justify-content: center;
       cursor: pointer;
       z-index: 10;
+      transition: background 0.2s;
+    }
+
+    .logo-modal-close:hover {
+      background: var(--gold);
     }
 
     @media (max-width: 900px) {
@@ -956,8 +1033,8 @@
   <!-- Navigation -->
   <header>
     <div class="brand-logo-wrap">
-      <button type="button" class="nav-logo-button" id="headerLogoBtn" aria-label="View enlarged Maison Polow logo" title="Click to view emblem">
-        <img src="assets/logo.png" alt="Maison Polow Logo" class="nav-logo-img" id="headerLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23F4EFEA\' stroke-width=\'2\' fill=\'none\'/><circle cx=\'100\' cy=\'100\' r=\'84\' stroke=\'%23F4EFEA\' stroke-width=\'1\' stroke-dasharray=\'2 2\' fill=\'none\'/><path d=\'M100 40 C75 40 60 60 60 110 L140 110 C140 60 125 40 100 40 Z\' stroke=\'%23C59B27\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text><text x=\'100\' y=\'170\' font-family=\'sans-serif\' font-size=\'13\' font-weight=\'bold\' fill=\'%23F4EFEA\' letter-spacing=\'4\' text-anchor=\'middle\'>POLOW</text></svg>';">
+      <button type="button" class="nav-logo-button" id="headerLogoBtn" aria-label="View enlarged Maison Polow emblem" title="Click to view emblem">
+        <img src="assets/logo.png" alt="Maison Polow Emblem" class="nav-logo-img" id="headerLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C59B27\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text></svg>';">
       </button>
       
       <a href="#" style="text-decoration: none; color: inherit;" class="brand-title">
@@ -982,7 +1059,7 @@
   <section class="hero">
     <div class="hero-content">
       <div class="badge">Delhi NCR • Launching Winter 2026</div>
-      <h1>Persian Soul. A Place at Delhi’s Table.</h1>
+      <h1>Persian Soul. <span>A Place at Delhi’s Table.</span></h1>
       <p>Aromatic saffron grains, jewel-like barberries, and prized golden <em>tahdig</em> crusts. Handcrafted daily in Delhi NCR where rice is celebrated as the absolute hero of the feast.</p>
       <a href="#waitlist" class="btn-primary" style="padding: 14px 32px; font-size: 1rem;">Join The Private Tasting Drop</a>
     </div>
@@ -990,11 +1067,11 @@
     <!-- Waitlist Card -->
     <div class="hero-card" id="waitlist">
       <div class="hero-logo-container" id="heroLogoTrigger" title="Click to view emblem">
-        <img src="assets/logo.png" alt="Maison Polow Persian Rice Atelier" class="hero-logo-img" id="heroLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23F4EFEA\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'128\' font-family=\'Georgia,serif\' font-size=\'72\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text><text x=\'100\' y=\'168\' font-family=\'sans-serif\' font-size=\'14\' font-weight=\'bold\' fill=\'%23F4EFEA\' letter-spacing=\'5\' text-anchor=\'middle\'>POLOW</text></svg>';">
+        <img src="assets/logo.png" alt="Maison Polow Persian Rice Atelier" class="hero-logo-img" id="heroLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C59B27\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text></svg>';">
       </div>
       
-      <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Join the First-Tasting Drop</h3>
-      <p style="font-size: 0.88rem; color: var(--gray-muted);">Be among the first 50 tables in South Delhi, Noida & Gurugram to experience royal Persian rice platters and warm Tahdig.</p>
+      <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--cream);">Join the First-Tasting Drop</h3>
+      <p style="font-size: 0.88rem; color: var(--cream-muted);">Be among the first 50 tables in South Delhi, Noida & Gurugram to experience royal Persian rice platters and warm Tahdig.</p>
       
       <form class="waitlist-form" id="waitlistForm" onsubmit="return false;">
         <div id="waitlistInputFields" style="display: flex; flex-direction: column; gap: 12px;">
@@ -1300,7 +1377,7 @@
     </div>
   </section>
 
-  <!-- Emblem Crest Story Section -->
+  <!-- Emblem Section -->
   <section class="emblem-section" id="emblem">
     <div class="emblem-wrap">
       
@@ -1317,17 +1394,17 @@
         <div class="badge">Anatomy of our Emblem</div>
         <h2>A Logo Born from Grain & Saffron</h2>
         <p class="emblem-intro">
-          Our insignia is an architectural tapestry mapping Persia’s rice heritage onto a heraldic coat of arms, celebrating rice as the centerpiece of the shared table.
+          Our insignia is an architectural tapestry mapping Persia’s rice heritage onto a heraldic coat of arms, celebrating rice as the centerpiece of the shared table[cite: 1].
         </p>
 
         <div class="emblem-pillars">
           <div class="emblem-pillar-card">
             <h4>🍚 The Central Pot & Steam</h4>
-            <p>At the core lies a traditional hammered copper pot emitting fragrant steam, honoring slow steam-cooking and the art of fluffing aged basmati.</p>
+            <p>At the core lies a traditional hammered copper pot emitting fragrant steam, honoring slow steam-cooking and the art of fluffing aged basmati[cite: 1].</p>
           </div>
           <div class="emblem-pillar-card">
             <h4>🌾 The Wheat & Saffron Sheaf</h4>
-            <p>Surrounding the crest are golden grains and saffron pistils, paying homage to the world's most precious aromatics.</p>
+            <p>Surrounding the crest are golden grains and saffron pistils, paying homage to the world's most precious aromatics[cite: 1].</p>
           </div>
         </div>
       </div>
@@ -1335,7 +1412,7 @@
     </div>
   </section>
 
-  <!-- Careers Module -->
+  <!-- Careers Section -->
   <section class="careers-section" id="careers">
     <div class="careers-wrap">
       <div>
@@ -1356,8 +1433,8 @@
       </div>
 
       <div class="hiring-box">
-        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Apply for Kitchen Roles</h3>
-        <p style="font-size: 0.88rem; color: var(--gray-muted); margin-bottom: 1.5rem;">Send your details directly to our culinary leadership team.</p>
+        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--cream);">Apply for Kitchen Roles</h3>
+        <p style="font-size: 0.88rem; color: var(--cream-muted); margin-bottom: 1.5rem;">Send your details directly to our culinary leadership team.</p>
 
         <form class="waitlist-form" id="careersForm" onsubmit="return false;">
           <div id="careersInputFields" style="display: flex; flex-direction: column; gap: 12px;">
@@ -1392,7 +1469,7 @@
           </div>
         </button>
 
-        <p style="font-size: 0.9rem; color: #A8A29E; line-height: 1.6;">
+        <p style="font-size: 0.9rem; color: var(--cream-muted); line-height: 1.6;">
           Heirloom Persian rice dishes and saffron ateliers crafted daily for Delhi NCR tables.
         </p>
         <p style="font-size: 0.85rem; color: #D6D3D1;">
@@ -1421,7 +1498,7 @@
 
       <div class="footer-col">
         <h4>Connect</h4>
-        <p style="font-size: 0.88rem; color: #A8A29E; margin-bottom: 0.75rem;">Follow our saffron trials:</p>
+        <p style="font-size: 0.88rem; color: var(--cream-muted); margin-bottom: 0.75rem;">Follow our saffron trials:</p>
         
         <div class="social-links-wrap">
           <a href="https://instagram.com/maisonpolow" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
