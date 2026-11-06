@@ -1,527 +1,1619 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maison Polow — Persian Rice Atelier</title>
-  <meta name="description" content="Introducing Delhi to the richness, variety, and hospitality of Persian rice cooking where rice is the centerpiece.">
-  <meta property="og:title" content="Maison Polow — Persian Rice Atelier">
-  <meta property="og:description" content="Persian soul. A place at Delhi’s table.">
-  <meta property="og:type" content="website">
+  <title>Maison Polow | Persian Rice Atelier • Delhi NCR</title>
+  <meta name="description" content="Aromatic saffron grains, golden crispy tahdig, and heirloom rice ateliers. Discover Delhi NCR's premier Persian rice experience.">
+  
+  <!-- Favicon & Brand Icons -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231B1816'/%3E%3Ccircle cx='50' cy='50' r='43' stroke='%23C59B27' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='50' cy='50' r='40' stroke='%23F4EFEA' stroke-width='0.75' stroke-dasharray='1.5 1.5' fill='none'/%3E%3Ctext x='50' y='61' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F4EFEA' text-anchor='middle'%3EMP%3E%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#F4EFEA">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231B1816' stroke='%23D4AF37' stroke-width='4'/%3E%3Cpath d='M50 22 C34 22 22 34 22 50 C22 66 34 78 50 78 C66 78 78 66 78 50 C78 34 66 22 50 22 Z' fill='none' stroke='%23C59B27' stroke-width='2' stroke-dasharray='4 2'/%3E%3Ctext x='50' y='58' font-family='serif' font-size='32' font-weight='bold' fill='%23F4EFEA' text-anchor='middle'%3EMP%3E%3C/text%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --aubergine: #1B1816;
+      --aubergine-dark: #12100E;
+      --gold: #C59B27;
+      --gold-subtle: rgba(197, 155, 39, 0.15);
+      --ivory: #F4EFEA;
+      --ivory-card: #FFFFFF;
+      --charcoal: #1C1917;
+      --charcoal-soft: #292524;
+      --gray-muted: #78716C;
+      --border-color: rgba(197, 155, 39, 0.2);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section, footer, #waitlist {
+      scroll-margin-top: 86px;
+    }
+
+    body {
+      background-color: var(--ivory);
+      color: var(--charcoal);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      background-color: var(--gold-subtle);
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(197, 155, 39, 0.35);
+      margin-bottom: 1rem;
+    }
+
+    /* Header Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(244, 239, 234, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.85rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-logo-button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 50%;
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    }
+
+    .nav-logo-button:hover {
+      transform: scale(1.08);
+    }
+
+    .nav-logo-button:focus-visible {
+      box-shadow: 0 0 0 3px var(--gold);
+    }
+
+    .nav-logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(197, 155, 39, 0.25);
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .brand-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title span:first-child {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--aubergine);
+    }
+
+    .brand-title span:last-child {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--charcoal-soft);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--aubergine);
+      color: var(--ivory);
+      padding: 11px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+      color: var(--aubergine);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(197, 155, 39, 0.25);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 2rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--aubergine);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-content p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--charcoal-soft);
+      margin-bottom: 2rem;
+      max-width: 520px;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: 28px;
+      padding: 2.8rem 2.2rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-logo-container {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.5rem;
+      position: relative;
+      animation: gentleFloat 4s ease-in-out infinite;
+      cursor: pointer;
+    }
+
+    .hero-logo-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow: 0 10px 25px rgba(197, 155, 39, 0.25);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-logo-container:hover .hero-logo-img {
+      transform: scale(1.05);
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* Waitlist & Form Styling */
+    .waitlist-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+
+    .waitlist-form input, .waitlist-form select {
+      padding: 12px 16px;
+      border: 1px solid #D6D3D1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      background: var(--ivory);
+      transition: all 0.2s;
+      width: 100%;
+    }
+
+    .waitlist-form input:focus, .waitlist-form select:focus {
+      border-color: var(--gold);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15);
+    }
+
+    .form-feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .form-feedback.success {
+      display: block;
+      background: var(--gold-subtle);
+      color: var(--aubergine);
+      border: 1px solid rgba(197, 155, 39, 0.45);
+    }
+
+    .form-feedback.error {
+      display: block;
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FCA5A5;
+    }
+
+    /* Craft Section */
+    .craft-section {
+      background: #fff;
+      padding: 5rem 2rem;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--aubergine);
+      margin-bottom: 0.75rem;
+    }
+
+    .grid-3 {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .craft-card {
+      background: var(--ivory);
+      padding: 2.2rem 2rem;
+      border-radius: 18px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s ease;
+    }
+
+    .craft-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .craft-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      color: var(--gold);
+    }
+
+    /* Shared Sliders */
+    .menu-preview {
+      max-width: 1200px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+
+    .polow-section {
+      background: #EFE9DE;
+      padding: 5.5rem 2rem;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sku-slider-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      touch-action: pan-y;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .sku-slider-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: stretch;
+      overflow: hidden;
+      border-radius: 28px;
+      touch-action: pan-y;
+      cursor: grab;
+    }
+
+    .sku-slider-track:active {
+      cursor: grabbing;
+    }
+
+    .sku-slide {
+      grid-area: 1 / 1;
+      opacity: 0;
+      transform: scale(0.985);
+      pointer-events: none;
+      visibility: hidden;
+      transition: 
+        opacity 0.65s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.65s cubic-bezier(0.25, 1, 0.5, 1),
+        visibility 0.65s ease;
+      will-change: opacity, transform;
+    }
+
+    .sku-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      visibility: visible;
+      z-index: 2;
+    }
+
+    .sku-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: var(--ivory-card);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.04);
+      min-height: 480px;
+    }
+
+    .sku-media {
+      background: radial-gradient(circle at center, #2e2820 0%, #151210 100%);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--ivory);
+      text-align: center;
+      position: relative;
+    }
+
+    .sku-img-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 330px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(197, 155, 39, 0.3);
+    }
+
+    .sku-product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      display: block;
+      pointer-events: none;
+    }
+
+    .sku-card:hover .sku-product-img {
+      transform: scale(1.05);
+    }
+
+    .sku-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.55) 100%);
+      pointer-events: none;
+    }
+
+    .live-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(27, 24, 22, 0.88);
+      backdrop-filter: blur(8px);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(197, 155, 39, 0.35);
+      z-index: 2;
+    }
+
+    .sku-quote {
+      margin-top: 1.35rem;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: #E7E5E4;
+      letter-spacing: 0.5px;
+    }
+
+    .sku-details {
+      padding: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .sku-details h3 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: 0.4rem;
+      color: var(--aubergine);
+    }
+
+    .sku-price {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .ingredient-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .ingredient-tags span {
+      background: var(--ivory);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--charcoal-soft);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Slider Controls & Navigation */
+    .slider-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding: 0 0.5rem;
+    }
+
+    .slider-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(197, 155, 39, 0.3);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
+    }
+
+    .slider-dot.active {
+      width: 28px;
+      border-radius: 20px;
+      background: var(--gold);
+    }
+
+    .slider-arrows {
+      display: flex;
+      gap: 10px;
+    }
+
+    .slider-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      color: var(--charcoal);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.25s ease;
+      outline: none;
+    }
+
+    .slider-btn:hover {
+      background: var(--gold);
+      color: var(--aubergine);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .slider-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* Emblem Crest Story Section */
+    .emblem-section {
+      background: #FFFFFF;
+      padding: 6rem 2rem;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .emblem-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+
+    .emblem-artwork-container {
+      position: relative;
+      background: radial-gradient(circle at center, #F4EFEA 0%, #EFE8DC 100%);
+      border-radius: 28px;
+      padding: 2.5rem;
+      border: 1px solid rgba(197, 155, 39, 0.35);
+      box-shadow: 0 20px 45px rgba(197, 155, 39, 0.08);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .emblem-zoom-button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: zoom-in;
+      display: block;
+      width: 100%;
+      max-width: 440px;
+      border-radius: 20px;
+      outline: none;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+    }
+
+    .emblem-zoom-button:hover {
+      transform: scale(1.03);
+    }
+
+    .emblem-artwork-frame {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+      border: 2px solid rgba(197, 155, 39, 0.3);
+      background: #FAF7F0;
+      position: relative;
+    }
+
+    .emblem-artwork-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .emblem-hint-overlay {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(27, 24, 22, 0.85);
+      backdrop-filter: blur(8px);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 50px;
+      border: 1px solid rgba(197, 155, 39, 0.35);
+      opacity: 0.85;
+    }
+
+    .emblem-story-content h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--aubergine);
+      margin-bottom: 0.75rem;
+    }
+
+    .emblem-intro {
+      font-size: 1.05rem;
+      color: var(--charcoal-soft);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .emblem-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .emblem-pillar-card {
+      background: var(--ivory);
+      padding: 1.4rem 1.3rem;
+      border-radius: 14px;
+      border-left: 3px solid var(--gold);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .emblem-pillar-card h4 {
+      font-size: 1.05rem;
+      color: var(--aubergine);
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .emblem-pillar-card p {
+      font-size: 0.85rem;
+      color: var(--charcoal-soft);
+      line-height: 1.5;
+    }
+
+    /* Careers */
+    .careers-section {
+      background: #EFE9DE;
+      padding: 5rem 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .careers-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+    }
+
+    .roles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .role-item {
+      background: #fff;
+      padding: 1.25rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+
+    .hiring-box {
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--aubergine);
+      color: var(--ivory);
+      padding: 4.5rem 2rem 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr 1.3fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-emblem-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: zoom-in;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+      outline: none;
+      width: fit-content;
+    }
+
+    .footer-emblem-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1.5px solid rgba(197, 155, 39, 0.45);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      background: #FAF7F0;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      color: var(--gold);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-col a {
+      color: #D6D3D1;
+      text-decoration: none;
+      font-size: 0.88rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .social-links-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 0.5rem;
+    }
+
+    .social-icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(244, 239, 234, 0.08);
+      border: 1px solid rgba(197, 155, 39, 0.3);
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .social-icon-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .legal-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #A8A29E;
+    }
+
+    /* Modal */
+    .logo-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(15, 12, 11, 0.88);
+      backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .logo-modal-overlay.active {
+      display: flex;
+    }
+
+    .logo-modal-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 90vw;
+      width: 100%;
+    }
+
+    .modal-logo-wrapper {
+      width: min(380px, 80vw);
+      height: min(380px, 80vw);
+      border-radius: 24px;
+      background: #FAF7F0;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(197, 155, 39, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .modal-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-modal-close {
+      position: absolute;
+      top: -14px;
+      right: max(calc(50% - 190px - 14px), 5px);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      color: var(--charcoal);
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .sku-card, .emblem-wrap, .careers-wrap, .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .emblem-pillars {
+        grid-template-columns: 1fr;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body class="bg-ivory text-aubergine font-sans antialiased selection:bg-gold selection:text-aubergine">
+<body>
 
-  <!-- Skip Link -->
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-gold focus:text-aubergine">
-    Skip to main content
-  </a>
-
-  <!-- Header -->
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-ivory/90 backdrop-blur-md border-b border-aubergine/10">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3 group" aria-label="Maison Polow Home">
-        <svg class="w-10 h-10 text-gold transition-transform duration-300 group-hover:scale-105" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="50" cy="50" r="46" fill="#1B1816" stroke="#C59B27" stroke-width="3"/>
-          <circle cx="50" cy="50" r="36" stroke="#C59B27" stroke-width="1.5" stroke-dasharray="3 2"/>
-          <text x="50" y="58" font-family="'Cormorant Garamond', serif" font-size="34" font-weight="700" fill="#F4EFEA" text-anchor="middle">MP</text>
-        </svg>
-        <div class="flex flex-col">
-          <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-aubergine uppercase">Maison Polow</span>
-          <span class="text-[9px] tracking-[0.25em] text-gold uppercase -mt-1 font-medium">Persian Rice Atelier</span>
-        </div>
-      </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
-        <a href="#our-story" class="hover:text-gold transition-colors">Our Story</a>
-        <a href="#the-menu" class="hover:text-gold transition-colors">The Menu</a>
-        <a href="#our-mark" class="hover:text-gold transition-colors">Our Mark</a>
-        <a href="#the-persian-table" class="hover:text-gold transition-colors">The Persian Table</a>
-        <a href="#faqs" class="hover:text-gold transition-colors">FAQs</a>
-        <a href="#contact" class="hover:text-gold transition-colors">Contact</a>
-      </nav>
-
-      <div class="hidden lg:flex items-center gap-4">
-        <a href="#the-menu" class="px-5 py-2.5 text-xs uppercase tracking-widest font-semibold bg-aubergine text-ivory hover:bg-gold hover:text-aubergine transition-all duration-300 rounded-none border border-aubergine">
-          Explore the Menu
-        </a>
-      </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="lg:hidden p-2 text-aubergine hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+  <!-- Navigation -->
+  <header>
+    <div class="brand-logo-wrap">
+      <button type="button" class="nav-logo-button" id="headerLogoBtn" aria-label="View enlarged Maison Polow logo" title="Click to view emblem">
+        <img src="assets/logo.png" alt="Maison Polow Logo" class="nav-logo-img" id="headerLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23F4EFEA\' stroke-width=\'2\' fill=\'none\'/><circle cx=\'100\' cy=\'100\' r=\'84\' stroke=\'%23F4EFEA\' stroke-width=\'1\' stroke-dasharray=\'2 2\' fill=\'none\'/><path d=\'M100 40 C75 40 60 60 60 110 L140 110 C140 60 125 40 100 40 Z\' stroke=\'%23C59B27\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text><text x=\'100\' y=\'170\' font-family=\'sans-serif\' font-size=\'13\' font-weight=\'bold\' fill=\'%23F4EFEA\' letter-spacing=\'4\' text-anchor=\'middle\'>POLOW</text></svg>';">
       </button>
+      
+      <a href="#" style="text-decoration: none; color: inherit;" class="brand-title">
+        <span>MAISON POLOW</span>
+        <span>Persian Rice Atelier</span>
+      </a>
     </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="lg:hidden hidden bg-ivory border-b border-aubergine/10 px-6 py-6 transition-all">
-      <nav class="flex flex-col gap-4 text-base font-medium">
-        <a href="#our-story" class="mobile-nav-link hover:text-gold py-1 border-b border-aubergine/5">Our Story</a>
-        <a href="#the-menu" class="mobile-nav-link hover:text-gold py-1 border-b border-aubergine/5">The Menu</a>
-        <a href="#our-mark" class="mobile-nav-link hover:text-gold py-1 border-b border-aubergine/5">Our Mark</a>
-        <a href="#the-persian-table" class="mobile-nav-link hover:text-gold py-1 border-b border-aubergine/5">The Persian Table</a>
-        <a href="#faqs" class="mobile-nav-link hover:text-gold py-1 border-b border-aubergine/5">FAQs</a>
-        <a href="#contact" class="mobile-nav-link hover:text-gold py-1 border-b border-aubergine/5">Contact</a>
-        <div class="pt-4">
-          <a href="#the-menu" class="mobile-nav-link block text-center py-3 bg-aubergine text-ivory text-xs uppercase tracking-widest font-semibold">Explore the Menu</a>
-        </div>
-      </nav>
-    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="#heritage">The Heritage</a></li>
+        <li><a href="#signature">Signature Polows</a></li>
+        <li><a href="#emblem">The Crest</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#waitlist" class="btn-primary">Reserve Tasting Box</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main id="main-content">
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden bg-aubergine text-ivory">
-      <!-- Decorative Backdrop Pattern -->
-      <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#C59B27_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">Delhi NCR • Launching Winter 2026</div>
+      <h1>Persian Soul. A Place at Delhi’s Table.</h1>
+      <p>Aromatic saffron grains, jewel-like barberries, and prized golden <em>tahdig</em> crusts. Handcrafted daily in Delhi NCR where rice is celebrated as the absolute hero of the feast.</p>
+      <a href="#waitlist" class="btn-primary" style="padding: 14px 32px; font-size: 1rem;">Join The Private Tasting Drop</a>
+    </div>
+
+    <!-- Waitlist Card -->
+    <div class="hero-card" id="waitlist">
+      <div class="hero-logo-container" id="heroLogoTrigger" title="Click to view emblem">
+        <img src="assets/logo.png" alt="Maison Polow Persian Rice Atelier" class="hero-logo-img" id="heroLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23F4EFEA\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'128\' font-family=\'Georgia,serif\' font-size=\'72\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text><text x=\'100\' y=\'168\' font-family=\'sans-serif\' font-size=\'14\' font-weight=\'bold\' fill=\'%23F4EFEA\' letter-spacing=\'5\' text-anchor=\'middle\'>POLOW</text></svg>';">
+      </div>
       
-      <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-        <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 border border-gold/30 text-gold text-xs uppercase tracking-[0.2em] font-medium">
-            <span>Delhi's First Persian Rice Atelier</span>
-          </div>
-          
-          <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight text-ivory">
-            Persian soul. <br><span class="italic font-light text-gold">A place at Delhi’s table.</span>
-          </h1>
-
-          <p class="text-base sm:text-lg text-ivory/80 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
-            Maison Polow celebrates the majesty of Persian rice cooking. Here, fragrant grains, wild saffron, jewel-like garnishes, and golden crispy crusts take their rightful place at the center of the shared table.
-          </p>
-
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-            <a href="#the-menu" class="w-full sm:w-auto px-8 py-4 bg-gold text-aubergine text-xs uppercase tracking-[0.2em] font-bold hover:bg-ivory transition-all duration-300 text-center">
-              Explore the Menu
-            </a>
-            <a href="#our-story" class="w-full sm:w-auto px-8 py-4 border border-ivory/30 text-ivory text-xs uppercase tracking-[0.2em] font-medium hover:border-gold hover:text-gold transition-all duration-300 text-center">
-              Our Story
-            </a>
-          </div>
-
-          <div class="pt-6 flex items-center justify-center lg:justify-start gap-8 text-xs tracking-wider uppercase text-ivory/60 border-t border-ivory/10">
-            <div>• Saffron Infused</div>
-            <div>• Golden Tahdig</div>
-            <div>• Shared Tables</div>
-          </div>
+      <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Join the First-Tasting Drop</h3>
+      <p style="font-size: 0.88rem; color: var(--gray-muted);">Be among the first 50 tables in South Delhi, Noida & Gurugram to experience royal Persian rice platters and warm Tahdig.</p>
+      
+      <form class="waitlist-form" id="waitlistForm" onsubmit="return false;">
+        <div id="waitlistInputFields" style="display: flex; flex-direction: column; gap: 12px;">
+          <input type="text" name="full_name" placeholder="Your Full Name" required>
+          <input type="tel" name="whatsapp" placeholder="WhatsApp Number" pattern="[0-9]{10,12}" title="Please enter a valid 10 to 12 digit phone number" required>
+          <select name="catchment_area" required>
+            <option value="" disabled selected>Select Your Delhi NCR Catchment</option>
+            <option value="South Delhi">South Delhi (GK / Vasant Vihar / Defence Colony)</option>
+            <option value="Gurugram">Gurugram (DLF Phase 1–5 / Golf Course Rd)</option>
+            <option value="Central Delhi">Central / North Delhi</option>
+            <option value="Noida">Noida</option>
+          </select>
+          <button type="submit" class="btn-primary" id="waitlistSubmitBtn" style="margin-top: 6px;">Claim Exclusive Invitation</button>
         </div>
+        <div class="form-feedback" id="waitlistFeedback"></div>
+      </form>
+    </div>
+  </section>
 
-        <div class="lg:col-span-5 relative">
-          <div class="relative aspect-[4/5] w-full max-w-md mx-auto border border-gold/30 p-3 bg-aubergine/50 shadow-2xl">
-            <div class="absolute inset-3 bg-aubergine overflow-hidden">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 750'%3E%3Crect width='600' height='750' fill='%231B1816'/%3E%3Ccircle cx='300' cy='375' r='180' fill='%23C59B27' opacity='0.08'/%3E%3Ccircle cx='300' cy='375' r='100' fill='%232E4A3D' opacity='0.2'/%3E%3Ctext x='300' y='360' font-family='serif' font-size='24' fill='%23C59B27' text-anchor='middle'%3EMAISON POLOW%3C/text%3E%3Ctext x='300' y='395' font-family='sans-serif' font-size='12' fill='%23F4EFEA' letter-spacing='4' text-anchor='middle'%3EPERSIAN RICE ATELIER%3C/text%3E%3C/svg%3E" alt="Maison Polow saffron rice and Persian culinary preparation" class="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105" loading="eager">
-            </div>
-            <div class="absolute -bottom-4 -right-4 bg-gold text-aubergine p-4 shadow-lg hidden sm:block">
-              <p class="font-serif text-2xl font-bold">100%</p>
-              <p class="text-[10px] uppercase tracking-widest font-semibold">Authentic Grains</p>
-            </div>
-          </div>
-        </div>
+  <!-- Craft Pillars Section -->
+  <section class="craft-section" id="heritage">
+    <div class="section-header">
+      <div class="badge">The Persian Rice Philosophy</div>
+      <h2>Rice as the Centerpiece. Honored with Patience.</h2>
+      <p>We reject quick-boil shortcuts. Every grain of aged basmati is soaked, steamed, and bloomed in wild Sargol saffron to achieve celestial fluffiness.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="craft-card">
+        <h3>Wild Sargol Saffron</h3>
+        <p>Pure hand-harvested red saffron threads bloomed in warm spring water, imparting a radiant golden hue and delicate floral aroma across every single long grain.</p>
       </div>
-
-      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ivory/60 animate-bounce">
-        <span class="text-[10px] uppercase tracking-[0.25em]">Scroll to discover</span>
-        <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+      <div class="craft-card">
+        <h3>The Golden Tahdig</h3>
+        <p>The prized crisp golden rice crust formed at the bottom of the heavy-bottomed pot—a textural masterpiece shared among honoured guests at the table.</p>
       </div>
-    </section>
+      <div class="craft-card">
+        <h3>Jeweled Garnishes</h3>
+        <p>Platters crowned with tart ruby barberries (<em>Zereshk</em>), slivered pistachios, almonds, and slow-braised meats that turn every meal into a celebration.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Our Story Section -->
-    <section id="our-story" class="py-24 sm:py-32 bg-ivory border-b border-aubergine/10">
-      <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
-          <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">Our Philosophy</span>
-          <h2 class="font-serif text-3xl sm:text-5xl font-normal text-aubergine">Rice as the Centerpiece</h2>
-          <div class="w-16 h-0.5 bg-gold mx-auto"></div>
-        </div>
+  <!-- Signature Polow Carousel Showcase -->
+  <section class="menu-preview" id="signature">
+    <div class="section-header">
+      <div class="badge">The Atelier Repertoire</div>
+      <h2>Heirloom Persian Rice Dishes</h2>
+      <p>Featuring all eight royal rice preparations crafted for sharing, from tangy barberry rice to baked saffron rice cakes.</p>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div class="space-y-6 text-aubergine/80 font-light leading-relaxed text-base sm:text-lg">
-            <p>
-              In many culinary traditions, rice is a quiet accompaniment—a background note to a heavy curry or gravy. At Maison Polow, we flip that perspective entirely. Here, rice is the undisputed hero of the table.
-            </p>
-            <p>
-              Born from a passion to introduce Delhi’s curious food explorers to the elegance of Persian cuisine, Maison Polow explores the nuanced artistry of long-grain basmati, rare aromatic herbs, wild Persian saffron, and slow-braised treasures.
-            </p>
-            <p>
-              Every dish tells a story of patience, precise steam-cooking, and the coveted golden crust known as <em class="font-serif italic text-gold">tahdig</em>. We invite you to slow down, gather close, and discover a world where every single grain is treated with reverence.
-            </p>
-          </div>
-
-          <div class="space-y-6">
-            <div class="bg-aubergine/5 border border-aubergine/10 p-8 space-y-3">
-              <h3 class="font-serif text-xl font-semibold text-aubergine">The Persian Table Tradition</h3>
-              <p class="text-sm text-aubergine/70 leading-relaxed font-light">
-                Dining in Persia is communal and generous. Platters are shared across the table, balancing tart barberries with sweet dates, savory lamb, and buttery aromatic rice.
-              </p>
+    <div class="sku-slider-container" id="skuSliderContainer">
+      <div class="sku-slider-track" id="skuSliderTrack">
+        
+        <!-- DISH 1: Zereshk Polo -->
+        <div class="sku-slide active" data-slide="0">
+          <div class="sku-card">
+            <div class="sku-media">
+              <div class="sku-img-wrapper">
+                <img src="assets/zereshk-polo.png" alt="Zereshk Polo - Barberry Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Celebratory Classic</span>
+              </div>
+              <p class="sku-quote">"Shimmering ruby barberries over fragrant saffron basmati."</p>
             </div>
-            <div class="bg-aubergine/5 border border-aubergine/10 p-8 space-y-3">
-              <h3 class="font-serif text-xl font-semibold text-aubergine">Crafted for Delhi Diners</h3>
-              <p class="text-sm text-aubergine/70 leading-relaxed font-light">
-                Whether you are a seasoned connoisseur of Middle Eastern flavors or experiencing Persian rice cooking for the very first time, our atelier offers an approachable yet deeply authentic journey.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- The Menu Section -->
-    <section id="the-menu" class="py-24 sm:py-32 bg-stone-100/50">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto space-y-4 mb-12">
-          <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">Culinary Repertoire</span>
-          <h2 class="font-serif text-3xl sm:text-5xl font-normal text-aubergine">The Menu</h2>
-          <p class="text-aubergine/70 font-light text-sm sm:text-base">
-            Explore our eight signature rice preparations, each celebrating distinct regional heritages, aromatics, and textures.
-          </p>
-          <div class="w-16 h-0.5 bg-gold mx-auto"></div>
-        </div>
-
-        <!-- Filters -->
-        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-16" role="tablist" aria-label="Menu Filters">
-          <button role="tab" aria-selected="true" class="menu-filter active px-5 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all border border-aubergine/20 bg-aubergine text-ivory" data-filter="all">
-            All Dishes (8)
-          </button>
-          <button role="tab" aria-selected="false" class="menu-filter px-5 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all border border-aubergine/20 bg-ivory text-aubergine hover:border-gold" data-filter="saffron">
-            Saffron & Gold
-          </button>
-          <button role="tab" aria-selected="false" class="menu-filter px-5 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all border border-aubergine/20 bg-ivory text-aubergine hover:border-gold" data-filter="herbs">
-            Herbs & Beans
-          </button>
-          <button role="tab" aria-selected="false" class="menu-filter px-5 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all border border-aubergine/20 bg-ivory text-aubergine hover:border-gold" data-filter="jeweled">
-            Jeweled & Sweet
-          </button>
-          <button role="tab" aria-selected="false" class="menu-filter px-5 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all border border-aubergine/20 bg-ivory text-aubergine hover:border-gold" data-filter="comfort">
-            Homestyle & Comfort
-          </button>
-        </div>
-
-        <!-- Menu Grid -->
-        <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Dynamically populated via script.js -->
-        </div>
-
-        <!-- Empty State (hidden by default) -->
-        <div id="menu-empty" class="hidden text-center py-16 space-y-4">
-          <p class="font-serif text-xl text-aubergine/70">No dishes match this particular filter selection.</p>
-          <button onclick="document.querySelector('[data-filter=\'all\']').click()" class="px-6 py-2 bg-aubergine text-ivory text-xs uppercase tracking-widest">Reset Filter</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Our Mark / Emblem Section -->
-    <section id="our-mark" class="py-24 sm:py-32 bg-ivory border-t border-b border-aubergine/10">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <!-- Left: Large Emblem Display -->
-          <div class="lg:col-span-5 flex flex-col items-center">
-            <div class="relative w-full max-w-sm aspect-square bg-aubergine p-8 border border-gold/40 shadow-2xl flex items-center justify-center">
-              <!-- Decorative background glow -->
-              <div class="absolute inset-0 bg-[radial-gradient(#C59B27_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+            <div class="sku-details">
+              <span class="badge" style="width: fit-content;">Hero Offering • 01 of 08</span>
+              <h3>Zereshk Polo (Barberry Rice)</h3>
+              <div class="sku-price">Price to be announced</div>
+              <p>Fluffy saffron-infused basmati rice layered and topped with tart, jewel-like red barberries gently sautéed in butter and sugar, traditionally served with tender braised or roasted chicken.</p>
               
-              <!-- Inline SVG Emblem -->
-              <svg class="w-full h-full text-gold relative z-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Maison Polow Emblem - Persian Rice Atelier">
-                <circle cx="50" cy="50" r="46" fill="#1B1816" stroke="#C59B27" stroke-width="2.5"/>
-                <circle cx="50" cy="50" r="38" stroke="#C59B27" stroke-width="1" stroke-dasharray="2 2" opacity="0.6"/>
-                <path d="M50 12 L52 22 L62 20 L56 28 L66 32 L58 36 L64 46 L54 44 L56 54 L48 48 L44 56 L42 46 L32 48 L38 40 L30 34 L40 32 L36 22 L46 24 Z" fill="#C59B27" opacity="0.15"/>
-                <circle cx="50" cy="50" r="22" stroke="#C59B27" stroke-width="1.5"/>
-                <text x="50" y="57" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="700" fill="#F4EFEA" text-anchor="middle">MP</text>
-                <path d="M28 50 C28 38 38 28 50 28" stroke="#C59B27" stroke-width="1" stroke-linecap="round" fill="none"/>
-              </svg>
-            </div>
-            <p class="text-xs uppercase tracking-[0.2em] text-aubergine/60 mt-4 text-center">Proposed Creative Identity Mark</p>
-          </div>
-
-          <!-- Right: Editorial Copy & Visual Annotations -->
-          <div class="lg:col-span-7 space-y-8">
-            <div class="space-y-4">
-              <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">Visual Identity Concept</span>
-              <h2 class="font-serif text-3xl sm:text-4xl font-normal text-aubergine">The Maison Polow Emblem</h2>
-              <div class="w-12 h-0.5 bg-gold"></div>
-            </div>
-
-            <p class="text-aubergine/80 font-light leading-relaxed text-base sm:text-lg">
-              The Maison Polow emblem is conceived as a refined visual synthesis for our Persian rice atelier. Centered around the timeless geometry of a shared circular dining vessel and the pristine grain of aromatic basmati, the mark balances warmth with contemporary minimalism. It introduces Delhi diners to an authentic culinary tradition where rice is elevated to the centerpiece of the table.
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-aubergine/10">
-              <div class="space-y-1 p-4 bg-aubergine/5 border border-aubergine/10">
-                <span class="text-gold font-serif text-lg font-bold">01</span>
-                <h3 class="text-xs uppercase tracking-wider font-semibold text-aubergine">The Shared Vessel</h3>
-                <p class="text-xs text-aubergine/70 font-light">Represents communal dining and hospitality around the Persian table.</p>
-              </div>
-              <div class="space-y-1 p-4 bg-aubergine/5 border border-aubergine/10">
-                <span class="text-gold font-serif text-lg font-bold">02</span>
-                <h3 class="text-xs uppercase tracking-wider font-semibold text-aubergine">Basmati Grain</h3>
-                <p class="text-xs text-aubergine/70 font-light">Honors the long, fragrant grains that form the hero of our kitchen.</p>
-              </div>
-              <div class="space-y-1 p-4 bg-aubergine/5 border border-aubergine/10">
-                <span class="text-gold font-serif text-lg font-bold">03</span>
-                <h3 class="text-xs uppercase tracking-wider font-semibold text-aubergine">Saffron Accent</h3>
-                <p class="text-xs text-aubergine/70 font-light">A restrained touch of golden warmth mirroring saffron infusion.</p>
+              <div class="ingredient-tags">
+                <span>Aged Basmati</span>
+                <span>Wild Barberries (Zereshk)</span>
+                <span>Saffron Infusion</span>
+                <span>Pure Butter</span>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- DISH 2: Baghali Polo -->
+        <div class="sku-slide" data-slide="1">
+          <div class="sku-card">
+            <div class="sku-media">
+              <div class="sku-img-wrapper">
+                <img src="assets/baghali-polo.png" alt="Baghali Polo - Dill and Fava Bean Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Spring Celebration</span>
+              </div>
+              <p class="sku-quote">"Fresh garden dill and tender fava beans."</p>
+            </div>
+
+            <div class="sku-details">
+              <span class="badge" style="width: fit-content;">Heritage Polow • 02 of 08</span>
+              <h3>Baghali Polo (Dill & Fava Bean Rice)</h3>
+              <div class="sku-price">Price to be announced</div>
+              <p>An aromatic rice dish with fresh chopped dill and tender fava beans, traditionally served at celebrations alongside slow-cooked lamb shanks (mahicheh) braised in rich onion broth.</p>
+              
+              <div class="ingredient-tags">
+                <span>Basmati Rice</span>
+                <span>Fresh Dill</span>
+                <span>Fava Beans</span>
+                <span>Suggested: Lamb Shank</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DISH 3: Tahchin -->
+        <div class="sku-slide" data-slide="2">
+          <div class="sku-card">
+            <div class="sku-media">
+              <div class="sku-img-wrapper">
+                <img src="assets/tahchin.png" alt="Tahchin - Saffron Rice Cake" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Baked Showpiece</span>
+              </div>
+              <p class="sku-quote">"Crisp golden yogurt crust encasing saffron chicken."</p>
+            </div>
+
+            <div class="sku-details">
+              <span class="badge" style="width: fit-content;">Atelier Masterpiece • 03 of 08</span>
+              <h3>Tahchin (Saffron Rice Cake)</h3>
+              <div class="sku-price">Price to be announced</div>
+              <p>A rich, savoury rice cake made with basmati rice, Greek yogurt, egg yolks, and saffron, layered with tender spiced chicken or lamb and baked until the outer shell forms a thick golden crust.</p>
+              
+              <div class="ingredient-tags">
+                <span>Yogurt & Egg Binding</span>
+                <span>Concentrated Saffron</span>
+                <span>Crisp Tahdig Shell</span>
+                <span>Tender Meat</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DISH 4: Shirin Polo -->
+        <div class="sku-slide" data-slide="3">
+          <div class="sku-card">
+            <div class="sku-media">
+              <div class="sku-img-wrapper">
+                <img src="assets/shirin-polo.png" alt="Shirin Polo - Sweet Jeweled Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Royal Feast</span>
+              </div>
+              <p class="sku-quote">"Pistachios, orange peel, and rosewater aroma."</p>
+            </div>
+
+            <div class="sku-details">
+              <span class="badge" style="width: fit-content;">Wedding Tradition • 04 of 08</span>
+              <h3>Shirin Polo (Sweet Jeweled Rice)</h3>
+              <div class="sku-price">Price to be announced</div>
+              <p>A celebratory rice preparation with slivered pistachios, almonds, candied orange peel, carrots, and golden raisins, lightly scented with rosewater and saffron.</p>
+              
+              <div class="ingredient-tags">
+                <span>Slivered Pistachios</span>
+                <span>Candied Orange Peel</span>
+                <span>Rosewater</span>
+                <span>Golden Raisins</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DISH 5: Chelo -->
+        <div class="sku-slide" data-slide="4">
+          <div class="sku-card">
+            <div class="sku-media">
+              <div class="sku-img-wrapper">
+                <img src="assets/chelo.png" alt="Chelo - Steamed Rice with Saffron" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">The Foundation</span>
+              </div>
+              <p class="sku-quote">"Separate, fluffy grains finished with butter and saffron."</p>
+            </div>
+
+            <div class="sku-details">
+              <span class="badge" style="width: fit-content;">Atelier Standard • 05 of 08</span>
+              <h3>Chelo (Steamed Rice with Saffron)</h3>
+              <div class="sku-price">Price to be announced</div>
+              <p>Separate, tender grains of steamed white rice finished with pure butter and saffron, traditionally paired with grilled kebabs or hearty Iranian stews.</p>
+              
+              <div class="ingredient-tags">
+                <span>Long-Grain Basmati</span>
+                <span>Pure Butter</span>
+                <span>Saffron Finish</span>
+                <span>Fluffy Damp-Kesh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DISH 6: Adas Polo -->
+        <div class="sku-slide" data-slide="5">
+          <div class="sku-card">
+            <div class="sku-media">
+              <div class="sku-img-wrapper">
+                <img src="assets/adas-polo.png" alt="Adas Polo - Lentil Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Homestyle Comfort</span>
+              </div>
+              <p class="sku-quote">"Earthy brown lentils, sweet raisins, and soft dates."</p>
+            </div>
+
+            <div class="sku-details">
+              <span class="badge" style="width: fit-content;">Comfort Classic • 06 of 08</span>
+              <h3>Adas Polo (Lentil Rice)</h3>
+              <div class="sku-price">Price to be announced</div>
+              <p>A comforting combination of rice, lentils, sweet raisins, and dates, bringing together earthy proteins and natural sweetness in perfect harmony.</p>
+              
+              <div class="ingredient-tags">
+                <span>Brown Lentils</span>
+                <span>Sweet Dates</span>
+                <span>Raisins</span>
+                <span>Warm Spices</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DISH 7: Kateh -->
+        <div class="sku-slide" data-slide="6">
+          <div class="sku-card">
+            <div class="sku-media">
+              <div class="sku-img-wrapper">
+                <img src="assets/kateh.png" alt="Kateh - Homestyle Persian Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Caspian Tradition</span>
+              </div>
+              <p class="sku-quote">"Cooked by absorption, retaining natural fragrance."</p>
+            </div>
+
+            <div class="sku-details">
+              <span class="badge" style="width: fit-content;">Caspian Style • 07 of 08</span>
+              <h3>Kateh (Homestyle Persian Rice)</h3>
+              <div class="sku-price">Price to be announced</div>
+              <p>An everyday style associated with northern Iran’s Caspian region, cooked by absorption without parboiling and draining, producing a softer, more nourishing texture.</p>
+              
+              <div class="ingredient-tags">
+                <span>Absorption Method</span>
+                <span>Butter & Salt</span>
+                <span>Northern Style</span>
+                <span>Soft Texture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DISH 8: Gheymeh Nesar -->
+        <div class="sku-slide" data-slide="7">
+          <div class="sku-card">
+            <div class="sku-media">
+              <div class="sku-img-wrapper">
+                <img src="assets/gheymeh-nesar.png" alt="Gheymeh Nesar - Qazvin-Style Jeweled Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Qazvin Festival</span>
+              </div>
+              <p class="sku-quote">"Saffron rice buried with tender meat, barberries, and almonds."</p>
+            </div>
+
+            <div class="sku-details">
+              <span class="badge" style="width: fit-content;">Festival Masterpiece • 08 of 08</span>
+              <h3>Gheymeh Nesar (Qazvin Jeweled Rice)</h3>
+              <div class="sku-price">Price to be announced</div>
+              <p>A festive rice dish associated with Qazvin, featuring saffron rice, tender meat, barberries, and slivered almond and pistachio garnishes.</p>
+              
+              <div class="ingredient-tags">
+                <span>Qazvin Recipe</span>
+                <span>Tender Meat</span>
+                <span>Almond & Pistachio</span>
+                <span>Saffron Crown</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Carousel Controls -->
+      <div class="slider-nav-bar">
+        <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Rice Carousel Navigation">
+          <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
+          <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
+          <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
+          <button class="slider-dot" data-index="3" aria-label="Slide 4"></button>
+          <button class="slider-dot" data-index="4" aria-label="Slide 5"></button>
+          <button class="slider-dot" data-index="5" aria-label="Slide 6"></button>
+          <button class="slider-dot" data-index="6" aria-label="Slide 7"></button>
+          <button class="slider-dot" data-index="7" aria-label="Slide 8"></button>
+        </div>
+
+        <div class="slider-arrows">
+          <button class="slider-btn" id="prevSlideBtn" aria-label="Previous Dish" title="Previous Dish">
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <button class="slider-btn" id="nextSlideBtn" aria-label="Next Dish" title="Next Dish">
+            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- The Persian Table Section -->
-    <section id="the-persian-table" class="py-24 sm:py-32 bg-aubergine text-ivory">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
-          <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">Artistry & Technique</span>
-          <h2 class="font-serif text-3xl sm:text-5xl font-normal text-ivory">The Persian Table</h2>
-          <p class="text-ivory/70 font-light text-sm sm:text-base">
-            Discover the pillars of flavor, color, and texture that define our atelier.
-          </p>
-          <div class="w-16 h-0.5 bg-gold mx-auto"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="border border-ivory/10 p-8 space-y-4 bg-aubergine/60 hover:border-gold/50 transition-all">
-            <span class="text-gold font-serif text-2xl">01</span>
-            <h3 class="font-serif text-xl text-ivory">Wild Saffron</h3>
-            <p class="text-sm text-ivory/70 font-light leading-relaxed">
-              Pounded threads blooming in warm water, imparting a radiant golden hue and delicate floral aroma to every single grain of basmati.
-            </p>
+  <!-- Emblem Crest Story Section -->
+  <section class="emblem-section" id="emblem">
+    <div class="emblem-wrap">
+      
+      <div class="emblem-artwork-container">
+        <button type="button" class="emblem-zoom-button" id="emblemZoomTrigger" aria-label="Zoom in on the Maison Polow Master Crest" title="Click to view high-resolution emblem">
+          <div class="emblem-artwork-frame">
+            <img src="assets/emblem-master.jpg" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" onerror="this.onerror=null; this.src='assets/logo.png';">
+            <span class="emblem-hint-overlay">🔍 Click to Inspect</span>
           </div>
-
-          <div class="border border-ivory/10 p-8 space-y-4 bg-aubergine/60 hover:border-gold/50 transition-all">
-            <span class="text-gold font-serif text-2xl">02</span>
-            <h3 class="font-serif text-xl text-ivory">Tart Barberries</h3>
-            <p class="text-sm text-ivory/70 font-light leading-relaxed">
-              Ruby-red zereshk sautéed gently in butter and sugar, offering a brilliant tart contrast to rich meats and fragrant rice.
-            </p>
-          </div>
-
-          <div class="border border-ivory/10 p-8 space-y-4 bg-aubergine/60 hover:border-gold/50 transition-all">
-            <span class="text-gold font-serif text-2xl">03</span>
-            <h3 class="font-serif text-xl text-ivory">Golden Tahdig</h3>
-            <p class="text-sm text-ivory/70 font-light leading-relaxed">
-              The prized crisp golden rice crust formed at the bottom of the pot—a textural masterpiece shared among guests.
-            </p>
-          </div>
-
-          <div class="border border-ivory/10 p-8 space-y-4 bg-aubergine/60 hover:border-gold/50 transition-all">
-            <span class="text-gold font-serif text-2xl">04</span>
-            <h3 class="font-serif text-xl text-ivory">Communal Sharing</h3>
-            <p class="text-sm text-ivory/70 font-light leading-relaxed">
-              Platters designed to be passed around the table, celebrating hospitality, conversation, and the joy of breaking bread (and rice) together.
-            </p>
-          </div>
-        </div>
+        </button>
       </div>
-    </section>
 
-    <!-- Gathering Section -->
-    <section class="py-24 sm:py-32 bg-ivory">
-      <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
-        <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">Gatherings & Events</span>
-        <h2 class="font-serif text-3xl sm:text-5xl font-normal text-aubergine">A meal worth gathering for</h2>
-        <p class="text-aubergine/80 font-light text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          Whether you are planning an intimate family dinner or seeking to introduce colleagues to distinctive Middle Eastern flavors, Maison Polow brings warmth and distinction to your table.
+      <div class="emblem-story-content">
+        <div class="badge">Anatomy of our Emblem</div>
+        <h2>A Logo Born from Grain & Saffron</h2>
+        <p class="emblem-intro">
+          Our insignia is an architectural tapestry mapping Persia’s rice heritage onto a heraldic coat of arms, celebrating rice as the centerpiece of the shared table.
         </p>
-        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#contact" class="px-8 py-4 bg-aubergine text-ivory text-xs uppercase tracking-[0.2em] font-semibold hover:bg-gold hover:text-aubergine transition-all">
-            Get in Touch
-          </a>
-        </div>
-        <p class="text-xs text-aubergine/50 italic pt-2">
-          Specific dine-in, delivery schedules, and event catering packages are currently in development. Service availability to be announced.
-        </p>
-      </div>
-    </section>
 
-    <!-- FAQs Section -->
-    <section id="faqs" class="py-24 sm:py-32 bg-stone-100/50 border-t border-aubergine/10">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
-          <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">Common Inquiries</span>
-          <h2 class="font-serif text-3xl sm:text-5xl font-normal text-aubergine">Frequently Asked Questions</h2>
-          <div class="w-16 h-0.5 bg-gold mx-auto"></div>
-        </div>
-
-        <div class="space-y-4" id="faq-accordion">
-          <!-- FAQ 1 -->
-          <div class="border border-aubergine/15 bg-ivory">
-            <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-serif text-lg sm:text-xl text-aubergine hover:text-gold transition-colors focus:outline-none focus:ring-1 focus:ring-gold" aria-expanded="false">
-              <span>What is Persian polo or polow?</span>
-              <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-content hidden px-6 pb-6 text-aubergine/70 font-light text-sm sm:text-base leading-relaxed border-t border-aubergine/5 pt-4">
-              Polow refers to layered or mixed Persian rice dishes where ingredients like herbs, lentils, fava beans, fruits, or meats are cooked with or layered into aromatic basmati rice, rather than served as a plain side.
-            </div>
+        <div class="emblem-pillars">
+          <div class="emblem-pillar-card">
+            <h4>🍚 The Central Pot & Steam</h4>
+            <p>At the core lies a traditional hammered copper pot emitting fragrant steam, honoring slow steam-cooking and the art of fluffing aged basmati.</p>
           </div>
-
-          <!-- FAQ 2 -->
-          <div class="border border-aubergine/15 bg-ivory">
-            <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-serif text-lg sm:text-xl text-aubergine hover:text-gold transition-colors focus:outline-none focus:ring-1 focus:ring-gold" aria-expanded="false">
-              <span>How do the featured rice dishes differ?</span>
-              <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-content hidden px-6 pb-6 text-aubergine/70 font-light text-sm sm:text-base leading-relaxed border-t border-aubergine/5 pt-4">
-              Each dish features unique aromatics and regional heritage. For instance, Zereshk Polo highlights tart barberries, Baghali Polo pairs dill and fava beans with lamb, and Tahchin is a baked saffron yogurt rice cake.
-            </div>
-          </div>
-
-          <!-- FAQ 3 -->
-          <div class="border border-aubergine/15 bg-ivory">
-            <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-serif text-lg sm:text-xl text-aubergine hover:text-gold transition-colors focus:outline-none focus:ring-1 focus:ring-gold" aria-expanded="false">
-              <span>Are vegetarian preparations available?</span>
-              <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-content hidden px-6 pb-6 text-aubergine/70 font-light text-sm sm:text-base leading-relaxed border-t border-aubergine/5 pt-4">
-              Certain rice preparations can be tailored for vegetarian guests, though traditional stocks or suggested accompaniments may include meat or poultry. Please check individual dish notes or inquire directly for specific dietary options.
-            </div>
-          </div>
-
-          <!-- FAQ 4 -->
-          <div class="border border-aubergine/15 bg-ivory">
-            <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-serif text-lg sm:text-xl text-aubergine hover:text-gold transition-colors focus:outline-none focus:ring-1 focus:ring-gold" aria-expanded="false">
-              <span>Do dishes contain nuts, dairy, or eggs?</span>
-              <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-content hidden px-6 pb-6 text-aubergine/70 font-light text-sm sm:text-base leading-relaxed border-t border-aubergine/5 pt-4">
-              Some celebratory rice dishes incorporate almonds, pistachios, yogurt, butter, or eggs (such as Tahchin). We encourage guests with specific allergies to consult our team before ordering as we finalize kitchen operations.
-            </div>
-          </div>
-
-          <!-- FAQ 5 -->
-          <div class="border border-aubergine/15 bg-ivory">
-            <button class="faq-toggle w-full px-6 py-5 text-left flex items-center justify-between font-serif text-lg sm:text-xl text-aubergine hover:text-gold transition-colors focus:outline-none focus:ring-1 focus:ring-gold" aria-expanded="false">
-              <span>Where can I find pricing and ordering information?</span>
-              <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div class="faq-content hidden px-6 pb-6 text-aubergine/70 font-light text-sm sm:text-base leading-relaxed border-t border-aubergine/5 pt-4">
-              Maison Polow is currently in its introductory launch phase in Delhi. Pricing and direct ordering channels will be announced soon. Sign up via our contact form to receive launch updates.
-            </div>
+          <div class="emblem-pillar-card">
+            <h4>🌾 The Wheat & Saffron Sheaf</h4>
+            <p>Surrounding the crest are golden grains and saffron pistils, paying homage to the world's most precious aromatics.</p>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 sm:py-32 bg-aubergine text-ivory">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
-          <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">Stay Informed</span>
-          <h2 class="font-serif text-3xl sm:text-5xl font-normal text-ivory">Connect With Our Atelier</h2>
-          <p class="text-ivory/70 font-light text-sm sm:text-base">
-            Join our mailing list to receive launch announcements, private tasting invitations, and journal updates.
-          </p>
-          <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- Careers Module -->
+  <section class="careers-section" id="careers">
+    <div class="careers-wrap">
+      <div>
+        <div class="badge">Join the Atelier</div>
+        <h2>Craft Grains. Rekindle Heritage.</h2>
+        <p>We are building Delhi NCR’s premier Persian rice kitchen. We offer an equitable, respectful work environment with structured shifts and comprehensive culinary training.</p>
+        
+        <div class="roles-list">
+          <div class="role-item">
+            <h4>Master Rice Chef / Lead Production</h4>
+            <p>Full Time • Experience in steam-infusion, Tahdig preparation, or fine dining rice arts.</p>
+          </div>
+          <div class="role-item">
+            <h4>Culinary Trainee / Commis</h4>
+            <p>Full Time / Paid Internship • Graduates from IHM Pusa, Amity, or culinary schools welcome.</p>
+          </div>
         </div>
+      </div>
 
-        <form id="contact-form" class="space-y-6 max-w-2xl mx-auto bg-aubergine/80 p-8 sm:p-12 border border-ivory/15" novalidate>
-          <div id="form-feedback" class="hidden p-4 mb-6 text-sm" role="alert"></div>
+      <div class="hiring-box">
+        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Apply for Kitchen Roles</h3>
+        <p style="font-size: 0.88rem; color: var(--gray-muted); margin-bottom: 1.5rem;">Send your details directly to our culinary leadership team.</p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="space-y-2">
-              <label for="name" class="block text-xs uppercase tracking-wider text-ivory/80 font-medium">Your Name <span class="text-gold">*</span></label>
-              <input type="text" id="name" name="name" required class="w-full bg-aubergine border border-ivory/20 px-4 py-3 text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold text-sm" placeholder="Aarav Sharma">
-              <p class="error-message text-xs text-red-400 hidden" id="error-name">Please enter your name.</p>
-            </div>
-
-            <div class="space-y-2">
-              <label for="email" class="block text-xs uppercase tracking-wider text-ivory/80 font-medium">Email Address <span class="text-gold">*</span></label>
-              <input type="email" id="email" name="email" required class="w-full bg-aubergine border border-ivory/20 px-4 py-3 text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold text-sm" placeholder="aarav@example.com">
-              <p class="error-message text-xs text-red-400 hidden" id="error-email">Please enter a valid email address.</p>
-            </div>
+        <form class="waitlist-form" id="careersForm" onsubmit="return false;">
+          <div id="careersInputFields" style="display: flex; flex-direction: column; gap: 12px;">
+            <input type="text" name="full_name" placeholder="Full Name" required>
+            <input type="tel" name="mobile" placeholder="Mobile / WhatsApp" pattern="[0-9]{10,12}" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <select name="position" required>
+              <option value="" disabled selected>Position You Are Applying For</option>
+              <option value="Master Chef">Master Rice Chef / Lead</option>
+              <option value="Commis">Culinary Trainee</option>
+              <option value="Internship">6-Month Culinary Internship</option>
+            </select>
+            <input type="text" name="experience" placeholder="Years of Experience / College Name" required>
+            <button type="submit" class="btn-primary" id="careersSubmitBtn" style="margin-top: 6px;">Submit Application</button>
           </div>
-
-          <div class="space-y-2">
-            <label for="phone" class="block text-xs uppercase tracking-wider text-ivory/80 font-medium">Phone Number <span class="text-ivory/40 text-[10px]">(Optional)</span></label>
-            <input type="tel" id="phone" name="phone" class="w-full bg-aubergine border border-ivory/20 px-4 py-3 text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold text-sm" placeholder="+91 98765 43210">
-          </div>
-
-          <div class="space-y-2">
-            <label for="message" class="block text-xs uppercase tracking-wider text-ivory/80 font-medium">Message or Inquiry <span class="text-gold">*</span></label>
-            <textarea id="message" name="message" rows="4" required class="w-full bg-aubergine border border-ivory/20 px-4 py-3 text-ivory placeholder-ivory/30 focus:outline-none focus:border-gold text-sm" placeholder="I would like to know when Maison Polow opens for orders in Delhi..."></textarea>
-            <p class="error-message text-xs text-red-400 hidden" id="error-message">Please enter a message.</p>
-          </div>
-
-          <div class="flex items-start gap-3 pt-2">
-            <input type="checkbox" id="consent" name="consent" class="mt-1 h-4 w-4 bg-aubergine border-ivory/30 text-gold focus:ring-0 cursor-pointer">
-            <label for="consent" class="text-xs text-ivory/70 font-light cursor-pointer">
-              I agree to receive launch updates and announcements from Maison Polow. (No preselected marketing consent).
-            </label>
-          </div>
-
-          <div class="pt-4 text-center">
-            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-gold text-aubergine text-xs uppercase tracking-[0.2em] font-bold hover:bg-ivory transition-all">
-              Send Inquiry
-            </button>
-            <p class="text-[11px] text-ivory/40 italic mt-3">
-              * Demo Note: This contact form runs in frontend demo mode. No backend is connected and no data is stored or transmitted.
-            </p>
-          </div>
+          <div class="form-feedback" id="careersFeedback"></div>
         </form>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-[#151210] text-ivory/70 border-t border-ivory/10 py-16">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
-      <div class="md:col-span-5 space-y-4">
-        <div class="flex items-center gap-3">
-          <svg class="w-8 h-8 text-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="50" cy="50" r="46" fill="#1B1816" stroke="#C59B27" stroke-width="3"/>
-            <text x="50" y="58" font-family="'Cormorant Garamond', serif" font-size="34" font-weight="700" fill="#F4EFEA" text-anchor="middle">MP</text>
-          </svg>
-          <span class="font-serif text-xl font-bold tracking-wider text-ivory uppercase">Maison Polow</span>
-        </div>
-        <p class="text-sm font-light text-ivory/60 max-w-sm leading-relaxed">
-          Persian rice atelier introducing Delhi audiences to the richness, variety, and hospitality of Persian rice cooking.
+  <footer id="contact">
+    <div class="footer-inner">
+      
+      <div class="footer-brand-wrap">
+        <button type="button" class="footer-emblem-btn" id="footerEmblemBtn" aria-label="View enlarged Maison Polow master emblem" title="Click to inspect master crest">
+          <img src="assets/emblem-master.jpg" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" onerror="this.onerror=null; this.src='assets/logo.png';">
+          <div class="footer-brand-title" style="display: flex; flex-direction: column;">
+            <span style="font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; color: #fff;">MAISON POLOW</span>
+            <span style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gold);">Persian Rice Atelier</span>
+          </div>
+        </button>
+
+        <p style="font-size: 0.9rem; color: #A8A29E; line-height: 1.6;">
+          Heirloom Persian rice dishes and saffron ateliers crafted daily for Delhi NCR tables.
+        </p>
+        <p style="font-size: 0.85rem; color: #D6D3D1;">
+          📍 Cloud Kitchen Dispatch: South Delhi, Noida & Gurugram Hubs
         </p>
       </div>
 
-      <div class="md:col-span-3 space-y-4">
-        <h3 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Navigation</h3>
-        <ul class="space-y-2 text-sm font-light">
-          <li><a href="#our-story" class="hover:text-gold transition-colors">Our Story</a></li>
-          <li><a href="#the-menu" class="hover:text-gold transition-colors">The Menu</a></li>
-          <li><a href="#our-mark" class="hover:text-gold transition-colors">Our Mark</a></li>
-          <li><a href="#the-persian-table" class="hover:text-gold transition-colors">The Persian Table</a></li>
-          <li><a href="#faqs" class="hover:text-gold transition-colors">FAQs</a></li>
-          <li><a href="#contact" class="hover:text-gold transition-colors">Contact</a></li>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#heritage">Our Craft</a></li>
+          <li><a href="#signature">Signature Polows</a></li>
+          <li><a href="#emblem">The Crest</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
 
-      <div class="md:col-span-4 space-y-4">
-        <h3 class="text-xs uppercase tracking-[0.2em] text-gold font-semibold">Atelier Status</h3>
-        <p class="text-sm font-light text-ivory/60 leading-relaxed">
-          Currently in launch preparation phase in New Delhi NCR. Pricing, operational hours, and direct ordering links to be announced.
-        </p>
-        <p class="text-xs text-ivory/40 pt-2">
-          © <span id="current-year">2026</span> Maison Polow. All rights reserved.
-        </p>
+      <div class="footer-col">
+        <h4>Direct Channels</h4>
+        <ul>
+          <li><a href="mailto:concierge@maisonpolow.com">concierge@</a></li>
+          <li><a href="mailto:careers@maisonpolow.com">careers@</a></li>
+        </ul>
       </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <p style="font-size: 0.88rem; color: #A8A29E; margin-bottom: 0.75rem;">Follow our saffron trials:</p>
+        
+        <div class="social-links-wrap">
+          <a href="https://instagram.com/maisonpolow" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal-bar">
+      <div>© 2026 Maison Polow. All rights reserved.</div>
+      <div>Maison Polow™ is a proprietary brand of <strong>ZibaCube Technologies Private Limited</strong>.</div>
     </div>
   </footer>
 
-  <!-- Dish Detail Modal -->
-  <div id="dish-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-aubergine/80 backdrop-blur-sm hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div id="modal-container" class="bg-ivory text-aubergine max-w-2xl w-full p-8 relative border border-gold/40 shadow-2xl max-h-[90vh] overflow-y-auto transform transition-all scale-95 opacity-0">
-      <button id="modal-close" class="absolute top-6 right-6 p-2 text-aubergine hover:text-gold focus:outline-none focus:ring-1 focus:ring-gold" aria-label="Close modal">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-      </button>
-
-      <div id="modal-body" class="space-y-6 pt-2">
-        <!-- Injected via script.js -->
+  <!-- Lightbox Modal -->
+  <div class="logo-modal-overlay" id="logoModal" role="dialog" aria-modal="true" aria-label="Maison Polow Brand Emblem">
+    <div class="logo-modal-container">
+      <button type="button" class="logo-modal-close" id="closeLogoModal" aria-label="Close enlarged emblem">✕</button>
+      <div class="modal-logo-wrapper">
+        <img src="assets/logo.png" alt="Maison Polow Official Emblem" class="modal-logo-img" id="modalLogoImg">
       </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script>
+    (function() {
+      function smoothScrollTo(targetElement, duration = 850) {
+        if (!targetElement) return;
+        const header = document.querySelector('header');
+        const headerOffset = header ? header.offsetHeight : 78;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+
+        function easeInOutCubic(t, b, c, d) {
+          t /= d / 2;
+          if (t < 1) return (c / 2) * t * t * t + b;
+          t -= 2;
+          return (c / 2) * (t * t * t + 2) + b;
+        }
+
+        function animationStep(currentTime) {
+          if (!startTime) startTime = currentTime;
+          const timeElapsed = currentTime - startTime;
+          const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+          window.scrollTo(0, run);
+          if (timeElapsed < duration) {
+            requestAnimationFrame(animationStep);
+          } else {
+            window.scrollTo(0, targetPosition);
+          }
+        }
+        requestAnimationFrame(animationStep);
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              e.preventDefault();
+              smoothScrollTo(targetElement, 800);
+            }
+          }
+        });
+      });
+
+      // Lightbox
+      const headerLogoBtn = document.getElementById('headerLogoBtn');
+      const heroLogoTrigger = document.getElementById('heroLogoTrigger');
+      const emblemZoomTrigger = document.getElementById('emblemZoomTrigger');
+      const footerEmblemBtn = document.getElementById('footerEmblemBtn');
+      const logoModal = document.getElementById('logoModal');
+      const closeLogoModal = document.getElementById('closeLogoModal');
+      const modalLogoImg = document.getElementById('modalLogoImg');
+
+      function openModal(imageSrc) {
+        if (modalLogoImg && imageSrc) modalLogoImg.src = imageSrc;
+        if (logoModal) {
+          logoModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeModal() {
+        if (logoModal) {
+          logoModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+
+      if (headerLogoBtn) headerLogoBtn.addEventListener('click', () => openModal('assets/logo.png'));
+      if (heroLogoTrigger) heroLogoTrigger.addEventListener('click', () => openModal('assets/logo.png'));
+      if (emblemZoomTrigger) emblemZoomTrigger.addEventListener('click', (e) => { e.preventDefault(); openModal('assets/emblem-master.jpg'); });
+      if (footerEmblemBtn) footerEmblemBtn.addEventListener('click', (e) => { e.preventDefault(); openModal('assets/emblem-master.jpg'); });
+      if (closeLogoModal) closeLogoModal.addEventListener('click', closeModal);
+      if (logoModal) logoModal.addEventListener('click', (e) => { if (e.target === logoModal) closeModal(); });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && logoModal?.classList.contains('active')) closeModal();
+      });
+
+      // Waitlist Form Handler
+      const waitlistForm = document.getElementById('waitlistForm');
+      if (waitlistForm) {
+        waitlistForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = document.getElementById('waitlistSubmitBtn');
+          const feedback = document.getElementById('waitlistFeedback');
+          if (btn) { btn.disabled = true; btn.textContent = 'Securing invitation...'; }
+          
+          setTimeout(() => {
+            document.getElementById('waitlistInputFields').style.display = 'none';
+            if (feedback) {
+              feedback.className = 'form-feedback success';
+              feedback.innerHTML = '✨ <strong>Merci!</strong> Your tasting invitation has been recorded. Our concierge will reach out via WhatsApp.';
+            }
+          }, 600);
+        });
+      }
+
+      // Careers Form Handler
+      const careersForm = document.getElementById('careersForm');
+      if (careersForm) {
+        careersForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = document.getElementById('careersSubmitBtn');
+          const feedback = document.getElementById('careersFeedback');
+          if (btn) { btn.disabled = true; btn.textContent = 'Transmitting...'; }
+          
+          setTimeout(() => {
+            document.getElementById('careersInputFields').style.display = 'none';
+            if (feedback) {
+              feedback.className = 'form-feedback success';
+              feedback.innerHTML = '✨ <strong>Application Received!</strong> Thank you for your interest in joining the atelier.';
+            }
+          }, 600);
+        });
+      }
+
+      // Carousel Slider Factory
+      function initSlider({ containerId, trackId, slideAttr, dotsContainerId, prevBtnId, nextBtnId, duration }) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        const track = document.getElementById(trackId) || container;
+        const slides = Array.from(track.querySelectorAll(`[${slideAttr}]`));
+        const dotsContainer = document.getElementById(dotsContainerId);
+        const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.slider-dot')) : [];
+        const prevBtn = document.getElementById(prevBtnId);
+        const nextBtn = document.getElementById(nextBtnId);
+        if (!slides.length) return;
+
+        let currentIndex = 0;
+        let timer = null;
+
+        function updateSlide(targetIndex) {
+          const count = slides.length;
+          const nextIdx = (targetIndex % count + count) % count;
+          slides.forEach((s, idx) => s.classList.toggle('active', idx === nextIdx));
+          dots.forEach((d, idx) => d.classList.toggle('active', idx === nextIdx));
+          currentIndex = nextIdx;
+        }
+
+        function nextSlide() { updateSlide(currentIndex + 1); }
+        function prevSlide() { updateSlide(currentIndex - 1); }
+        function startAuto() { stopAuto(); timer = setInterval(nextSlide, duration); }
+        function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+
+        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); startAuto(); });
+        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); startAuto(); });
+        dots.forEach((dot, idx) => dot.addEventListener('click', (e) => { e.preventDefault(); updateSlide(idx); startAuto(); }));
+
+        container.addEventListener('mouseenter', stopAuto);
+        container.addEventListener('mouseleave', startAuto);
+        updateSlide(0);
+        startAuto();
+      }
+
+      initSlider({
+        containerId: 'skuSliderContainer',
+        trackId: 'skuSliderTrack',
+        slideAttr: 'data-slide',
+        dotsContainerId: 'sliderDots',
+        prevBtnId: 'prevSlideBtn',
+        nextBtnId: 'nextSlideBtn',
+        duration: 5200
+      });
+    })();
+  </script>
 </body>
 </html>
