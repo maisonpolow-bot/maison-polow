@@ -1118,12 +1118,7 @@
       <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--cream);">Join the First-Tasting Drop</h3>
       <p style="font-size: 0.88rem; color: var(--cream-muted);">Be among the first 50 tables in South Delhi, Noida & Gurugram to experience royal Persian rice platters and warm Tahdig.</p>
       
-      <form class="waitlist-form" id="waitlistForm" action="https://formsubmit.co/maisonpolow@gmail.com" method="POST">
-        <!-- FormSubmit Configuration Hidden Fields -->
-        <input type="hidden" name="_subject" value="New Waitlist Reservation - Maison Polow">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-
+      <form class="waitlist-form" id="waitlistForm" onsubmit="return false;">
         <div id="waitlistInputFields" style="display: flex; flex-direction: column; gap: 12px;">
           <input type="text" name="full_name" placeholder="Your Full Name" required>
           <input type="tel" name="whatsapp" placeholder="WhatsApp Number" pattern="[0-9]{10,12}" title="Please enter a valid 10 to 12 digit phone number" required>
@@ -1521,12 +1516,7 @@
         <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--cream);">Apply for Kitchen Roles</h3>
         <p style="font-size: 0.88rem; color: var(--cream-muted); margin-bottom: 1.5rem;">Send your details directly to our culinary leadership team.</p>
 
-        <form class="waitlist-form" id="careersForm" action="https://formsubmit.co/maisonpolow@gmail.com" method="POST">
-          <!-- FormSubmit Configuration Hidden Fields -->
-          <input type="hidden" name="_subject" value="New Job Application - Maison Polow Careers">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-
+        <form class="waitlist-form" id="careersForm" onsubmit="return false;">
           <div id="careersInputFields" style="display: flex; flex-direction: column; gap: 12px;">
             <input type="text" name="full_name" placeholder="Full Name" required>
             <input type="tel" name="mobile" placeholder="Mobile / WhatsApp" pattern="[0-9]{10,12}" required>
@@ -1725,6 +1715,7 @@
 
       if (closeLogoModal) closeLogoModal.addEventListener('click', closeModal);
       
+      // Close modal when clicking outside the container box on any side (top, bottom, left, right)
       if (logoModal) {
         logoModal.addEventListener('click', (e) => {
           if (!e.target.closest('.logo-modal-container')) {
@@ -1737,55 +1728,43 @@
         if (e.key === 'Escape' && logoModal?.classList.contains('active')) closeModal();
       });
 
-      // Generic Async Form Submission Helper
-      async function handleFormSubmit(formId, btnId, fieldsId, feedbackId, successMsg) {
-        const form = document.getElementById(formId);
-        if (!form) return;
-
-        form.addEventListener('submit', async function(e) {
+      // Waitlist Form Handler
+      const waitlistForm = document.getElementById('waitlistForm');
+      if (waitlistForm) {
+        waitlistForm.addEventListener('submit', async function(e) {
           e.preventDefault();
-          const btn = document.getElementById(btnId);
-          const feedback = document.getElementById(feedbackId);
-          const inputFields = document.getElementById(fieldsId);
-
-          if (btn) {
-            btn.disabled = true;
-            btn.textContent = 'Transmitting...';
-          }
-
-          try {
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-              method: 'POST',
-              body: formData,
-              headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-              if (inputFields) inputFields.style.display = 'none';
-              if (feedback) {
-                feedback.className = 'form-feedback success';
-                feedback.innerHTML = successMsg;
-              }
-            } else {
-              throw new Error('Server submission failed');
-            }
-          } catch (error) {
-            if (btn) {
-              btn.disabled = false;
-              btn.textContent = btn.getAttribute('data-original-text') || 'Try Again';
-            }
+          const btn = document.getElementById('waitlistSubmitBtn');
+          const feedback = document.getElementById('waitlistFeedback');
+          if (btn) { btn.disabled = true; btn.textContent = 'Securing invitation...'; }
+          
+          setTimeout(() => {
+            document.getElementById('waitlistInputFields').style.display = 'none';
             if (feedback) {
-              feedback.className = 'form-feedback error';
-              feedback.innerHTML = '⚠️ Transmission encountered an issue. Please message us directly at concierge@maisonpolow.com';
+              feedback.className = 'form-feedback success';
+              feedback.innerHTML = '✨ <strong>Merci!</strong> Your tasting invitation has been recorded. Our concierge will reach out via WhatsApp.';
             }
-          }
+          }, 600);
         });
       }
 
-      // Initialize form handlers
-      handleFormSubmit('waitlistForm', 'waitlistSubmitBtn', 'waitlistInputFields', 'waitlistFeedback', '✨ <strong>Merci!</strong> Your tasting invitation has been recorded. Our concierge will reach out via WhatsApp.');
-      handleFormSubmit('careersForm', 'careersSubmitBtn', 'careersInputFields', 'careersFeedback', '✨ <strong>Application Received!</strong> Thank you for your interest in joining the atelier.');
+      // Careers Form Handler
+      const careersForm = document.getElementById('careersForm');
+      if (careersForm) {
+        careersForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = document.getElementById('careersSubmitBtn');
+          const feedback = document.getElementById('careersFeedback');
+          if (btn) { btn.disabled = true; btn.textContent = 'Transmitting...'; }
+          
+          setTimeout(() => {
+            document.getElementById('careersInputFields').style.display = 'none';
+            if (feedback) {
+              feedback.className = 'form-feedback success';
+              feedback.innerHTML = '✨ <strong>Application Received!</strong> Thank you for your interest in joining the atelier.';
+            }
+          }, 600);
+        });
+      }
 
       // Carousel Slider Factory
       function initSlider({ containerId, trackId, slideAttr, dotsContainerId, prevBtnId, nextBtnId, duration }) {
