@@ -1068,13 +1068,48 @@
       background: var(--gold);
     }
 
+    /* Mobile Responsive Breakpoints */
     @media (max-width: 900px) {
-      .hero, .sku-card, .emblem-wrap, .careers-wrap, .grid-3 {
+      header {
+        padding: 0.75rem 1rem;
+      }
+      .hero {
+        padding: 4rem 1.25rem 3rem;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+      .sku-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .sku-details {
+        padding: 2rem 1.5rem;
+      }
+      .sku-img-wrapper {
+        height: 260px;
+      }
+      .emblem-wrap {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
-      .emblem-pillars {
+      .careers-wrap {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .legal-bar {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
       }
       nav ul {
         display: none;
