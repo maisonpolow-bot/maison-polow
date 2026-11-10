@@ -39,6 +39,11 @@
       padding: 0;
     }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -53,7 +58,6 @@
       font-family: var(--font-sans);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
     body.modal-open {
@@ -95,6 +99,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
     }
 
     .brand-logo-wrap {
@@ -694,6 +699,8 @@
       padding: 6rem 2rem;
       border-top: 1px solid var(--border-gold);
       border-bottom: 1px solid var(--border-gold);
+      width: 100%;
+      overflow: hidden;
     }
 
     .emblem-wrap {
@@ -703,6 +710,7 @@
       grid-template-columns: 1fr 1.15fr;
       gap: 4.5rem;
       align-items: center;
+      width: 100%;
     }
 
     .emblem-artwork-container {
@@ -715,6 +723,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 100%;
+      max-width: 100%;
     }
 
     .emblem-zoom-button {
@@ -769,6 +779,12 @@
       border: 1px solid var(--border-gold);
     }
 
+    .emblem-story-content {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+    }
+
     .emblem-story-content h2 {
       font-size: clamp(2rem, 4vw, 3rem);
       color: var(--cream);
@@ -786,6 +802,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
+      width: 100%;
     }
 
     .emblem-pillar-card {
@@ -796,6 +813,7 @@
       border-top: 1px solid var(--border-gold);
       border-right: 1px solid var(--border-gold);
       border-bottom: 1px solid var(--border-gold);
+      word-break: break-word;
     }
 
     .emblem-pillar-card h4 {
@@ -816,6 +834,8 @@
       background: var(--bg-dark);
       padding: 6rem 2rem;
       border-top: 1px solid var(--border-gold);
+      width: 100%;
+      overflow: hidden;
     }
 
     .careers-wrap {
@@ -824,6 +844,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3.5rem;
+      width: 100%;
     }
 
     .careers-wrap p {
@@ -866,6 +887,8 @@
       padding: 2.5rem;
       border-radius: 20px;
       border: 1px solid var(--border-gold);
+      width: 100%;
+      max-width: 100%;
     }
 
     /* Footer */
@@ -874,6 +897,8 @@
       color: var(--cream);
       padding: 4.5rem 2rem 2.5rem;
       border-top: 1px solid var(--border-gold);
+      width: 100%;
+      overflow: hidden;
     }
 
     .footer-inner {
@@ -883,6 +908,7 @@
       grid-template-columns: 2.2fr 1fr 1fr 1.3fr;
       gap: 3rem;
       margin-bottom: 3.5rem;
+      width: 100%;
     }
 
     .footer-brand-wrap {
@@ -984,6 +1010,7 @@
       align-items: center;
       font-size: 0.8rem;
       color: #8C847B;
+      width: 100%;
     }
 
     /* Mobile-Optimized Modal / Popup & Zoom */
@@ -1097,9 +1124,16 @@
       .sku-img-wrapper {
         height: 260px;
       }
+      .emblem-section, .careers-section, footer, .menu-preview, .craft-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
       .emblem-wrap {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+      }
+      .emblem-pillars {
+        grid-template-columns: 1fr;
       }
       .careers-wrap {
         grid-template-columns: 1fr;
