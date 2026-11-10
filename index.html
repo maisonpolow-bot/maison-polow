@@ -1881,7 +1881,7 @@
       handleFormSubmit('waitlistForm', 'waitlistSubmitBtn', 'waitlistInputFields', 'waitlistFeedback', '✨ <strong>Merci!</strong> Your tasting invitation has been recorded. Our concierge will reach out via WhatsApp.');
       handleFormSubmit('careersForm', 'careersSubmitBtn', 'careersInputFields', 'careersFeedback', '✨ <strong>Application Received!</strong> Thank you for your interest in joining the atelier.');
 
-      // Carousel Slider Factory
+      // Carousel Slider Factory with Mobile Touch / Swipe Support
       function initSlider({ containerId, trackId, slideAttr, dotsContainerId, prevBtnId, nextBtnId, duration }) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -1915,6 +1915,29 @@
 
         container.addEventListener('mouseenter', stopAuto);
         container.addEventListener('mouseleave', startAuto);
+
+        // Touch Swipe Gestures for Mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stopAuto();
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 50) { // Minimum swipe threshold
+            if (diff > 0) {
+              nextSlide(); // Swipe Left -> Next Dish
+            } else {
+              prevSlide(); // Swipe Right -> Previous Dish
+            }
+          }
+          startAuto();
+        }, { passive: true });
+
         updateSlide(0);
         startAuto();
       }
