@@ -1715,10 +1715,10 @@
 
       if (closeLogoModal) closeLogoModal.addEventListener('click', closeModal);
       
-      // Close modal when clicking on the dark backdrop overlay (outside the container)
+      // Close modal when clicking outside the container box on any side (top, bottom, left, right)
       if (logoModal) {
         logoModal.addEventListener('click', (e) => {
-          if (e.target === logoModal) {
+          if (!e.target.closest('.logo-modal-container')) {
             closeModal();
           }
         });
