@@ -1195,7 +1195,7 @@
   <section class="hero">
     <div class="hero-content">
       <div class="badge">Delhi NCR • Launching Winter 2026</div>
-      <h1>Persian Soul. <span>A Place at Delhi’s Table.</span></h1>
+      <h1>Persian Soul. <span>A Place at Delhi’Table.</span></h1>
       <p>Aromatic saffron grains, jewel-like barberries, and prized golden <em>tahdig</em> crusts. Handcrafted daily in Delhi NCR where rice is celebrated as the absolute hero of the feast.</p>
       <a href="#waitlist" class="btn-primary" style="padding: 14px 32px; font-size: 1rem;">Join The Private Tasting Drop</a>
     </div>
@@ -1744,7 +1744,8 @@
         });
       });
 
-      // Lightbox & Zoom Logic
+      // Lightbox & Zoom Logic with Scroll Position Preservation
+      let scrollPosition = 0;
       const headerLogoBtn = document.getElementById('headerLogoBtn');
       const heroLogoTrigger = document.getElementById('heroLogoTrigger');
       const emblemZoomTrigger = document.getElementById('emblemZoomTrigger');
@@ -1756,6 +1757,7 @@
       const modalCaption = document.getElementById('modalCaption');
 
       function openModal(imageSrc, captionText) {
+        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
         if (modalLogoImg && imageSrc) modalLogoImg.src = imageSrc;
         if (modalCaption) modalCaption.textContent = captionText || '';
         if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
@@ -1770,6 +1772,7 @@
           logoModal.classList.remove('active');
           document.body.classList.remove('modal-open');
           if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
+          window.scrollTo(0, scrollPosition);
         }
       }
 
@@ -1928,11 +1931,11 @@
         track.addEventListener('touchend', (e) => {
           touchEndX = e.changedTouches[0].screenX;
           const diff = touchStartX - touchEndX;
-          if (Math.abs(diff) > 50) { // Minimum swipe threshold
+          if (Math.abs(diff) > 50) {
             if (diff > 0) {
-              nextSlide(); // Swipe Left -> Next Dish
+              nextSlide();
             } else {
-              prevSlide(); // Swipe Right -> Previous Dish
+              prevSlide();
             }
           }
           startAuto();
