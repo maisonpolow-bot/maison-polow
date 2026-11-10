@@ -1025,6 +1025,17 @@
       object-fit: contain;
     }
 
+    .modal-caption {
+      margin-top: 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--cream);
+      text-align: center;
+      letter-spacing: 0.5px;
+      max-width: 400px;
+    }
+
     .logo-modal-close {
       position: absolute;
       top: -14px;
@@ -1585,11 +1596,12 @@
 
   <!-- Lightbox Modal -->
   <div class="logo-modal-overlay" id="logoModal" role="dialog" aria-modal="true" aria-label="Maison Polow Brand Emblem">
-    <div class="logo-modal-container">
+    <div class="logo-modal-container" id="logoModalContainer">
       <button type="button" class="logo-modal-close" id="closeLogoModal" aria-label="Close enlarged emblem">✕</button>
       <div class="modal-logo-wrapper">
-        <img src="assets/logo.png" alt="Maison Polow Official Emblem" class="modal-logo-img" id="modalLogoImg">
+        <img src="" alt="Maison Polow Official Emblem" class="modal-logo-img" id="modalLogoImg">
       </div>
+      <div class="modal-caption" id="modalCaption"></div>
     </div>
   </div>
 
@@ -1647,9 +1659,11 @@
       const logoModal = document.getElementById('logoModal');
       const closeLogoModal = document.getElementById('closeLogoModal');
       const modalLogoImg = document.getElementById('modalLogoImg');
+      const modalCaption = document.getElementById('modalCaption');
 
-      function openModal(imageSrc) {
+      function openModal(imageSrc, captionText) {
         if (modalLogoImg && imageSrc) modalLogoImg.src = imageSrc;
+        if (modalCaption) modalCaption.textContent = captionText || '';
         if (logoModal) {
           logoModal.classList.add('active');
           document.body.style.overflow = 'hidden';
@@ -1663,22 +1677,52 @@
         }
       }
 
-      if (headerLogoBtn) headerLogoBtn.addEventListener('click', () => openModal('assets/logo.png'));
-      if (heroLogoTrigger) heroLogoTrigger.addEventListener('click', () => openModal('assets/logo.png'));
-      if (emblemZoomTrigger) emblemZoomTrigger.addEventListener('click', (e) => { e.preventDefault(); openModal('assets/emblem-master.jpg'); });
-      if (footerEmblemBtn) footerEmblemBtn.addEventListener('click', (e) => { e.preventDefault(); openModal('assets/emblem-master.jpg'); });
+      if (headerLogoBtn) {
+        headerLogoBtn.addEventListener('click', () => {
+          const img = headerLogoBtn.querySelector('img');
+          openModal(img ? img.src : 'assets/logo.png', img ? img.alt : 'Maison Polow Emblem');
+        });
+      }
+      if (heroLogoTrigger) {
+        heroLogoTrigger.addEventListener('click', () => {
+          const img = heroLogoTrigger.querySelector('img');
+          openModal(img ? img.src : 'assets/logo.png', img ? img.alt : 'Maison Polow Persian Rice Atelier');
+        });
+      }
+      if (emblemZoomTrigger) {
+        emblemZoomTrigger.addEventListener('click', (e) => { 
+          e.preventDefault(); 
+          const img = emblemZoomTrigger.querySelector('img');
+          openModal(img ? img.src : 'assets/emblem-master.jpg', img ? img.alt : 'Maison Polow Master Crest'); 
+        });
+      }
+      if (footerEmblemBtn) {
+        footerEmblemBtn.addEventListener('click', (e) => { 
+          e.preventDefault(); 
+          const img = footerEmblemBtn.querySelector('img');
+          openModal(img ? img.src : 'assets/emblem-master.jpg', img ? img.alt : 'Maison Polow Master Emblem'); 
+        });
+      }
       
       // Bind carousel product image zoom triggers dynamically
       document.querySelectorAll('.sku-img-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           const img = btn.querySelector('img');
-          if (img) openModal(img.src);
+          if (img) openModal(img.src, img.alt);
         });
       });
 
       if (closeLogoModal) closeLogoModal.addEventListener('click', closeModal);
-      if (logoModal) logoModal.addEventListener('click', (e) => { if (e.target === logoModal) closeModal(); });
+      
+      // Close modal when clicking on the dark backdrop overlay (outside the container)
+      if (logoModal) {
+        logoModal.addEventListener('click', (e) => {
+          if (e.target === logoModal) {
+            closeModal();
+          }
+        });
+      }
 
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && logoModal?.classList.contains('active')) closeModal();
