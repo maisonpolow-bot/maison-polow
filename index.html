@@ -212,6 +212,22 @@
       transform: none;
     }
 
+    /* Background Audio Widget Styles */
+    .audio-player-widget {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      padding: 6px 12px;
+      border-radius: 30px;
+      margin-left: 1rem;
+    }
+    .audio-player-widget audio {
+      height: 32px;
+      width: 180px;
+    }
+
     /* Hero Section */
     .hero {
       padding: 6rem 2rem 5rem;
@@ -1280,6 +1296,14 @@
         <li><a href="#waitlist" class="btn-primary">Reserve Tasting Box</a></li>
       </ul>
     </nav>
+
+    <!-- Background Audio Widget -->
+    <div class="audio-player-widget">
+      <audio autoplay loop controls aria-label="Background music">
+        <source src="assets/Website-مزون بربری.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
   </header>
 
   <!-- Hero Section -->
