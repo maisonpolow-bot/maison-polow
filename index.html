@@ -1362,10 +1362,15 @@
         height: 52vh;
         max-height: 360px;
       }
+      /* Hide text and volume slider on mobile to save space */
       .floating-audio-widget {
         bottom: 20px;
         right: 20px;
-        padding: 8px 12px;
+        padding: 8px;
+        border-radius: 50%;
+      }
+      .audio-details-wrap {
+        display: none;
       }
     }
   </style>
