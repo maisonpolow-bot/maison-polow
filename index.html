@@ -212,7 +212,7 @@
       transform: none;
     }
 
-    /* Custom Floating Audio Widget */
+    /* Custom Floating Audio Widget with Volume Slider */
     .floating-audio-widget {
       position: fixed;
       bottom: 30px;
@@ -220,11 +220,11 @@
       z-index: 9999;
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: rgba(27, 24, 22, 0.92);
+      gap: 12px;
+      background: rgba(27, 24, 22, 0.94);
       backdrop-filter: blur(12px);
       border: 1px solid var(--border-gold);
-      padding: 8px 16px 8px 12px;
+      padding: 10px 16px;
       border-radius: 50px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(197, 155, 39, 0.15);
       transition: transform 0.25s ease, border-color 0.25s ease;
@@ -248,6 +248,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
       outline: none;
+      flex-shrink: 0;
     }
 
     .audio-toggle-btn:hover {
@@ -261,22 +262,68 @@
       fill: currentColor;
     }
 
-    .audio-info-text {
+    .audio-details-wrap {
       display: flex;
       flex-direction: column;
-      font-size: 0.75rem;
-      line-height: 1.2;
+      gap: 4px;
     }
 
-    .audio-info-text span:first-child {
+    .audio-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.75rem;
+    }
+
+    .audio-info-row span:first-child {
       font-weight: 700;
       color: var(--cream);
       letter-spacing: 0.5px;
     }
 
-    .audio-info-text span:last-child {
+    .audio-info-row span:last-child {
       color: var(--gold);
       font-size: 0.68rem;
+    }
+
+    .volume-slider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .volume-slider-wrap svg {
+      width: 12px;
+      height: 12px;
+      fill: var(--cream-muted);
+      flex-shrink: 0;
+    }
+
+    .volume-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 80px;
+      height: 4px;
+      border-radius: 2px;
+      background: #3D3530;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+
+    .volume-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.3);
     }
 
     @keyframes pulseSpin {
@@ -1330,6 +1377,7 @@
       .floating-audio-widget {
         bottom: 20px;
         right: 20px;
+        padding: 8px 12px;
       }
     }
   </style>
@@ -1362,21 +1410,30 @@
     </nav>
   </header>
 
-  <!-- Floating Custom Audio Control Widget -->
+  <!-- Floating Custom Audio Control Widget with Volume Slider -->
   <div class="floating-audio-widget" id="floatingAudioWidget" role="region" aria-label="Audio Controls">
     <audio id="bgAudio" loop preload="auto">
       <source src="assets/Website-مزون بربری.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
-    <button type="button" class="audio-toggle-btn" id="audioToggleBtn" aria-label="Play or Mute Audio" title="Play / Mute Sound">
+    
+    <button type="button" class="audio-toggle-btn" id="audioToggleBtn" aria-label="Play or Pause Audio" title="Play / Pause Sound">
       <!-- Play Icon SVG -->
       <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      <!-- Mute/Pause Icon SVG (hidden by default) -->
+      <!-- Pause Icon SVG (hidden by default) -->
       <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
-    <div class="audio-info-text">
-      <span id="audioStatusText">Atelier Sound</span>
-      <span id="audioSubText">Click to Play</span>
+
+    <div class="audio-details-wrap">
+      <div class="audio-info-row">
+        <span id="audioStatusText">Atelier Sound</span>
+        <span id="audioSubText">Click to Play</span>
+      </div>
+      <div class="volume-slider-wrap">
+        <!-- Speaker Icon -->
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+        <input type="range" min="0" max="1" step="0.05" value="0.5" class="volume-slider" id="volumeSlider" aria-label="Volume Slider" title="Adjust Volume">
+      </div>
     </div>
   </div>
 
@@ -2049,24 +2106,25 @@
   <!-- JavaScript -->
   <script>
     (function() {
-      // Custom Floating Audio Player Control Logic
+      // Custom Floating Audio Player with Volume Control Logic
       const bgAudio = document.getElementById('bgAudio');
       const audioToggleBtn = document.getElementById('audioToggleBtn');
       const playIcon = document.getElementById('playIcon');
       const pauseIcon = document.getElementById('pauseIcon');
       const audioStatusText = document.getElementById('audioStatusText');
       const audioSubText = document.getElementById('audioSubText');
+      const volumeSlider = document.getElementById('volumeSlider');
 
       if (bgAudio && audioToggleBtn) {
-        bgAudio.volume = 0.5; // Comfortable background level
+        bgAudio.volume = 0.5; // Default 50% volume
 
         function updateAudioUI(isPlaying) {
           if (isPlaying) {
             playIcon.style.display = 'none';
             pauseIcon.style.display = 'block';
             audioToggleBtn.classList.add('playing');
-            audioStatusText.textContent = 'Playing Saffron Track';
-            audioSubText.textContent = 'Click to Mute';
+            audioStatusText.textContent = 'Atelier Sound';
+            audioSubText.textContent = 'Click to Pause';
           } else {
             playIcon.style.display = 'block';
             pauseIcon.style.display = 'none';
@@ -2090,7 +2148,13 @@
           }
         });
 
-        // First user interaction auto-play helper to satisfy browser restrictions
+        if (volumeSlider) {
+          volumeSlider.addEventListener('input', (e) => {
+            bgAudio.volume = e.target.value;
+          });
+        }
+
+        // First user interaction auto-start handler
         const autoStartOnFirstInteraction = () => {
           bgAudio.play().then(() => {
             updateAudioUI(true);
