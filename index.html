@@ -212,7 +212,7 @@
       transform: none;
     }
 
-    /* Custom Floating Audio Widget with Volume Slider */
+    /* Custom Floating Audio Widget */
     .floating-audio-widget {
       position: fixed;
       bottom: 30px;
@@ -268,23 +268,11 @@
       gap: 4px;
     }
 
-    .audio-info-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
+    .audio-title {
       font-size: 0.75rem;
-    }
-
-    .audio-info-row span:first-child {
       font-weight: 700;
       color: var(--cream);
       letter-spacing: 0.5px;
-    }
-
-    .audio-info-row span:last-child {
-      color: var(--gold);
-      font-size: 0.68rem;
     }
 
     .volume-slider-wrap {
@@ -1410,7 +1398,7 @@
     </nav>
   </header>
 
-  <!-- Floating Custom Audio Control Widget with Volume Slider -->
+  <!-- Floating Custom Audio Control Widget -->
   <div class="floating-audio-widget" id="floatingAudioWidget" role="region" aria-label="Audio Controls">
     <audio id="bgAudio" loop preload="auto">
       <source src="assets/Website-مزون بربری.mp3" type="audio/mpeg">
@@ -1425,10 +1413,7 @@
     </button>
 
     <div class="audio-details-wrap">
-      <div class="audio-info-row">
-        <span id="audioStatusText">Atelier Sound</span>
-        <span id="audioSubText">Click to Play</span>
-      </div>
+      <div class="audio-title">Atelier Sound</div>
       <div class="volume-slider-wrap">
         <!-- Speaker Icon -->
         <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
@@ -2111,8 +2096,6 @@
       const audioToggleBtn = document.getElementById('audioToggleBtn');
       const playIcon = document.getElementById('playIcon');
       const pauseIcon = document.getElementById('pauseIcon');
-      const audioStatusText = document.getElementById('audioStatusText');
-      const audioSubText = document.getElementById('audioSubText');
       const volumeSlider = document.getElementById('volumeSlider');
 
       if (bgAudio && audioToggleBtn) {
@@ -2123,14 +2106,10 @@
             playIcon.style.display = 'none';
             pauseIcon.style.display = 'block';
             audioToggleBtn.classList.add('playing');
-            audioStatusText.textContent = 'Atelier Sound';
-            audioSubText.textContent = 'Click to Pause';
           } else {
             playIcon.style.display = 'block';
             pauseIcon.style.display = 'none';
             audioToggleBtn.classList.remove('playing');
-            audioStatusText.textContent = 'Atelier Sound';
-            audioSubText.textContent = 'Click to Play';
           }
         }
 
