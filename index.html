@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maison Polow | Persian Rice Atelier • Delhi NCR</title>
-  <meta name="description" content="Aromatic saffron grains, golden crispy tahdig, and heirloom Persian rice ateliers. Discover Delhi NCR's premier Persian rice experience.">
-  
+  <title>Maison Barbari | Artisanal Persian Bakehouse • Delhi NCR</title>
+  <meta name="description" content="Slow-fermented, stone-baked Persian flatbreads & curated mezze. Discover Delhi NCR's crispiest, 24-hour cold-fermented Nan-e Barbari.">
+
   <!-- Favicon & Brand Icons -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231B1816'/%3E%3Ccircle cx='50' cy='50' r='43' stroke='%23C59B27' stroke-width='1.5' fill='none'/%3E%3Ctext x='50' y='61' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F4EFEA' text-anchor='middle'%3EMP%3E%3C/text%3E%3C/svg%3E">
-  <meta name="theme-color" content="#12100E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23A84832'/%3E%3Ccircle cx='50' cy='50' r='43' stroke='%23DDA242' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='50' cy='50' r='40' stroke='%23FBF8F1' stroke-width='0.75' stroke-dasharray='1.5 1.5' fill='none'/%3E%3Ctext x='50' y='61' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23FBF8F1' text-anchor='middle'%3EMB%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <meta name="theme-color" content="#FBF8F1">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #12100E;
-      --bg-card: #1B1816;
-      --bg-card-hover: #24201D;
-      --emerald: #1B3B2B;
-      --emerald-light: #2A5A42;
-      --gold: #C59B27;
-      --gold-light: #E0BA51;
-      --gold-subtle: rgba(197, 155, 39, 0.15);
-      --cream: #F5EFEB;
-      --cream-muted: #D5CEC7;
+      --terracotta: #A84832;
+      --terracotta-dark: #843320;
+      --saffron: #DDA242;
+      --saffron-subtle: rgba(221, 162, 66, 0.15);
+      --linen: #FBF8F1;
+      --linen-card: #FFFFFF;
       --charcoal: #1C1917;
-      --border-gold: rgba(197, 155, 39, 0.3);
+      --charcoal-soft: #292524;
+      --gray-muted: #78716C;
+      --border-color: rgba(168, 72, 50, 0.16);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
@@ -39,33 +39,25 @@
       padding: 0;
     }
 
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
     html {
       scroll-behavior: smooth;
     }
 
+    /* Prevent sticky header from overlapping scrolled section targets */
     section, footer, #waitlist {
       scroll-margin-top: 86px;
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--cream);
+      background-color: var(--linen);
+      color: var(--charcoal);
       font-family: var(--font-sans);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    body.modal-open {
-      overflow: hidden !important;
-      position: fixed;
-      width: 100%;
-    }
-
+    /* Headings */
     h1, h2, h3, .serif {
       font-family: var(--font-serif);
       font-weight: 700;
@@ -79,11 +71,11 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--gold);
-      background-color: var(--gold-subtle);
+      color: var(--terracotta);
+      background-color: var(--saffron-subtle);
       padding: 6px 14px;
       border-radius: 50px;
-      border: 1px solid var(--border-gold);
+      border: 1px solid rgba(221, 162, 66, 0.35);
       margin-bottom: 1rem;
     }
 
@@ -92,14 +84,13 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(18, 16, 14, 0.94);
+      background: rgba(251, 248, 241, 0.94);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-color);
       padding: 0.85rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
     }
 
     .brand-logo-wrap {
@@ -129,17 +120,16 @@
     }
 
     .nav-logo-button:focus-visible {
-      box-shadow: 0 0 0 3px var(--gold);
+      box-shadow: 0 0 0 3px var(--terracotta);
     }
 
     .nav-logo-img {
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      box-shadow: 0 2px 12px rgba(197, 155, 39, 0.35);
+      box-shadow: 0 2px 8px rgba(168, 72, 50, 0.25);
       object-fit: cover;
       display: block;
-      border: 1px solid var(--gold);
       pointer-events: none;
     }
 
@@ -152,28 +142,28 @@
       font-family: var(--font-serif);
       font-size: 1.5rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--cream);
+      letter-spacing: 1px;
+      color: var(--charcoal);
     }
 
     .brand-title span:last-child {
       font-size: 0.65rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: var(--gold);
+      letter-spacing: 2px;
+      color: var(--terracotta);
     }
 
     nav ul {
       display: flex;
       list-style: none;
-      gap: 1.5rem;
+      gap: 1.25rem;
       align-items: center;
     }
 
     nav a {
       text-decoration: none;
-      color: var(--cream-muted);
+      color: var(--charcoal-soft);
       font-size: 0.85rem;
       font-weight: 500;
       transition: color 0.2s ease;
@@ -181,29 +171,28 @@
     }
 
     nav a:hover {
-      color: var(--gold);
+      color: var(--terracotta);
     }
 
     .btn-primary {
       display: inline-block;
-      background: var(--gold);
-      color: var(--bg-dark);
+      background: var(--terracotta);
+      color: #fff;
       padding: 11px 24px;
       font-size: 0.9rem;
-      font-weight: 700;
+      font-weight: 600;
       border-radius: 8px;
       text-decoration: none;
       transition: all 0.2s ease;
       border: none;
       cursor: pointer;
       text-align: center;
-      letter-spacing: 0.5px;
     }
 
     .btn-primary:hover {
-      background: var(--gold-light);
+      background: var(--terracotta-dark);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(197, 155, 39, 0.35);
+      box-shadow: 0 6px 14px rgba(168, 72, 50, 0.25);
     }
 
     .btn-primary:disabled {
@@ -217,8 +206,8 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-gold);
+      background: var(--linen-card);
+      border: 1px solid var(--border-color);
       padding: 6px 12px;
       border-radius: 30px;
       margin-left: 1rem;
@@ -230,82 +219,52 @@
 
     /* Hero Section */
     .hero {
-      padding: 6rem 2rem 5rem;
+      padding: 5rem 2rem 4rem;
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1.15fr 1fr;
       gap: 4rem;
       align-items: center;
-      position: relative;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(27,59,43,0.3) 0%, rgba(18,16,14,0) 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
     }
 
     .hero-content h1 {
-      font-size: clamp(2.6rem, 5vw, 4rem);
-      color: var(--cream);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--charcoal);
       margin-bottom: 1.25rem;
-      font-weight: 600;
-    }
-
-    .hero-content h1 span {
-      color: var(--gold);
-      font-style: italic;
     }
 
     .hero-content p {
       font-size: clamp(1rem, 2vw, 1.15rem);
-      color: var(--cream-muted);
+      color: var(--charcoal-soft);
       margin-bottom: 2rem;
       max-width: 520px;
     }
 
     .hero-card {
-      background: var(--bg-card);
+      background: #fff;
       border-radius: 28px;
       padding: 2.8rem 2.2rem;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
       text-align: center;
       position: relative;
-      z-index: 1;
     }
 
     .hero-logo-container {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       margin: 0 auto 1.5rem;
       position: relative;
       animation: gentleFloat 4s ease-in-out infinite;
       cursor: pointer;
-      border-radius: 50%;
-      border: 2px solid var(--gold);
-      padding: 4px;
-      background: var(--bg-dark);
-      box-shadow: 0 10px 30px rgba(197, 155, 39, 0.3);
     }
 
     .hero-logo-img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
+      box-shadow: 0 10px 25px rgba(168, 72, 50, 0.25);
       object-fit: cover;
       transition: transform 0.3s ease;
     }
@@ -319,7 +278,7 @@
       50% { transform: translateY(-7px); }
     }
 
-    /* Waitlist Form */
+    /* Waitlist & Form Styling */
     .waitlist-form {
       display: flex;
       flex-direction: column;
@@ -329,26 +288,21 @@
     }
 
     .waitlist-form input, .waitlist-form select {
-      padding: 13px 16px;
-      border: 1px solid var(--border-gold);
+      padding: 12px 16px;
+      border: 1px solid #D6D3D1;
       border-radius: 8px;
       font-family: inherit;
       font-size: 0.95rem;
       outline: none;
-      background: var(--bg-dark);
-      color: var(--cream);
+      background: var(--linen);
       transition: all 0.2s;
       width: 100%;
     }
 
-    .waitlist-form input::placeholder {
-      color: #8C847B;
-    }
-
     .waitlist-form input:focus, .waitlist-form select:focus {
-      border-color: var(--gold);
-      background: #1B1816;
-      box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.2);
+      border-color: var(--terracotta);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(168, 72, 50, 0.1);
     }
 
     .form-feedback {
@@ -363,24 +317,24 @@
 
     .form-feedback.success {
       display: block;
-      background: rgba(27, 59, 43, 0.8);
-      color: var(--cream);
-      border: 1px solid var(--gold);
+      background: rgba(221, 162, 66, 0.15);
+      color: var(--terracotta-dark);
+      border: 1px solid rgba(221, 162, 66, 0.45);
     }
 
     .form-feedback.error {
       display: block;
-      background: rgba(153, 27, 27, 0.8);
-      color: #FEE2E2;
+      background: #FEE2E2;
+      color: #991B1B;
       border: 1px solid #FCA5A5;
     }
 
     /* Craft Section */
     .craft-section {
-      background: var(--bg-card);
-      padding: 6rem 2rem;
-      border-top: 1px solid var(--border-gold);
-      border-bottom: 1px solid var(--border-gold);
+      background: #fff;
+      padding: 5rem 2rem;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .section-header {
@@ -390,13 +344,9 @@
     }
 
     .section-header h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--cream);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--charcoal);
       margin-bottom: 0.75rem;
-    }
-
-    .section-header p {
-      color: var(--cream-muted);
     }
 
     .grid-3 {
@@ -408,34 +358,51 @@
     }
 
     .craft-card {
-      background: var(--bg-dark);
-      padding: 2.5rem 2rem;
-      border-radius: 20px;
-      border: 1px solid var(--border-gold);
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      background: var(--linen);
+      padding: 2.2rem 2rem;
+      border-radius: 18px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s ease;
     }
 
     .craft-card:hover {
       transform: translateY(-4px);
-      border-color: var(--gold);
     }
 
     .craft-card h3 {
       font-size: 1.6rem;
       margin-bottom: 0.75rem;
-      color: var(--gold);
+      color: var(--terracotta);
     }
 
-    .craft-card p {
-      color: var(--cream-muted);
-      font-size: 0.92rem;
-    }
-
-    /* Sliders */
+    /* ============================================================
+        Hero SKU, Viennoiserie, Sandwich & Pizza Shared Sliders
+        ============================================================ */
     .menu-preview {
       max-width: 1200px;
-      margin: 6rem auto;
+      margin: 5rem auto;
       padding: 0 2rem;
+    }
+
+    .croissant-section, .pizza-section {
+      background: #FAF6EF;
+      padding: 5.5rem 2rem;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .sandwich-section {
+      background: #FFFFFF;
+      padding: 5.5rem 2rem;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .croissant-section .menu-preview,
+    .sandwich-section .menu-preview,
+    .pizza-section .menu-preview {
+      margin: 0 auto;
+      padding: 0;
     }
 
     .sku-slider-container {
@@ -487,52 +454,35 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
-      background: var(--bg-card);
+      background: var(--linen-card);
       border-radius: 28px;
       overflow: hidden;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.04);
       min-height: 480px;
     }
 
     .sku-media {
-      background: radial-gradient(circle at center, #1B3B2B 0%, #12100E 100%);
+      background: radial-gradient(circle at center, #2e2320 0%, #151110 100%);
       padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: var(--cream);
+      color: var(--linen);
       text-align: center;
       position: relative;
-    }
-
-    .sku-img-btn {
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: zoom-in;
-      display: block;
-      width: 100%;
-      max-width: 400px;
-      border-radius: 20px;
-      outline: none;
-      text-align: left;
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
-    }
-
-    .sku-img-btn:hover {
-      transform: scale(1.03);
     }
 
     .sku-img-wrapper {
       position: relative;
       width: 100%;
+      max-width: 400px;
       height: 330px;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-      border: 1px solid var(--gold);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(221, 162, 66, 0.25);
     }
 
     .sku-product-img {
@@ -545,14 +495,14 @@
       pointer-events: none;
     }
 
-    .sku-img-btn:hover .sku-product-img {
+    .sku-card:hover .sku-product-img {
       transform: scale(1.05);
     }
 
     .sku-img-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.6) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.55) 100%);
       pointer-events: none;
     }
 
@@ -560,33 +510,16 @@
       position: absolute;
       top: 14px;
       left: 14px;
-      background: rgba(18, 16, 14, 0.9);
+      background: rgba(28, 25, 23, 0.88);
       backdrop-filter: blur(8px);
-      color: var(--gold);
+      color: var(--saffron);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       padding: 5px 14px;
       border-radius: 50px;
-      border: 1px solid var(--border-gold);
-      z-index: 2;
-    }
-
-    .sku-hint-overlay {
-      position: absolute;
-      bottom: 14px;
-      right: 14px;
-      background: rgba(18, 16, 14, 0.9);
-      backdrop-filter: blur(8px);
-      color: var(--gold);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 50px;
-      border: 1px solid var(--border-gold);
+      border: 1px solid rgba(221, 162, 66, 0.35);
       z-index: 2;
     }
 
@@ -595,7 +528,7 @@
       font-family: var(--font-serif);
       font-size: 1.25rem;
       font-style: italic;
-      color: var(--cream-muted);
+      color: #E7E5E4;
       letter-spacing: 0.5px;
     }
 
@@ -609,20 +542,13 @@
     .sku-details h3 {
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       margin-bottom: 0.4rem;
-      color: var(--cream);
     }
 
     .sku-price {
       font-size: 1.35rem;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--terracotta);
       margin-bottom: 1.25rem;
-    }
-
-    .sku-details p {
-      color: var(--cream-muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
     }
 
     .ingredient-tags {
@@ -633,16 +559,16 @@
     }
 
     .ingredient-tags span {
-      background: var(--bg-dark);
-      padding: 6px 12px;
+      background: var(--linen);
+      padding: 5px 12px;
       border-radius: 6px;
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--cream-muted);
-      border: 1px solid var(--border-gold);
+      color: var(--charcoal-soft);
+      border: 1px solid var(--border-color);
     }
 
-    /* Slider Controls */
+    /* Slider Controls & Navigation */
     .slider-nav-bar {
       display: flex;
       align-items: center;
@@ -662,7 +588,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: rgba(197, 155, 39, 0.3);
+      background: rgba(168, 72, 50, 0.25);
       border: none;
       padding: 0;
       cursor: pointer;
@@ -672,7 +598,7 @@
     .slider-dot.active {
       width: 28px;
       border-radius: 20px;
-      background: var(--gold);
+      background: var(--terracotta);
     }
 
     .slider-arrows {
@@ -684,22 +610,22 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: var(--bg-card);
-      border: 1px solid var(--border-gold);
-      color: var(--cream);
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      color: var(--charcoal);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       transition: all 0.25s ease;
       outline: none;
     }
 
     .slider-btn:hover {
-      background: var(--gold);
-      color: var(--bg-dark);
-      border-color: var(--gold);
+      background: var(--terracotta);
+      color: #FFFFFF;
+      border-color: var(--terracotta);
       transform: translateY(-2px);
     }
 
@@ -709,14 +635,15 @@
       fill: currentColor;
     }
 
-    /* Emblem Section */
+    /* ============================================================
+        Emblem Crest Story Section
+        ============================================================ */
     .emblem-section {
-      background: var(--bg-card);
+      background: #FFFFFF;
       padding: 6rem 2rem;
-      border-top: 1px solid var(--border-gold);
-      border-bottom: 1px solid var(--border-gold);
-      width: 100%;
-      overflow: hidden;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
     }
 
     .emblem-wrap {
@@ -726,21 +653,18 @@
       grid-template-columns: 1fr 1.15fr;
       gap: 4.5rem;
       align-items: center;
-      width: 100%;
     }
 
     .emblem-artwork-container {
       position: relative;
-      background: radial-gradient(circle at center, #1B3B2B 0%, #12100E 100%);
+      background: radial-gradient(circle at center, #FBF8F1 0%, #EFE8DC 100%);
       border-radius: 28px;
       padding: 2.5rem;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(221, 162, 66, 0.35);
+      box-shadow: 0 20px 45px rgba(168, 72, 50, 0.08);
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      max-width: 100%;
     }
 
     .emblem-zoom-button {
@@ -760,13 +684,17 @@
       transform: scale(1.03);
     }
 
+    .emblem-zoom-button:focus-visible {
+      box-shadow: 0 0 0 4px var(--terracotta);
+    }
+
     .emblem-artwork-frame {
       width: 100%;
       aspect-ratio: 1 / 1;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-      border: 2px solid var(--gold);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+      border: 2px solid rgba(168, 72, 50, 0.2);
       background: #FAF7F0;
       position: relative;
     }
@@ -783,33 +711,34 @@
       position: absolute;
       bottom: 14px;
       right: 14px;
-      background: rgba(18, 16, 14, 0.9);
+      background: rgba(28, 25, 23, 0.85);
       backdrop-filter: blur(8px);
-      color: var(--gold);
+      color: var(--saffron);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
       padding: 5px 12px;
       border-radius: 50px;
-      border: 1px solid var(--border-gold);
+      border: 1px solid rgba(221, 162, 66, 0.35);
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
     }
 
-    .emblem-story-content {
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
+    .emblem-zoom-button:hover .emblem-hint-overlay {
+      opacity: 1;
     }
 
     .emblem-story-content h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--cream);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--charcoal);
       margin-bottom: 0.75rem;
+      line-height: 1.15;
     }
 
     .emblem-intro {
       font-size: 1.05rem;
-      color: var(--cream-muted);
+      color: var(--charcoal-soft);
       margin-bottom: 2rem;
       line-height: 1.7;
     }
@@ -818,40 +747,167 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
-      width: 100%;
     }
 
     .emblem-pillar-card {
-      background: var(--bg-dark);
-      padding: 1.5rem;
+      background: var(--linen);
+      padding: 1.4rem 1.3rem;
       border-radius: 14px;
-      border-left: 3px solid var(--gold);
-      border-top: 1px solid var(--border-gold);
-      border-right: 1px solid var(--border-gold);
-      border-bottom: 1px solid var(--border-gold);
-      word-break: break-word;
+      border-left: 3px solid var(--terracotta);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .emblem-pillar-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(168, 72, 50, 0.08);
     }
 
     .emblem-pillar-card h4 {
       font-size: 1.05rem;
-      color: var(--gold);
+      color: var(--terracotta);
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .emblem-pillar-card p {
       font-size: 0.85rem;
-      color: var(--cream-muted);
+      color: var(--charcoal-soft);
       line-height: 1.5;
     }
 
-    /* Careers */
-    .careers-section {
-      background: var(--bg-dark);
+    .emblem-quote-banner {
+      margin-top: 2rem;
+      padding: 1.25rem 1.6rem;
+      background: rgba(221, 162, 66, 0.12);
+      border-radius: 12px;
+      border: 1px dashed rgba(221, 162, 66, 0.5);
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+        Persian - French Drinks & Beverages Showcase Section
+        ============================================================ */
+    .drinks-section {
+      background: #FAF6EF;
       padding: 6rem 2rem;
-      border-top: 1px solid var(--border-gold);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .drinks-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .drinks-hero-media {
+      position: relative;
+      background: radial-gradient(circle at center, #FBF8F1 0%, #EFE8DC 100%);
+      border-radius: 28px;
+      padding: 1.5rem;
+      border: 1px solid rgba(221, 162, 66, 0.35);
+      box-shadow: 0 20px 45px rgba(168, 72, 50, 0.08);
+      margin-bottom: 4rem;
+    }
+
+    .drinks-media-frame {
+      display: block;
       width: 100%;
+      border-radius: 20px;
       overflow: hidden;
+      position: relative;
+      user-select: none;
+    }
+
+    .drinks-hero-img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      pointer-events: none;
+    }
+
+    .drinks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .drink-card {
+      background: var(--linen-card);
+      padding: 2.2rem 1.8rem;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .drink-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(168, 72, 50, 0.08);
+      border-color: rgba(168, 72, 50, 0.3);
+    }
+
+    .drink-card-top .drink-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .drink-card h3 {
+      font-size: 1.45rem;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .drink-card p {
+      font-size: 0.9rem;
+      color: var(--charcoal-soft);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .drink-flavor-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .drink-flavor-notes span {
+      background: var(--linen);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--charcoal-soft);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Careers Section */
+    .careers-section {
+      background: #F4EFE6;
+      padding: 5rem 2rem;
+      border-top: 1px solid var(--border-color);
     }
 
     .careers-wrap {
@@ -860,13 +916,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3.5rem;
-      width: 100%;
     }
 
-    .careers-wrap p {
-      color: var(--cream-muted);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+    .careers-wrap h2 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin-bottom: 1rem;
     }
 
     .roles-list {
@@ -877,44 +931,36 @@
     }
 
     .role-item {
-      background: var(--bg-card);
+      background: #fff;
       padding: 1.25rem;
       border-radius: 12px;
-      border-left: 4px solid var(--gold);
-      border-top: 1px solid var(--border-gold);
-      border-right: 1px solid var(--border-gold);
-      border-bottom: 1px solid var(--border-gold);
+      border-left: 4px solid var(--terracotta);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
     }
 
     .role-item h4 {
       font-size: 1.1rem;
-      color: var(--cream);
+      color: var(--charcoal);
       margin-bottom: 4px;
     }
 
     .role-item p {
       font-size: 0.85rem;
-      color: var(--cream-muted);
-      margin-bottom: 0;
+      color: var(--gray-muted);
     }
 
     .hiring-box {
-      background: var(--bg-card);
+      background: #fff;
       padding: 2.5rem;
       border-radius: 20px;
-      border: 1px solid var(--border-gold);
-      width: 100%;
-      max-width: 100%;
+      border: 1px solid var(--border-color);
     }
 
     /* Footer */
     footer {
-      background: #0D0B0A;
-      color: var(--cream);
+      background: var(--charcoal);
+      color: var(--linen);
       padding: 4.5rem 2rem 2.5rem;
-      border-top: 1px solid var(--border-gold);
-      width: 100%;
-      overflow: hidden;
     }
 
     .footer-inner {
@@ -924,7 +970,6 @@
       grid-template-columns: 2.2fr 1fr 1fr 1.3fr;
       gap: 3rem;
       margin-bottom: 3.5rem;
-      width: 100%;
     }
 
     .footer-brand-wrap {
@@ -944,6 +989,16 @@
       text-align: left;
       outline: none;
       width: fit-content;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .footer-emblem-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .footer-emblem-btn:focus-visible {
+      box-shadow: 0 0 0 3px var(--saffron);
+      border-radius: 12px;
     }
 
     .footer-emblem-img {
@@ -951,18 +1006,47 @@
       height: 72px;
       border-radius: 14px;
       object-fit: cover;
-      border: 1.5px solid var(--gold);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      border: 1.5px solid rgba(221, 162, 66, 0.45);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       background: #FAF7F0;
       display: block;
       flex-shrink: 0;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .footer-emblem-btn:hover .footer-emblem-img {
+      border-color: var(--saffron);
+      box-shadow: 0 10px 24px rgba(221, 162, 66, 0.25);
+    }
+
+    .footer-brand-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-brand-title span:first-child {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+
+    .footer-brand-title span:last-child {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--saffron);
+      margin-top: 4px;
     }
 
     .footer-col h4 {
       font-family: var(--font-serif);
       font-size: 1.4rem;
       margin-bottom: 1.2rem;
-      color: var(--gold);
+      color: var(--saffron);
     }
 
     .footer-col ul {
@@ -973,16 +1057,17 @@
     }
 
     .footer-col a {
-      color: var(--cream-muted);
+      color: #D6D3D1;
       text-decoration: none;
       font-size: 0.88rem;
       transition: color 0.2s;
     }
 
     .footer-col a:hover {
-      color: var(--gold);
+      color: var(--saffron);
     }
 
+    /* Social Icons Styling */
     .social-links-wrap {
       display: flex;
       align-items: center;
@@ -997,50 +1082,58 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(197, 155, 39, 0.1);
-      border: 1px solid var(--border-gold);
-      color: var(--gold);
-      text-decoration: none;
+      background: rgba(251, 248, 241, 0.08);
+      border: 1px solid rgba(221, 162, 66, 0.3);
+      color: var(--saffron);
       transition: all 0.25s ease;
-    }
-
-    .social-icon-btn:hover {
-      background: rgba(197, 155, 39, 0.3);
-      border-color: var(--gold);
-      color: var(--gold-light);
-      transform: translateY(-2px);
+      text-decoration: none;
     }
 
     .social-icon-btn svg {
       width: 20px;
       height: 20px;
       fill: currentColor;
+      transition: transform 0.25s ease;
+    }
+
+    .social-icon-btn:hover {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(168, 72, 50, 0.35);
+    }
+
+    .social-icon-btn:hover svg {
+      transform: scale(1.1);
     }
 
     .legal-bar {
       max-width: 1200px;
       margin: 0 auto;
       padding-top: 2rem;
-      border-top: 1px solid rgba(197, 155, 39, 0.15);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 0.8rem;
-      color: #8C847B;
-      width: 100%;
+      color: #A8A29E;
     }
 
-    /* Mobile-Optimized Modal / Popup & Zoom */
+    /* ============================================================
+        Interactive Logo Zoom Modal (Lightbox)
+        ============================================================ */
     .logo-modal-overlay {
       position: fixed;
       inset: 0;
       z-index: 99999;
-      background: rgba(15, 12, 11, 0.92);
+      background: rgba(15, 12, 11, 0.88);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: 1.5rem;
     }
 
     .logo-modal-overlay.active {
@@ -1053,219 +1146,519 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      max-width: 90vw;
       width: 100%;
-      max-width: 440px;
+      opacity: 1;
+      transform: none;
+      animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    @keyframes modalPop {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     .modal-logo-wrapper {
-      width: 100%;
-      height: 60vh;
-      max-height: 420px;
-      border-radius: 20px;
-      background: #1B1816;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 0 2px var(--gold);
+      width: min(380px, 80vw);
+      height: min(380px, 80vw);
+      border-radius: 24px;
+      background: #FAF7F0;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(221, 162, 66, 0.6);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      cursor: zoom-in;
+      position: relative;
+      flex-shrink: 0;
     }
 
     .modal-logo-img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      object-position: center;
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      display: block;
+      background-color: #FAF7F0;
     }
 
-    .modal-logo-wrapper.zoomed .modal-logo-img {
-      transform: scale(1.5);
-      cursor: zoom-out;
-    }
-
-    .modal-caption {
-      margin-top: 0.85rem;
-      font-family: var(--font-sans);
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--cream);
+    .logo-modal-caption {
+      margin-top: 1.25rem;
       text-align: center;
-      letter-spacing: 0.5px;
-      padding: 0 1rem;
+      color: var(--linen);
+    }
+
+    .logo-modal-caption h3 {
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      color: #FFFFFF;
+      font-family: var(--font-serif);
+    }
+
+    .logo-modal-caption p {
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-top: 4px;
     }
 
     .logo-modal-close {
       position: absolute;
-      top: -12px;
-      right: -12px;
-      width: 38px;
-      height: 38px;
+      top: -14px;
+      right: max(calc(50% - 190px - 14px), 5px);
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: #FFFFFF;
-      border: 1px solid var(--border-gold);
+      border: 1px solid var(--border-color);
       color: var(--charcoal);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      line-height: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
       z-index: 10;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.2s;
     }
 
     .logo-modal-close:hover {
-      background: var(--gold);
+      background: var(--terracotta);
+      color: #fff;
+      transform: scale(1.08);
     }
 
-    /* Mobile Responsive Breakpoints & Center Alignment */
+    /* ============================================================
+        Responsive Design & Standard Tablet/Mobile Alignments
+        ============================================================ */
     @media (max-width: 900px) {
+      .hero, .sku-card, .emblem-wrap, .careers-wrap, .grid-3, .drinks-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .emblem-pillars {
+        grid-template-columns: 1fr;
+      }
+      nav ul {
+        display: none;
+      }
+      .sku-img-wrapper {
+        height: 250px;
+      }
+      .sku-card {
+        min-height: auto;
+      }
+      .sku-details {
+        padding: 2.2rem 1.5rem;
+      }
+      .hero {
+        padding: 3rem 1.25rem;
+      }
+      .hero-card {
+        padding: 2rem 1.25rem;
+      }
+      .emblem-artwork-container, .drinks-hero-media {
+        padding: 1.25rem;
+      }
+    }
+
+    /* Standard Portrait Mobile Optimization (<= 768px) */
+    @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        text-align: center;
+        padding: 0.85rem 1.25rem;
+        justify-content: center;
       }
       .brand-logo-wrap {
-        flex-direction: column;
-        gap: 8px;
-        align-items: center;
+        justify-content: center;
         text-align: center;
       }
       .brand-title {
         align-items: center;
         text-align: center;
       }
+
       .hero {
-        padding: 3rem 1rem 2.5rem;
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+        padding: 3rem 1.25rem;
         text-align: center;
       }
       .hero-content {
-        text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-      }
-      .hero-content h1 {
-        font-size: 2.2rem;
+        text-align: center;
       }
       .hero-content p {
         margin-left: auto;
         margin-right: auto;
       }
+      .hero-content .btn-primary {
+        width: 100%;
+        max-width: 320px;
+      }
+
       .hero-card {
         text-align: center;
       }
       .waitlist-form {
         text-align: center;
       }
-      .sku-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
+      .waitlist-form input, 
+      .waitlist-form select {
+        text-align: center;
+        text-align-last: center;
+      }
+      .btn-primary {
+        width: 100%;
+      }
+
+      .craft-section, .menu-preview, .emblem-section, .careers-section, .croissant-section, .sandwich-section, .pizza-section, .drinks-section {
+        padding: 3.5rem 1.25rem;
+      }
+      .section-header {
+        margin-bottom: 2.5rem;
         text-align: center;
       }
-      .sku-media {
-        padding: 2rem 1rem;
+
+      .craft-card, .drink-card {
+        text-align: center;
       }
+
       .sku-details {
-        padding: 2rem 1.5rem;
-        text-align: center;
         align-items: center;
-      }
-      .sku-details h3 {
-        text-align: center;
-      }
-      .sku-price {
         text-align: center;
       }
       .sku-details .badge {
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto 0.75rem auto;
       }
-      .ingredient-tags {
+      .ingredient-tags, .drink-flavor-notes {
         justify-content: center;
       }
-      .sku-img-wrapper {
-        height: 260px;
-      }
-      .section-header {
-        text-align: center;
-        padding: 0 1rem;
-      }
-      .craft-section, .emblem-section, .careers-section, footer, .menu-preview {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        text-align: center;
-      }
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-      .craft-card {
-        text-align: center;
-      }
-      .emblem-wrap {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        text-align: center;
-      }
+
       .emblem-story-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
       }
       .emblem-pillars {
-        grid-template-columns: 1fr;
-        text-align: center;
+        width: 100%;
       }
       .emblem-pillar-card {
         text-align: center;
+        border-left: 1px solid var(--border-color);
+        border-top: 3px solid var(--terracotta);
       }
-      .careers-wrap {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+      .emblem-pillar-card h4 {
+        justify-content: center;
+      }
+      .emblem-quote-banner {
         text-align: center;
       }
-      .careers-wrap > div:first-child {
+
+      .careers-wrap {
         text-align: center;
       }
       .role-item {
         text-align: center;
+        border-left: 1px solid #E7E5E4;
+        border-top: 3px solid var(--terracotta);
       }
       .hiring-box {
+        padding: 1.75rem 1.25rem;
+        text-align: center;
+      }
+
+      footer {
+        padding: 3.5rem 1.25rem 2rem;
         text-align: center;
       }
       .footer-inner {
         grid-template-columns: 1fr;
         gap: 2.5rem;
-        text-align: center;
+        margin-bottom: 2.5rem;
       }
       .footer-brand-wrap {
         align-items: center;
         text-align: center;
       }
       .footer-emblem-btn {
-        margin: 0 auto;
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+        gap: 10px;
+      }
+      .footer-brand-title {
+        align-items: center;
+        text-align: center;
+      }
+      .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-col ul {
         align-items: center;
         text-align: center;
       }
       .social-links-wrap {
         justify-content: center;
+        margin-top: 0.75rem;
       }
       .legal-bar {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.85rem;
         text-align: center;
+      }
+    }
+
+    /* ============================================================
+        MOBILE LANDSCAPE ORIENTATION OPTIMIZATION
+        (Targets phones & small phablets held horizontally)
+        ============================================================ */
+    @media (max-height: 520px) and (orientation: landscape) {
+      header {
+        padding: 0.4rem 1.5rem;
+      }
+      .nav-logo-img {
+        width: 36px;
+        height: 36px;
+      }
+      .brand-title span:first-child {
+        font-size: 1.15rem;
+      }
+      .brand-title span:last-child {
+        font-size: 0.55rem;
       }
       nav ul {
         display: none;
       }
+      section, footer, #waitlist {
+        scroll-margin-top: 56px;
+      }
+
+      .hero {
+        padding: 2rem 1.5rem;
+        gap: 2rem;
+        grid-template-columns: 1.1fr 1fr;
+        align-items: center;
+      }
+      .hero-content h1 {
+        font-size: 1.9rem;
+        margin-bottom: 0.6rem;
+      }
+      .hero-content p {
+        font-size: 0.88rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+      .hero-card {
+        padding: 1.4rem 1.2rem;
+        border-radius: 20px;
+      }
+      .hero-logo-container {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 0.6rem;
+      }
+      .hero-card h3 {
+        font-size: 1.25rem;
+      }
+      .hero-card p {
+        font-size: 0.78rem;
+      }
+      .waitlist-form {
+        gap: 8px;
+        margin-top: 0.75rem;
+      }
+      .waitlist-form input,
+      .waitlist-form select {
+        padding: 8px 12px;
+        font-size: 0.82rem;
+      }
+      .btn-primary {
+        padding: 8px 18px;
+        font-size: 0.82rem;
+      }
+
+      .craft-section, .croissant-section, .sandwich-section, .pizza-section, .drinks-section, .emblem-section, .careers-section {
+        padding: 2.5rem 1.5rem;
+      }
+      .section-header {
+        margin-bottom: 1.8rem;
+      }
+      .section-header h2 {
+        font-size: 1.85rem;
+        margin-bottom: 0.4rem;
+      }
+      .section-header p {
+        font-size: 0.85rem;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+      .craft-card {
+        padding: 1.2rem 1rem;
+      }
+      .craft-card h3 {
+        font-size: 1.2rem;
+      }
+      .craft-card p {
+        font-size: 0.78rem;
+      }
+
+      .menu-preview {
+        margin: 2.5rem auto;
+      }
+      .sku-card {
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 1.2rem;
+        min-height: 310px;
+        border-radius: 20px;
+      }
+      .sku-media {
+        padding: 1.2rem;
+      }
+      .sku-img-wrapper {
+        max-width: 240px;
+        height: 180px;
+      }
+      .sku-quote {
+        margin-top: 0.6rem;
+        font-size: 0.95rem;
+      }
+      .sku-details {
+        padding: 1.2rem 1.5rem 1.2rem 0;
+      }
+      .sku-details h3 {
+        font-size: 1.35rem;
+      }
+      .sku-price {
+        font-size: 1.05rem;
+        margin-bottom: 0.6rem;
+      }
+      .sku-details p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+      }
+      .ingredient-tags {
+        margin: 0.8rem 0;
+        gap: 5px;
+      }
+      .ingredient-tags span {
+        padding: 3px 8px;
+        font-size: 0.72rem;
+      }
+
+      .emblem-wrap {
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 1.5rem;
+      }
+      .emblem-artwork-container {
+        padding: 1.2rem;
+      }
+      .emblem-artwork-frame {
+        max-width: 250px;
+        margin: 0 auto;
+      }
+      .emblem-story-content h2 {
+        font-size: 1.7rem;
+      }
+      .emblem-intro {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
+      .emblem-pillars {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+      .emblem-pillar-card {
+        padding: 0.8rem 0.9rem;
+      }
+      .emblem-pillar-card h4 {
+        font-size: 0.9rem;
+      }
+      .emblem-pillar-card p {
+        font-size: 0.75rem;
+      }
+      .emblem-quote-banner {
+        margin-top: 1rem;
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+      }
+
+      .drinks-hero-media {
+        padding: 0.8rem;
+        margin-bottom: 2rem;
+      }
+      .drinks-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+      }
+      .drink-card {
+        padding: 1.2rem;
+      }
+      .drink-card h3 {
+        font-size: 1.2rem;
+      }
+      .drink-card p {
+        font-size: 0.8rem;
+      }
+
+      .careers-wrap {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .hiring-box {
+        padding: 1.2rem;
+      }
+
+      footer {
+        padding: 2.5rem 1.5rem 1.5rem;
+      }
+      .footer-inner {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .footer-col h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+      }
+      .footer-col a, .footer-brand-wrap p {
+        font-size: 0.78rem;
+      }
+
       .logo-modal-overlay {
-        padding: 0.75rem;
+        padding: 0.5rem;
+      }
+      .logo-modal-container {
+        max-height: 94vh;
+        overflow-y: auto;
       }
       .modal-logo-wrapper {
-        height: 52vh;
-        max-height: 360px;
+        width: min(210px, 46vh);
+        height: min(210px, 46vh);
+        border-radius: 16px;
+      }
+      .logo-modal-caption {
+        margin-top: 0.5rem;
+      }
+      .logo-modal-caption h3 {
+        font-size: 1.2rem;
+      }
+      .logo-modal-caption p {
+        font-size: 0.7rem;
+      }
+      .logo-modal-close {
+        top: -6px;
+        right: max(calc(50% - 120px), 5px);
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
       }
     }
   </style>
@@ -1275,22 +1668,33 @@
   <!-- Navigation -->
   <header>
     <div class="brand-logo-wrap">
-      <button type="button" class="nav-logo-button" id="headerLogoBtn" aria-label="View enlarged Maison Polow emblem" title="Click to view emblem">
-        <img src="assets/logo.png" alt="Maison Polow Emblem" class="nav-logo-img" id="headerLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C59B27\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text></svg>';">
+      <button type="button" 
+              class="nav-logo-button" 
+              id="headerLogoBtn" 
+              aria-label="View enlarged Maison Barbari logo" 
+              title="Click to view emblem">
+        <img src="assets/logo.png" 
+             alt="Maison Barbari Logo" 
+             class="nav-logo-img" 
+             id="headerLogoImg" 
+             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%23A84832\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23FBF8F1\' stroke-width=\'2\' fill=\'none\'/><circle cx=\'100\' cy=\'100\' r=\'84\' stroke=\'%23FBF8F1\' stroke-width=\'1\' stroke-dasharray=\'2 2\' fill=\'none\'/><path d=\'M100 40 C75 40 60 60 60 110 L140 110 C140 60 125 40 100 40 Z\' stroke=\'%23DDA242\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23FBF8F1\' text-anchor=\'middle\'>MB</text><text x=\'100\' y=\'170\' font-family=\'sans-serif\' font-size=\'13\' font-weight=\'bold\' fill=\'%23FBF8F1\' letter-spacing=\'4\' text-anchor=\'middle\'>BARBARI</text></svg>';">
       </button>
-      
+
       <a href="#" style="text-decoration: none; color: inherit;" class="brand-title">
-        <span>MAISON POLOW</span>
-        <span>Persian Rice Atelier</span>
+        <span>MAISON BARBARI</span>
+        <span>Artisanal Persian Bakehouse</span>
       </a>
     </div>
-    
+
     <nav>
       <ul>
         <li><a href="#heritage">The Heritage</a></li>
-        <li><a href="#signature">Signature Polows</a></li>
-        <li><a href="#emblem">Anatomy of Our Emblem</a></li>
-        <li><a href="#dishes">Signature Dishes</a></li>
+        <li><a href="#signature">Our Breads</a></li>
+        <li><a href="#emblem">The Crest</a></li>
+        <li><a href="#viennoiserie">Viennoiserie</a></li>
+        <li><a href="#sandwiches">Tehran Deli Sandwiches</a></li>
+        <li><a href="#pizzas">Persian Pizza</a></li>
+        <li><a href="#beverages">Beverages</a></li>
         <li><a href="#careers">Careers</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#waitlist" class="btn-primary">Reserve Tasting Box</a></li>
@@ -1310,22 +1714,25 @@
   <section class="hero">
     <div class="hero-content">
       <div class="badge">Delhi NCR • Launching Winter 2026</div>
-      <h1>Persian Soul. <span>A Place at Delhi’s Table.</span></h1>
-      <p>Aromatic saffron grains, jewel-like barberries, and prized golden <em>tahdig</em> crusts. Handcrafted daily in Delhi NCR where rice is celebrated as the absolute hero of the feast.</p>
+      <h1>The Ancient Hearth, Reimagined.</h1>
+      <p>Slow-fermented, stone-baked Persian flatbreads and curated mezze. Handcrafted daily in Delhi NCR for modern hosts, mindful eaters, and curious epicures.</p>
       <a href="#waitlist" class="btn-primary" style="padding: 14px 32px; font-size: 1rem;">Join The Private Tasting Drop</a>
     </div>
 
-    <!-- Waitlist Card -->
+    <!-- Waitlist / Tasting Drop Form Card -->
     <div class="hero-card" id="waitlist">
       <div class="hero-logo-container" id="heroLogoTrigger" title="Click to view emblem">
-        <img src="assets/logo.png" alt="Maison Polow Persian Rice Atelier" class="hero-logo-img" id="heroLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C59B27\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text></svg>';">
+        <img src="assets/logo.png" 
+             alt="Maison Barbari Artisanal Persian Bakehouse" 
+             class="hero-logo-img" 
+             id="heroLogoImg" 
+             onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%23A84832\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23FBF8F1\' stroke-width=\'2\' fill=\'none\'/><path d=\'M100 36 C70 36 55 58 55 110 L145 110 C145 58 130 36 100 36 Z\' stroke=\'%23DDA242\' stroke-width=\'2.5\' fill=\'none\'/><text x=\'100\' y=\'128\' font-family=\'Georgia,serif\' font-size=\'72\' font-weight=\'bold\' fill=\'%23FBF8F1\' text-anchor=\'middle\'>MB</text><text x=\'100\' y=\'168\' font-family=\'sans-serif\' font-size=\'14\' font-weight=\'bold\' fill=\'%23FBF8F1\' letter-spacing=\'5\' text-anchor=\'middle\'>BARBARI</text><circle cx=\'85\' cy=\'145\' r=\'3\' fill=\'%23DDA242\'/><circle cx=\'100\' cy=\'145\' r=\'3\' fill=\'%23FBF8F1\'/><circle cx=\'115\' cy=\'145\' r=\'3\' fill=\'%23DDA242\'/></svg>';">
       </div>
-      
-      <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--cream);">Join the First-Tasting Drop</h3>
-      <p style="font-size: 0.88rem; color: var(--cream-muted);">Be among the first 50 tables in South Delhi, Noida & Gurugram to experience royal Persian rice platters and warm Tahdig.</p>
-      
-      <form class="waitlist-form" id="waitlistForm">
-        <input type="hidden" name="form_type" value="waitlist">
+
+      <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Join the First-Tasting Drop</h3>
+      <p style="font-size: 0.88rem; color: var(--gray-muted);">Be among the first 50 tables in South Delhi, Noida & Gurugram to experience warm Nan-e Barbari straight from the hearth.</p>
+
+      <form class="waitlist-form" id="waitlistForm" onsubmit="return false;">
         <div id="waitlistInputFields" style="display: flex; flex-direction: column; gap: 12px;">
           <input type="text" name="full_name" placeholder="Your Full Name" required>
           <input type="tel" name="whatsapp" placeholder="WhatsApp Number" pattern="[0-9]{10,12}" title="Please enter a valid 10 to 12 digit phone number" required>
@@ -1346,306 +1753,206 @@
   <!-- Craft Pillars Section -->
   <section class="craft-section" id="heritage">
     <div class="section-header">
-      <div class="badge">The Persian Rice Philosophy</div>
-      <h2>Rice as the Centerpiece. Honored with Patience.</h2>
-      <p>We reject quick-boil shortcuts. Every grain of aged basmati is soaked, steamed, and bloomed in wild Sargol saffron to achieve celestial fluffiness.</p>
+      <div class="badge">The Persian Baking Philosophy</div>
+      <h2>Engineered for Flavour. Crafted for Digestion.</h2>
+      <p>We reject chemical baking improvers and rapid yeast spikes. Every loaf honors three centuries of Iranian hearth science.</p>
     </div>
 
     <div class="grid-3">
       <div class="craft-card">
-        <h3>Wild Sargol Saffron</h3>
-        <p>Pure hand-harvested red saffron threads bloomed in warm spring water, imparting a radiant golden hue and delicate floral aroma across every single long grain.</p>
+        <h3>24-Hour Fermentation</h3>
+        <p>Slow cold retardation breaks down complex starches and phytic acid. The result is a feather-light crumb that sits easily on the stomach without post-meal lethargy.</p>
       </div>
       <div class="craft-card">
-        <h3>The Golden Tahdig</h3>
-        <p>The prized crisp golden rice crust formed at the bottom of the heavy-bottomed pot—a textural masterpiece shared among honoured guests at the table.</p>
+        <h3>The "Roomal" Glaze</h3>
+        <p>Before entering the live stone hearth, every loaf is brushed with a scalding flour-water glaze that locks in internal moisture and blooms into a crackling bronze crust.</p>
       </div>
       <div class="craft-card">
-        <h3>Jeweled Garnishes</h3>
-        <p>Platters crowned with tart ruby barberries (<em>Zereshk</em>), slivered pistachios, almonds, and slow-braised meats that turn every meal into a celebration.</p>
+        <h3>Live Stone Firing</h3>
+        <p>Direct contact with blazing stone decks produces intense oven spring, hollow blister pockets, and toasted nigella and sesame aroma across every groove.</p>
       </div>
     </div>
   </section>
 
-  <!-- Signature Polow Carousel Showcase -->
+  <!-- Hero SKU Carousel Showcase -->
   <section class="menu-preview" id="signature">
     <div class="section-header">
-      <div class="badge">The Atelier Repertoire</div>
-      <h2>Heirloom Persian Rice Dishes</h2>
-      <p>Featuring all eight royal rice preparations crafted for sharing, from tangy barberry rice to baked saffron rice cakes.</p>
+      <div class="badge">The Four Imperial Hearth Breads</div>
+      <h2>Heirloom Persian Bread Craft</h2>
+      <p>Hand-stretched, fermented up to 24 hours, and fired on live fire and river stone beds.</p>
     </div>
 
     <div class="sku-slider-container" id="skuSliderContainer">
       <div class="sku-slider-track" id="skuSliderTrack">
-        
-        <!-- DISH 1: Zereshk Polow -->
+
+        <!-- SLIDE 1: Nan-e Barbari -->
         <div class="sku-slide active" data-slide="0">
           <div class="sku-card">
             <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Zereshk Polow" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Zereshk-Polow.png" alt="Zereshk Polow - Barberry Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Celebratory Classic</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Shimmering ruby barberries over fragrant saffron basmati."</p>
+              <div class="sku-img-wrapper">
+                <img 
+                  src="assets/barbari.png" 
+                  alt="Artisanal Nan-e Barbari freshly baked on stone hearth with sesame and nigella seeds" 
+                  class="sku-product-img" 
+                  loading="lazy" 
+                  onerror="this.onerror=null; this.src='https://images.pexels.com/photos/32965432/pexels-photo-32965432.jpeg?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Fresh from the Hearth</span>
+              </div>
+              <p class="sku-quote">"Crisp as a hearth loaf. Airy as a cloud."</p>
             </div>
 
             <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Hero Offering • 01 of 08</span>
-              <h3>Zereshk Polow (Barberry Rice)</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>Fluffy saffron-infused basmati rice layered and topped with tart, jewel-like red barberries gently sautéed in butter and sugar, traditionally served with tender braised or roasted chicken.</p>
-              
+              <span class="badge" style="width: fit-content;">Hero Offering • 01 of 04</span>
+              <h3>Nan-e Barbari Tradizionale</h3>
+              <div class="sku-price">₹280 • Single Artisanal Loaf (Serves 2–3)</div>
+              <p>Cold-fermented for 24 hours, longitudinal finger-fluted crumb, glazed with authentic <em>Roomal</em>, and encrusted with roasted white sesame and wild Iranian nigella seeds.</p>
+
               <div class="ingredient-tags">
-                <span>Aged Basmati</span>
-                <span>Wild Barberries (Zereshk)</span>
-                <span>Saffron Infusion</span>
-                <span>Pure Butter</span>
+                <span>High-Protein Wheat</span>
+                <span>Zero Preservatives</span>
+                <span>Wild White Sesame</span>
+                <span>Kalonji</span>
+                <span>Stone Fired</span>
               </div>
+
+              <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                📦 <strong>Delivery Integrity:</strong> Shipped in micro-perforated breathable kraft sleeves. Reheats to oven-fresh crispness on a dry pan in 3 minutes.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- DISH 2: Baghali Polow -->
+        <!-- SLIDE 2: Nan-e Lavaash -->
         <div class="sku-slide" data-slide="1">
           <div class="sku-card">
             <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Baghali Polow" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Baghali-Polow.png" alt="Baghali Polow - Dill and Fava Bean Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Spring Celebration</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Fresh garden dill and tender fava beans."</p>
+              <div class="sku-img-wrapper">
+                <img 
+                  src="assets/lavash.png" 
+                  alt="Paper-thin blistered Nan-e Lavash" 
+                  class="sku-product-img" 
+                  loading="lazy" 
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Clay Saj Fired</span>
+              </div>
+              <p class="sku-quote">"Paper-thin, toasted blister pockets, supple chew."</p>
             </div>
 
             <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Heritage Polow • 02 of 08</span>
-              <h3>Baghali Polow (Dill & Fava Bean Rice)</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>An aromatic rice dish with fresh chopped dill and tender fava beans, traditionally served at celebrations alongside slow-cooked lamb shanks (mahicheh) braised in rich onion broth.</p>
-              
+              <span class="badge" style="width: fit-content;">Heritage Flatbread • 02 of 04</span>
+              <h3>Nan-e Lavaash Heirlooms</h3>
+              <div class="sku-price">₹220 • Pack of 3 Large Sheets</div>
+              <p>The ancient unleavened Persian parchment bread. Hand-thrown ultra-thin over convex hot iron dome bells (Saj) to create fragrant leopard-spotted blister pockets that fold without tearing.</p>
+
               <div class="ingredient-tags">
-                <span>Basmati Rice</span>
-                <span>Fresh Dill</span>
-                <span>Fava Beans</span>
-                <span>Suggested: Lamb Shank</span>
+                <span>Stone-Ground Wheat</span>
+                <span>Low Hydration</span>
+                <span>Unleavened</span>
+                <span>Soft Rolling Crumb</span>
+                <span>Perfect with Mezze</span>
               </div>
+
+              <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                📦 <strong>Serving Recommendation:</strong> The ultimate vessel for walnut-feta Sabzi Khordan roll-ups, grilled skewers, and labneh.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- DISH 3: Adas Polow -->
-        <div class="sku-slide" data-slide="5">
-          <div class="sku-card">
-            <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Adas Polow" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Adas-Polow.png" alt="Adas Polow - Lentil Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Homestyle Comfort</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Earthy brown lentils, sweet raisins, and soft dates."</p>
-            </div>
-
-            <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Comfort Classic • 03 of 08</span>
-              <h3>Adas Polow (Lentil Rice)</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>A comforting combination of rice, lentils, sweet raisins, and dates, bringing together earthy proteins and natural sweetness in perfect harmony.</p>
-              
-              <div class="ingredient-tags">
-                <span>Brown Lentils</span>
-                <span>Sweet Dates</span>
-                <span>Raisins</span>
-                <span>Warm Spices</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DISH 4: Lubia Polow -->
-        <div class="sku-slide" data-slide="4">
-          <div class="sku-card">
-            <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Lubia Polow" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Lubia-Polow.png" alt="Lubia Polow - Spiced Green Bean & Beef Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Family Classic</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Tender green beans, spiced minced meat, and layered tomato aroma."</p>
-            </div>
-
-            <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Persian Heirloom • 04 of 08</span>
-              <h3>Lubia Polow (Green Bean & Minced Meat Rice)</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>A comforting, layered rice specialty made with tender green beans, succulent minced beef or lamb, aromatic tomato sofrito, sweet cinnamon, and Persian spices, crowned with a golden tahdig.</p>
-              
-              <div class="ingredient-tags">
-                <span>Green Beans</span>
-                <span>Minced Beef / Lamb</span>
-                <span>Tomato Sofrito</span>
-                <span>Cinnamon & Saffron</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DISH 5: Sabzi Polow -->
-        <div class="sku-slide" data-slide="5">
-          <div class="sku-card">
-            <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Sabzi Polow" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Sabzi-Polow.png" alt="Sabzi Polow - Herb Rice with Fish" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Festive Tradition</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"A fragrant garden of fresh green herbs and golden basmati."</p>
-            </div>
-
-            <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Nowruz Classic • 05 of 08</span>
-              <h3>Sabzi Polow (Persian Herb Rice)</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>An aromatic pilaf layered with an abundant garden mix of fresh cilantro, parsley, dill, chives, and garlic, gently steamed with aged basmati rice and enriched with pure butter.</p>
-              
-              <div class="ingredient-tags">
-                <span>Fresh Dill & Cilantro</span>
-                <span>Parsley & Chives</span>
-                <span>Aged Basmati</span>
-                <span>Pure Butter</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DISH 6: Saffron Polow -->
-        <div class="sku-slide" data-slide="6">
-          <div class="sku-card">
-            <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Saffron Polow" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Saffron-Polow.png" alt="Saffron Polow - Golden Saffron Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Atelier Signature</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Pure golden threads and fragrant butter steam."</p>
-            </div>
-
-            <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Royal Heritage • 06 of 08</span>
-              <h3>Saffron Polow (Golden Saffron Rice)</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>A regal presentation of extra-long-grain aged basmati rice infused with generous quantities of brewed Sargol saffron, layered with clarified butter to achieve a brilliant golden hue and unmatched aroma.</p>
-              
-              <div class="ingredient-tags">
-                <span>Sargol Saffron</span>
-                <span>Aged Basmati</span>
-                <span>Clarified Butter</span>
-                <span>Cardamom Note</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DISH 7: Shirin Polow -->
-        <div class="sku-slide" data-slide="3">
-          <div class="sku-card">
-            <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Shirin Polow" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Shirin-Polow.png" alt="Shirin Polow - Sweet Jeweled Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Royal Feast</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Pistachios, orange peel, and rosewater aroma."</p>
-            </div>
-
-            <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Wedding Tradition • 07 of 08</span>
-              <h3>Shirin Polow (Sweet Jeweled Rice)</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>A celebratory rice preparation with slivered pistachios, almonds, candied orange peel, carrots, and golden raisins, lightly scented with rosewater and saffron.</p>
-              
-              <div class="ingredient-tags">
-                <span>Slivered Pistachios</span>
-                <span>Candied Orange Peel</span>
-                <span>Rosewater</span>
-                <span>Golden Raisins</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DISH 8: Tahchin -->
+        <!-- SLIDE 3: Nan-e Sangak -->
         <div class="sku-slide" data-slide="2">
           <div class="sku-card">
             <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Tahchin" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Tahchin.png" alt="Tahchin - Saffron Rice Cake" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Baked Showpiece</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Crisp golden yogurt crust encasing saffron chicken."</p>
+              <div class="sku-img-wrapper">
+                <img 
+                  src="assets/sangak.png" 
+                  alt="Whole wheat Nan-e Sangak baked directly over red hot river pebbles" 
+                  class="sku-product-img" 
+                  loading="lazy" 
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">River Pebble Baked</span>
+              </div>
+              <p class="sku-quote">"The king of Persian whole wheat sourdoughs."</p>
             </div>
 
             <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Atelier Masterpiece • 08 of 08</span>
-              <h3>Tahchin (Saffron Rice Cake)</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>A rich, savoury rice cake made with basmati rice, Greek yogurt, egg yolks, and saffron, layered with tender spiced chicken or lamb and baked until the outer shell forms a thick golden crust.</p>
-              
+              <span class="badge" style="width: fit-content;">Whole Wheat Hearth • 03 of 04</span>
+              <h3>Nan-e Sangak Imperiale</h3>
+              <div class="sku-price">₹310 • Giant Hearth Sheet (Serves 3–4)</div>
+              <p>Baked traditionally on a sloped bed of scorched river stones (<em>Sangak</em> means 'little stone'). Very high hydration whole-wheat sourdough dotted with dimples from scorching pebbles and scattered with toasted sesame.</p>
+
               <div class="ingredient-tags">
-                <span>Yogurt & Egg Binding</span>
-                <span>Concentrated Saffron</span>
-                <span>Crisp Tahdig Shell</span>
-                <span>Tender Meat</span>
+                <span>100% Whole Grain</span>
+                <span>Natural Wild Yeast</span>
+                <span>River Stone Fired</span>
+                <span>High Fibre</span>
+                <span>Toasted Sesame</span>
               </div>
+
+              <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                📦 <strong>Delivery Integrity:</strong> Folded in breathable parchment. Intense nutty aroma with a complex, tangy sourdough finish.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 4: Nan-e Taftoon -->
+        <div class="sku-slide" data-slide="3">
+          <div class="sku-card">
+            <div class="sku-media">
+              <div class="sku-img-wrapper">
+                <img 
+                  src="assets/taftoon.png" 
+                  alt="Clay oven circular Nan-e Taftoon infused with saffron glaze" 
+                  class="sku-product-img" 
+                  loading="lazy" 
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=1000&q=80';">
+                <div class="sku-img-overlay"></div>
+                <span class="live-tag">Clay Tannur Fired</span>
+              </div>
+              <p class="sku-quote">"Golden saffron hue, warm cardamom kiss."</p>
+            </div>
+
+            <div class="sku-details">
+              <span class="badge" style="width: fit-content;">Clay Oven Round • 04 of 04</span>
+              <h3>Nan-e Taftoon Zafrani</h3>
+              <div class="sku-price">₹260 • Pack of 2 Hearth Rounds</div>
+              <p>A medium-thick circular yeast flatbread slapped against high-heat clay kiln walls. Dimpled with finger tines, scented with wild saffron infusion, and sprinkled with crushed nigella seeds.</p>
+
+              <div class="ingredient-tags">
+                <span>Persian Saffron Bloom</span>
+                <span>Clay Tannur Fired</span>
+                <span>Yogurt Fermented</span>
+                <span>Buttery Crumb</span>
+                <span>Nigella Infused</span>
+              </div>
+
+              <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                📦 <strong>Pairing Notes:</strong> The staple table flatbread of Iranian morning feasts with creamy clotted cream, wild honeys, and rich slow-braised stews.
+              </p>
             </div>
           </div>
         </div>
 
       </div>
 
-      <!-- Carousel Controls -->
+      <!-- Navigation Arrows & Dots -->
       <div class="slider-nav-bar">
-        <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Rice Carousel Navigation">
-          <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
-          <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
-          <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
-          <button class="slider-dot" data-index="3" aria-label="Slide 4"></button>
-          <button class="slider-dot" data-index="4" aria-label="Slide 5"></button>
-          <button class="slider-dot" data-index="5" aria-label="Slide 6"></button>
-          <button class="slider-dot" data-index="6" aria-label="Slide 7"></button>
-          <button class="slider-dot" data-index="7" aria-label="Slide 8"></button>
+        <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Bread Carousel Navigation">
+          <button class="slider-dot active" data-index="0" aria-label="Slide 1: Nan-e Barbari"></button>
+          <button class="slider-dot" data-index="1" aria-label="Slide 2: Nan-e Lavaash"></button>
+          <button class="slider-dot" data-index="2" aria-label="Slide 3: Nan-e Sangak"></button>
+          <button class="slider-dot" data-index="3" aria-label="Slide 4: Nan-e Taftoon"></button>
         </div>
 
         <div class="slider-arrows">
-          <button class="slider-btn" id="prevSlideBtn" aria-label="Previous Dish" title="Previous Dish">
+          <button class="slider-btn" id="prevSlideBtn" aria-label="Previous Bread" title="Previous Bread">
             <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
           </button>
-          <button class="slider-btn" id="nextSlideBtn" aria-label="Next Dish" title="Next Dish">
+          <button class="slider-btn" id="nextSlideBtn" aria-label="Next Bread" title="Next Bread">
             <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
           </button>
         </div>
@@ -1653,242 +1960,1206 @@
     </div>
   </section>
 
-  <!-- Anatomy of Our Emblem Section -->
+  <!-- ============================================================
+        Emblem Crest Story Section: Decoding the Master Logo
+        ============================================================ -->
   <section class="emblem-section" id="emblem">
     <div class="emblem-wrap">
-      
+
+      <!-- Left: Artwork Display Frame with Click-to-Zoom Trigger -->
       <div class="emblem-artwork-container">
-        <button type="button" class="emblem-zoom-button" id="emblemZoomTrigger" aria-label="Zoom in on the Maison Polow Master Crest" title="Click to view high-resolution emblem">
+        <button type="button" 
+                class="emblem-zoom-button" 
+                id="emblemZoomTrigger" 
+                aria-label="Zoom in on the Maison Barbari Master Crest" 
+                title="Click to view high-resolution emblem">
           <div class="emblem-artwork-frame">
-            <img src="assets/emblem-master.jpg" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" onerror="this.onerror=null; this.src='assets/logo.png';">
+            <img 
+              src="assets/emblem-master.jpg" 
+              alt="Maison Barbari Master Crest illustrating Nan-e Barbari, Lavaash, Sangak and Taftoon" 
+              class="emblem-artwork-img" 
+              id="emblemArtworkImg" 
+              loading="lazy" 
+              onerror="this.onerror=null; this.src='assets/logo.png';">
             <span class="emblem-hint-overlay">🔍 Click to Inspect</span>
           </div>
         </button>
       </div>
 
+      <!-- Right: Story & Nan Deconstruction -->
       <div class="emblem-story-content">
-        <div class="badge">Anatomy of Our Emblem</div>
-        <h2>The Architecture of Craft & Tradition</h2>
+        <div class="badge">Anatomy of our Emblem</div>
+        <h2>A Logo Born from Dough & Fire</h2>
         <p class="emblem-intro">
-          The Maison Polow visual identity is an intricate architectural harmony reflecting centuries of Persian culinary heritage and artisanal rice preparation.
+          Our insignia is not merely a monogram; it is an architectural tapestry that maps Persia’s four foundational flatbreads onto a coat of arms. Every contour honors centuries of hearthcraft.
         </p>
 
         <div class="emblem-pillars">
+
           <div class="emblem-pillar-card">
-            <h4>Geometry & Shield Architecture</h4>
-            <p>The octagonal Persian starburst cartouche and inner segmented borders have been reconstructed with sharp, uniform strokes, eliminating overlapping artifacts and blurred transitions.</p>
+            <h4>🥖 The Twin Barbari Pillars</h4>
+            <p>Flanking our heraldic shield, two soaring <strong>Nan-e Barbari</strong> loaves stand as golden guardian columns, scored with longitudinal finger flutes and speckled with wild kalonji seeds.</p>
           </div>
+
           <div class="emblem-pillar-card">
-            <h4>Monogram & Sunburst</h4>
-            <p>The interlaced gold MP monogram stands cleanly against the radial sunburst without the flower backing, retaining smooth, deliberate curves and balanced stroke contrast.</p>
+            <h4>📜 The Lavaash Foundation</h4>
+            <p>At the base of the emblem rest folded sheets of <strong>Nan-e Lavaash</strong>, rolled like ancient parchment scrolls to celebrate Persia’s paper-thin unleavened cornerstone.</p>
           </div>
+
           <div class="emblem-pillar-card">
-            <h4>Botanical & Culinary Compartments</h4>
-            <p>Every ingredient—barberries, fava beans, golden wheat grains, green beans, lentils (adas), dill fronds, and the central bowl of steaming long-grain rice—has well-defined outlines and clean color separation.</p>
+            <h4>🪨 The Sangak Deck</h4>
+            <p>Underneath the central escutcheon lies the stone bed of <strong>Nan-e Sangak</strong>, evoking whole-wheat dough blistered over fiery river pebbles in deep hearth trenches.</p>
           </div>
+
           <div class="emblem-pillar-card">
-            <h4>Flanking Harvest Crest & Typography</h4>
-            <p>Surrounding stalks of mature rice, foliage, and pomegranate buds feature crisp silhouettes, perfectly complemented by sharp, consistent typography rendering MAISON POLOW, PERSIAN RICE ATELIER, and TAHDIG • TAHCHIN against the warm alabaster background.</p>
+            <h4>🪔 The Taftoon Saffron Crown</h4>
+            <p>Behind the upper wheat sheaf, circular loaves of <strong>Nan-e Taftoon</strong> bloom outward, radiating like clay tannur sunbursts glazed with Persian saffron.</p>
           </div>
+
+        </div>
+
+        <div class="emblem-quote-banner">
+          "Persian Warmth, Parisian Grace: A hearth tribute where three thousand years of flatbread heritage meets the meticulous fermentation discipline of French boulangerie."
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Signature Dishes Section (Newly Inserted) -->
-  <section class="menu-preview" id="dishes">
-    <div class="section-header">
-      <div class="badge">The Atelier Stews & Stewed Masterpieces</div>
-      <h2>Signature Persian Stews (Khoresh)</h2>
-      <p>Artisanal braises and stews simmered to perfection, paired ideally with our aromatic atelier rice or served standalone in custom Maison Polow designer bowls.</p>
-    </div>
-
-    <div class="sku-slider-container" id="dishSliderContainer">
-      <div class="sku-slider-track" id="dishSliderTrack">
-        
-        <!-- DISH 1: Ghormeh Sabzi -->
-        <div class="sku-slide active" data-dish-slide="0">
-          <div class="sku-card">
-            <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Ghormeh Sabzi" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Ghormeh-Sabzi.png" alt="Ghormeh Sabzi - Herb Stew" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Iconic Herb Stew</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"A fragrant symphony of slow-simmered greens, kidney beans, and tender lamb."</p>
-            </div>
-
-            <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Signature Khoresh • 01 of 04</span>
-              <h3>Ghormeh Sabzi</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>Persia's most celebrated herb stew, featuring a slow-cooked blend of parsley, cilantro, fenugreek, leeks, tender kidney beans, and succulent meat infused with dried lime (limoo amani).</p>
-              
-              <div class="ingredient-tags">
-                <span>Fresh Herbs & Fenugreek</span>
-                <span>Kidney Beans</span>
-                <span>Dried Lime (Limoo Omani)</span>
-                <span>Tender Lamb / Mutton</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DISH 2: Khoresh Gheymeh -->
-        <div class="sku-slide" data-dish-slide="1">
-          <div class="sku-card">
-            <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Khoresh Gheymeh" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Gheymeh.png" alt="Khoresh Gheymeh - Yellow Split Pea Stew" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Golden Potato Crunch</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Yellow split peas and golden shoestring potatoes in saffron tomato broth."</p>
-            </div>
-
-            <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Signature Khoresh • 02 of 04</span>
-              <h3>Khoresh Gheymeh</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>A rich, comforting stew of yellow split peas, diced lamb, and dried lime simmered in a fragrant tomato and saffron broth, crowned with a generous heap of crisp golden shoestring potatoes.</p>
-              
-              <div class="ingredient-tags">
-                <span>Yellow Split Peas</span>
-                <span>Saffron Tomato Broth</span>
-                <span>Crisp Shoestring Potatoes</span>
-                <span>Dried Lime Accent</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DISH 3: Fesenjan -->
-        <div class="sku-slide" data-dish-slide="2">
-          <div class="sku-card">
-            <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Fesenjan" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Fesenjan.png" alt="Fesenjan - Pomegranate Walnut Stew" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Royal Walnut Glaze</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Rich toasted walnuts and tart pomegranate molasses reduction."</p>
-            </div>
-
-            <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Signature Khoresh • 03 of 04</span>
-              <h3>Fesenjan</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>An exquisite, luxurious stew crafted from finely ground toasted walnuts and a tart-sweet pomegranate molasses reduction, slow-braised with tender chicken or duck until deeply rich and glossy.</p>
-              
-              <div class="ingredient-tags">
-                <span>Ground Toasted Walnuts</span>
-                <span>Pomegranate Molasses</span>
-                <span>Slow-Braised Poultry</span>
-                <span>Subtle Sweet-Tart Balance</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DISH 4: Bademjan -->
-        <div class="sku-slide" data-dish-slide="3">
-          <div class="sku-card">
-            <div class="sku-media">
-              <button type="button" class="sku-img-btn" aria-label="Zoom in on Bademjan" title="Click to view high-resolution image">
-                <div class="sku-img-wrapper">
-                  <img src="assets/Bademjan.png" alt="Khoresh Bademjan - Eggplant Stew" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1000&q=80';">
-                  <div class="sku-img-overlay"></div>
-                  <span class="live-tag">Golden Eggplant Braise</span>
-                  <span class="sku-hint-overlay">🔍 Click to Zoom</span>
-                </div>
-              </button>
-              <p class="sku-quote">"Golden pan-fried eggplants in a savory tomato and verjuice glaze."</p>
-            </div>
-
-            <div class="sku-details">
-              <span class="badge" style="width: fit-content;">Signature Khoresh • 04 of 04</span>
-              <h3>Bademjan (Khoresh Bademjan)</h3>
-              <div class="sku-price">Price to be announced</div>
-              <p>Golden pan-fried baby eggplants simmered in a delicate tomato, onion, and yellow tomato broth, enhanced with aromatic turmeric, saffron, and sour grape verjuice (ghooreh).</p>
-              
-              <div class="ingredient-tags">
-                <span>Pan-Fried Baby Eggplants</span>
-                <span>Verjuice (Ghooreh)</span>
-                <span>Tomato & Saffron Broth</span>
-                <span>Tender Braised Meat</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+  <!-- ============================================================
+        French Croissants & Viennoiserie Collection Slider Section
+        ============================================================ -->
+  <section class="croissant-section" id="viennoiserie">
+    <div class="menu-preview">
+      <div class="section-header">
+        <div class="badge">Pâte Feuilletée Levée • Viennoiserie</div>
+        <h2>The French Croissant & Pâtisserie Collection</h2>
+        <p>Laminated with 82% fat French cultured butter, fermented over 24 hours, and baked to a golden honeycomb crumb. Explore our morning classics, warm dessert bakes, and savory lunch sandwiches.</p>
       </div>
 
-      <!-- Dish Carousel Controls -->
-      <div class="slider-nav-bar">
-        <div class="slider-dots" id="dishSliderDots" role="tablist" aria-label="Signature Dishes Carousel Navigation">
-          <button class="slider-dot active" data-dish-index="0" aria-label="Slide 1"></button>
-          <button class="slider-dot" data-dish-index="1" aria-label="Slide 2"></button>
-          <button class="slider-dot" data-dish-index="2" aria-label="Slide 3"></button>
-          <button class="slider-dot" data-dish-index="3" aria-label="Slide 4"></button>
+      <div class="sku-slider-container" id="croissantSliderContainer">
+        <div class="sku-slider-track" id="croissantSliderTrack">
+
+          <!-- ITEM 0: Croissant Pur Beurre -->
+          <div class="sku-slide active" data-croissant-slide="0">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/croissant-pur-beurre.png" 
+                    alt="Croissant Pur Beurre - Classic French Butter Croissant" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1000&q=80';">
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Morning Purist</span>
+                </div>
+                <p class="sku-quote">"Shattering golden crust with an airy honeycomb crumb."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">01 of 10 • Viennoiserie Purist</span>
+                <h3>Croissant Pur Beurre</h3>
+                <div class="sku-price">Classic French Butter Croissant</div>
+                <p>The golden benchmark of French viennoiserie. Crafted with 82% fat cultured European butter laminated into slow-fermented yeasted dough. Delivers deep caramelized butter notes and a featherlight alvéolage structure.</p>
+
+                <div class="ingredient-tags">
+                  <span>82% Cultured Butter</span>
+                  <span>Yeasted Lamination</span>
+                  <span>Honeycomb Crumb</span>
+                  <span>Caramelized Flake</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  ☕ <strong>Service:</strong> Served warm from the early deck bake with cultured butter or alongside a morning double espresso.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 1: Le Crookie -->
+          <div class="sku-slide" data-croissant-slide="1">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/crookie.png" 
+                    alt="Le Crookie - Chocolate Chip Cookie Croissant" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=80';">
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Parisian Trend</span>
+                </div>
+                <p class="sku-quote">"Flaky French pastry meets molten chocolate cookie dough."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">02 of 10 • Pâtisserie Indulgence</span>
+                <h3>Le Crookie</h3>
+                <div class="sku-price">Chocolate Chip Cookie Croissant</div>
+                <p>Born in Paris and perfected in our hearth. A flaky butter croissant split and filled with Madagascar vanilla chocolate chip cookie dough, crowned with extra cookie dough, and flash-baked until the outside snaps and the center turns molten.</p>
+
+                <div class="ingredient-tags">
+                  <span>Semi-Sweet Chocolate</span>
+                  <span>Cookie Dough Core</span>
+                  <span>Double-Baked</span>
+                  <span>Pure Butter Pastry</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🍪 <strong>Experience:</strong> Best savored warm while the chocolate chunks remain melted and gooey inside.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 2: Pain au Chocolat -->
+          <div class="sku-slide" data-croissant-slide="2">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/pain-au-chocolat.png" 
+                    alt="Pain au Chocolat - Chocolatine" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1000&q=80';">
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Daily Morning Bake</span>
+                </div>
+                <p class="sku-quote">"Twin batons of bittersweet chocolate nestled in layered butter."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">03 of 10 • French Classic</span>
+                <h3>Pain au Chocolat</h3>
+                <div class="sku-price">Chocolatine Viennoise</div>
+                <p>The quintessence of French breakfast bakeries. Multi-layered yeasted puff pastry wrapped tightly around twin parallel batons of 55% dark French baking chocolate, melting gently into buttery pockets as it bakes.</p>
+
+                <div class="ingredient-tags">
+                  <span>55% Dark Batons</span>
+                  <span>Valrhona Cocoa</span>
+                  <span>Flaky Fold</span>
+                  <span>Artisanal Butter</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🥐 <strong>Counter Note:</strong> Pulled fresh from the deck oven twice daily at 8:00 AM and 2:30 PM.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 3: Chocolate Croissant Bread & Butter Pudding -->
+          <div class="sku-slide" data-croissant-slide="3">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/croissant-bread-pudding.png" 
+                    alt="Chocolate Croissant Bread & Butter Pudding" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Warm Skillet Dessert</span>
+                </div>
+                <p class="sku-quote">"Rich vanilla bean custard baked with melting dark chocolate folds."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">04 of 10 • Warm Hearth Dessert</span>
+                <h3>Chocolate Croissant Bread & Butter Pudding</h3>
+                <div class="sku-price">Skillet Baked Custard Dessert</div>
+                <p>An elevated zero-waste triumph. Torn artisanal croissants soaked in nutmeg and Tahitian vanilla bean egg custard, tossed with dark chocolate chunks, and baked until the edges crisp into a caramelized sugar crust while the center remains silky and custardy.</p>
+
+                <div class="ingredient-tags">
+                  <span>Vanilla Bean Custard</span>
+                  <span>Dark Chocolate Chunks</span>
+                  <span>Nutmeg Perfumed</span>
+                  <span>Warm Comfort</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🍨 <strong>Plating:</strong> Served warm straight from the oven, accompanied by crème anglaise or a scoop of Madagascar vanilla gelato.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 4: Chocolate Suprême (New York Roll) -->
+          <div class="sku-slide" data-croissant-slide="4">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/chocolate-supreme.png" 
+                    alt="Chocolate Suprême - New York Roll" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Signature Pâtisserie</span>
+                </div>
+                <p class="sku-quote">"Ring-baked laminated spiral injected with silky dark crémeux."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">05 of 10 • Showpiece Pâtisserie</span>
+                <h3>Chocolate Suprême</h3>
+                <div class="sku-price">The New York Roll</div>
+                <p>A round laminated croissant wheel proofed and baked vertically inside circular pastry rings to yield crisp, flat caramelized rims. Injected to order with rich chocolate crémeux and finished with a glossy dark cocoa glaze and roasted nibs.</p>
+
+                <div class="ingredient-tags">
+                  <span>Dark Crémeux Center</span>
+                  <span>Mirror Cocoa Glaze</span>
+                  <span>Cacao Nibs</span>
+                  <span>Spiral Lamination</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🎁 <strong>Gifting & High Tea:</strong> Our centerpiece pastry for afternoon entertaining boxes and luxury gift hampers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 5: Croque Monsieur Croissant -->
+          <div class="sku-slide" data-croissant-slide="5">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/croque-monsieur-croissant.png" 
+                    alt="Croque Monsieur Croissant" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Savory Hearth Main</span>
+                </div>
+                <p class="sku-quote">"Broiled Gruyère, Dijon mustard, and velvety nutmeg béchamel."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">06 of 10 • Savory Bistro Main</span>
+                <h3>Croque Monsieur Croissant</h3>
+                <div class="sku-price">Bistro Hot Lunch Main</div>
+                <p>The iconic Parisian café toast reimagined in laminated pastry. A split croissant brushed with sharp Dijon, stuffed with cured smoked ham and aged Swiss Gruyère, smothered in nutmeg béchamel, and broiled until bubbling and blistered.</p>
+
+                <div class="ingredient-tags">
+                  <span>Swiss Gruyère</span>
+                  <span>Nutmeg Béchamel</span>
+                  <span>Dijon Mustard</span>
+                  <span>Smoked Ham</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🍳 <strong>Bistro Note:</strong> Crowned with a farm-fresh sunny egg on request to make it a decadent Croque Madame.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 6: Croissant Eggs Benedict -->
+          <div class="sku-slide" data-croissant-slide="6">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/croissant-eggs-benedict.png" 
+                    alt="Croissant Eggs Benedict" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Plated Weekend Brunch</span>
+                </div>
+                <p class="sku-quote">"Golden poached farm yolks catching velvety warm hollandaise."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">07 of 10 • Brunch Signature</span>
+                <h3>Croissant Eggs Benedict</h3>
+                <div class="sku-price">Plated All-Day Brunch Hero</div>
+                <p>Upgrading the standard English muffin with a toasted, griddled croissant split. Topped with soft poached farm eggs, smoked ham or cured salmon, velvety lemon-butter hollandaise sauce, and freshly snipped garden chives.</p>
+
+                <div class="ingredient-tags">
+                  <span>Poached Farm Eggs</span>
+                  <span>Lemon Hollandaise</span>
+                  <span>Fresh Chives</span>
+                  <span>Griddled Croissant</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🌿 <strong>Brunch Pairing:</strong> Served fresh off the pass with vine cherry tomatoes and baby mixed salad greens.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 7: Scrambled Egg & Bacon Breakfast Croissant -->
+          <div class="sku-slide" data-croissant-slide="7">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/scrambled-egg-bacon-croissant.png" 
+                    alt="Scrambled Egg & Bacon Breakfast Croissant" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Morning Café Hero</span>
+                </div>
+                <p class="sku-quote">"Silky French soft curds, crispy streaky bacon, and aged cheddar."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">08 of 10 • Breakfast Sandwich</span>
+                <h3>Scrambled Egg & Bacon Croissant</h3>
+                <div class="sku-price">Artisanal Breakfast Sandwich</div>
+                <p>The morning comfort essential. Slow-cooked, creamy French soft-curd scrambled eggs folded with chives, crispy streaky bacon, and melted sharp aged cheddar tucked inside a lightly toasted, golden butter croissant.</p>
+
+                <div class="ingredient-tags">
+                  <span>Soft-Curd Scramble</span>
+                  <span>Crispy Bacon</span>
+                  <span>Sharp Cheddar</span>
+                  <span>Garden Herbs</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  ⚡ <strong>Speed of Service:</strong> Engineered for rapid café takeaway during morning South Delhi, Noida & Gurugram rush hours.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 8: Chicken Salad Croissant Sandwich (Shredded Chicken) -->
+          <div class="sku-slide" data-croissant-slide="8">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/chicken-salad-croissant.png" 
+                    alt="Chicken Salad Croissant Sandwich with Shredded Chicken" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Afternoon Bistro Hero</span>
+                </div>
+                <p class="sku-quote">"Tender shredded chicken, fresh tarragon, celery crunch, and toasted walnuts."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">09 of 10 • Savory Sandwich</span>
+                <h3>Chicken Salad Croissant Sandwich</h3>
+                <div class="sku-price">Shredded Herb Chicken on Flaky Croissant</div>
+                <p>A classic French bistro sandwich made with slow-poached shredded chicken breast folded into light Dijon-herb mayonnaise, diced crisp celery, toasted walnuts, and fresh tarragon, nestled over tender butterhead lettuce in a split croissant.</p>
+
+                <div class="ingredient-tags">
+                  <span>Poached Shredded Chicken</span>
+                  <span>Fresh Tarragon & Dijon</span>
+                  <span>Celery Crunch</span>
+                  <span>Toasted Walnuts</span>
+                  <span>Butterhead Lettuce</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🥗 <strong>Service:</strong> Served chilled or slightly temperate, paired with kettle crisps and house-made Persian sumac pickles.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 9: Ham, Egg & Cheese Croissant -->
+          <div class="sku-slide" data-croissant-slide="9">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/ham-egg-cheese-croissant.png" 
+                    alt="Ham, Egg & Cheese Croissant Sandwich" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Warm All-Day Bake</span>
+                </div>
+                <p class="sku-quote">"Pan-seared smoked ham, folded egg souffle, and melted Swiss cheese."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">10 of 10 • All-Day Warm Sandwich</span>
+                <h3>Ham, Egg & Cheese Croissant</h3>
+                <div class="sku-price">Classic Warm Breakfast & Lunch Croissant</div>
+                <p>The time-honored bakery staple. Pan-crisped smoked artisan ham layered with fluffy folded farm eggs, melted Swiss Emmental or aged Gruyère, and a swipe of Dijon-honey butter, toasted until hot, melty, and irresistibly flaky.</p>
+
+                <div class="ingredient-tags">
+                  <span>Smoked Artisan Ham</span>
+                  <span>Folded Farm Eggs</span>
+                  <span>Swiss Emmental</span>
+                  <span>Dijon-Honey Butter</span>
+                  <span>Warm Flaky Croissant</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🔥 <strong>Toasting Note:</strong> Flash-toasted under the salamander right before serving so the cheese pulls while the crust remains airy and crisp.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="slider-arrows">
-          <button class="slider-btn" id="prevDishSlideBtn" aria-label="Previous Dish" title="Previous Dish">
-            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-          </button>
-          <button class="slider-btn" id="nextDishSlideBtn" aria-label="Next Dish" title="Next Dish">
-            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-          </button>
+        <!-- Viennoiserie Slider Controls -->
+        <div class="slider-nav-bar">
+          <div class="slider-dots" id="croissantSliderDots" role="tablist" aria-label="Croissant Showcase Navigation">
+            <button class="slider-dot active" data-croissant-index="0" aria-label="Slide 1: Croissant Pur Beurre"></button>
+            <button class="slider-dot" data-croissant-index="1" aria-label="Slide 2: Le Crookie"></button>
+            <button class="slider-dot" data-croissant-index="2" aria-label="Slide 3: Pain au Chocolat"></button>
+            <button class="slider-dot" data-croissant-index="3" aria-label="Slide 4: Chocolate Croissant Bread Pudding"></button>
+            <button class="slider-dot" data-croissant-index="4" aria-label="Slide 5: Chocolate Suprême"></button>
+            <button class="slider-dot" data-croissant-index="5" aria-label="Slide 6: Croque Monsieur Croissant"></button>
+            <button class="slider-dot" data-croissant-index="6" aria-label="Slide 7: Croissant Eggs Benedict"></button>
+            <button class="slider-dot" data-croissant-index="7" aria-label="Slide 8: Scrambled Egg & Bacon Croissant"></button>
+            <button class="slider-dot" data-croissant-index="8" aria-label="Slide 9: Chicken Salad Croissant Sandwich"></button>
+            <button class="slider-dot" data-croissant-index="9" aria-label="Slide 10: Ham, Egg & Cheese Croissant"></button>
+          </div>
+
+          <div class="slider-arrows">
+            <button class="slider-btn" id="prevCroissantSlideBtn" aria-label="Previous Croissant" title="Previous Croissant">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="slider-btn" id="nextCroissantSlideBtn" aria-label="Next Croissant" title="Next Croissant">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Careers Section -->
+  <!-- ============================================================
+        Persian Haida-Style Baguette Sandwiches Collection Slider Section
+        ============================================================ -->
+  <section class="sandwich-section" id="sandwiches">
+    <div class="menu-preview">
+      <div class="section-header">
+        <div class="badge">Tehran Deli Meets Parisian Baguette</div>
+        <h2>Persian Haida Baguette Sandwiches</h2>
+        <p>Crispy French baguettes baked fresh in our stone deck hearth, stuffed with premium cuts, molten cheese, tangy Persian sour pickles (<em>Khiarshoor</em>), and the iconic crunch of golden potato matchsticks.</p>
+      </div>
+
+      <div class="sku-slider-container" id="sandwichSliderContainer">
+        <div class="sku-slider-track" id="sandwichSliderTrack">
+
+          <!-- ITEM 0: The Royal Haida Mortadella Melt -->
+          <div class="sku-slide active" data-sandwich-slide="0">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/haida-royal.png" 
+                    alt="The Royal Haida Mortadella Melt in Crispy French Baguette" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Signature Haida Hot Sub</span>
+                </div>
+                <p class="sku-quote">"Molten mozzarella, spiced mortadella, and potato matchstick crunch."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">01 of 05 • Persian Street Legend</span>
+                <h3>The Royal Haida Mortadella Melt</h3>
+                <div class="sku-price">₹380 • 10-Inch Deck-Toasted Baguette</div>
+                <p>The crown jewel of Tehran's midnight delis. Sliced smoked chicken mortadella studded with pistachios, chicken sausage coins, and sautéed butter mushrooms, blanketed in bubbling melted mozzarella. Topped with Persian brined gherkins, shredded lettuce, and our secret tangy Haida cream sauce.</p>
+
+                <div class="ingredient-tags">
+                  <span>Pistachio Mortadella</span>
+                  <span>Molten Mozzarella</span>
+                  <span>Crisp Potato Sticks</span>
+                  <span>Khiarshoor Pickles</span>
+                  <span>Deck Baguette</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🍟 <strong>The Haida Crunch:</strong> Stuffed generously with golden salted shoestring potato matchsticks for that trademark Iranian deli bite.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 1: Sosis Bandari Spicy Baguette -->
+          <div class="sku-slide" data-sandwich-slide="1">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/sosis-bandari.png" 
+                    alt="Sosis Bandari Spicy Persian Street Sausage Baguette" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Fiery Persian Street Sub</span>
+                </div>
+                <p class="sku-quote">"Slow-braised spiced sausage, caramelized onions, and fiery tomato glaze."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">02 of 05 • Southern Iran Spice Route</span>
+                <h3>Sosis Bandari Baguette</h3>
+                <div class="sku-price">₹340 • 10-Inch Hearth-Crisped Baguette</div>
+                <p>Originating from the port cities of southern Iran, this sub is built for the Indian palate. Sliced sausages slow-braised with sweet caramelized onions, turmeric, crushed chili flakes, and rich tomato paste. Layered with pickled sour cucumbers and fresh mint inside a crusty baguette.</p>
+
+                <div class="ingredient-tags">
+                  <span>Braised Sausage</span>
+                  <span>Caramelized Onions</span>
+                  <span>Turmeric Chili Glaze</span>
+                  <span>Wild Persian Mint</span>
+                  <span>Crusty Baguette</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🌶️ <strong>Heat Level:</strong> Robust & zesty. The ultimate comfort pairing with an ice-cold Sparkling Doogh.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 2: Persian Zafrani Kotlet Sub -->
+          <div class="sku-slide" data-sandwich-slide="2">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/kotlet-sandwich.png" 
+                    alt="Persian Kotlet Sandwich in French Baguette with Sumac Aioli" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Heritage Hearth Cutlet</span>
+                </div>
+                <p class="sku-quote">"Pan-crisped saffron & minced meat cutlets with sumac garlic aioli."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">03 of 05 • Imperial Tehrani Classic</span>
+                <h3>Persian Zafrani Kotlet Sub</h3>
+                <div class="sku-price">₹360 • 10-Inch Hearth Baguette</div>
+                <p>Every Iranian grandmother's prized recipe. Tender patties of minced chicken, grated potatoes, grated onions, and fragrant saffron pan-seared to a golden bronze. Sliced and paired with vine tomatoes, fresh French tarragon, brined sour gherkins, and whipped sumac garlic aioli.</p>
+
+                <div class="ingredient-tags">
+                  <span>Saffron Minced Kotlet</span>
+                  <span>Sumac Aioli</span>
+                  <span>Fresh Tarragon</span>
+                  <span>Salted Potato Sticks</span>
+                  <span>Hearth Baguette</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🌿 <strong>Aromatic Profile:</strong> Fresh tarragon and sour pickles cut through the rich, savory depth of the saffron cutlets.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 3: Roast Chicken & Truffle Mushroom Melt -->
+          <div class="sku-slide" data-sandwich-slide="3">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/roast-chicken.png" 
+                    alt="Roast Chicken and Mushroom Truffle Melt Baguette" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Parisian Bistro Haida</span>
+                </div>
+                <p class="sku-quote">"Slow-braised shredded chicken, thyme butter, and molten Swiss cheese."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">04 of 05 • French Bistro Fusion</span>
+                <h3>Roast Chicken & Mushroom Melt</h3>
+                <div class="sku-price">₹390 • 10-Inch Deck-Toasted Baguette</div>
+                <p>Slow-braised thyme chicken breast gently shredded and tossed with garlic butter button mushrooms and caramelized shallots. Melted under a blanket of Swiss Gruyère and mozzarella, finished with crispy potato matchsticks and light Dijon herb mayo.</p>
+
+                <div class="ingredient-tags">
+                  <span>Braised Thyme Chicken</span>
+                  <span>Garlic Mushrooms</span>
+                  <span>Swiss Gruyère</span>
+                  <span>Dijon Herb Mayo</span>
+                  <span>Deck Baguette</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🔥 <strong>Toasted Hot:</strong> Broiled under deck heat so the bread crackles while the center remains juicy and decadent.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 4: Persian Garden Falafel & Labneh (Veg) -->
+          <div class="sku-slide" data-sandwich-slide="4">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/haida-falafel.png" 
+                    alt="Persian Garden Falafel and Labneh Baguette Sandwich" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Vegetarian Hero Sub</span>
+                </div>
+                <p class="sku-quote">"Herbed fava bean falafel, garlic labneh, and pickled pink turnips."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">05 of 05 • Plant-Forward Deli</span>
+                <h3>Persian Garden Falafel & Labneh</h3>
+                <div class="sku-price">₹310 • 10-Inch Hearth-Crisped Baguette</div>
+                <p>Our vegetarian showstopper. Freshly fried Persian green falafel balls made with crushed chickpeas, fava beans, and coriander, nestled over a thick spread of house-strained garlic labneh. Finished with pickled pink turnips, Persian cucumbers, tahini, and crispy potato matchsticks.</p>
+
+                <div class="ingredient-tags">
+                  <span>Herbed Falafel</span>
+                  <span>Strained Garlic Labneh</span>
+                  <span>Pickled Turnips</span>
+                  <span>Roasted Tahini</span>
+                  <span>Shoestring Crunch</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🥗 <strong>Texture Masterpiece:</strong> Crisp exterior, velvety labneh tang, and an unmistakable potato matchstick crunch.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sandwich Slider Controls -->
+        <div class="slider-nav-bar">
+          <div class="slider-dots" id="sandwichSliderDots" role="tablist" aria-label="Haida Sandwich Showcase Navigation">
+            <button class="slider-dot active" data-sandwich-index="0" aria-label="Slide 1: Royal Haida Mortadella Melt"></button>
+            <button class="slider-dot" data-sandwich-index="1" aria-label="Slide 2: Sosis Bandari Baguette"></button>
+            <button class="slider-dot" data-sandwich-index="2" aria-label="Slide 3: Persian Zafrani Kotlet Sub"></button>
+            <button class="slider-dot" data-sandwich-index="3" aria-label="Slide 4: Roast Chicken & Mushroom Melt"></button>
+            <button class="slider-dot" data-sandwich-index="4" aria-label="Slide 5: Persian Garden Falafel & Labneh"></button>
+          </div>
+
+          <div class="slider-arrows">
+            <button class="slider-btn" id="prevSandwichSlideBtn" aria-label="Previous Sandwich" title="Previous Sandwich">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="slider-btn" id="nextSandwichSlideBtn" aria-label="Next Sandwich" title="Next Sandwich">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+        Authentic Persian Pizza (Pizza-ye Irani) Collection Slider Section
+        ============================================================ -->
+  <section class="pizza-section" id="pizzas">
+    <div class="menu-preview">
+      <div class="section-header">
+        <div class="badge">Tehran Hearth Street Food • Pizza-ye Irani</div>
+        <h2>Authentic Persian Pizza</h2>
+        <p>Inspired by iconic Tehrani pizza masters like Perperok. Built atop our 24-hour cold-fermented Barbari sourdough base, generously blanketed with bubbly golden cheese, fragrant mountain wild thyme (<em>Avishan</em>), and opulent Persian toppings.</p>
+      </div>
+
+      <div class="sku-slider-container" id="pizzaSliderContainer">
+        <div class="sku-slider-track" id="pizzaSliderTrack">
+
+          <!-- PIZZA 0: Pizza Paneer Sabzi Khordan -->
+          <div class="sku-slide active" data-pizza-slide="0">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/paneer-sabzi-khordan.png" 
+                    alt="Pizza Paneer Sabzi Khordan - Chef's Special Persian Herb Garden Pizza" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Chef's Special Vegetarian</span>
+                </div>
+                <p class="sku-quote">"Truffle-whipped feta, fresh tarragon, roasted walnuts, and mountain honey."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">01 of 07 • Botanical Masterpiece</span>
+                <h3>Pizza Paneer Sabzi Khordan</h3>
+                <div class="sku-price">Persian Herb Garden & Truffle Feta Pizza</div>
+                <p>A tribute to the iconic Persian herb table feast. Fragrant Barbari crust brushed with truffle garlic butter, baked with baby spinach, sweet leeks, and charred figs, finished with whipped Persian feta, toasted walnuts, fresh tarragon, and a drizzle of wild mountain honey.</p>
+
+                <div class="ingredient-tags">
+                  <span>Whipped Persian Feta</span>
+                  <span>Fresh Tarragon & Mint</span>
+                  <span>Roasted Walnuts</span>
+                  <span>Charred Sweet Figs</span>
+                  <span>Wild Mountain Honey</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🌿 <strong>Sensory Profile:</strong> Earthy truffle notes, garden fresh aromatics, and rich velvety cheese.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA 1: Pizza Haida Royale -->
+          <div class="sku-slide" data-pizza-slide="1">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/haida-royale.png" 
+                    alt="Pizza Haida Royale - Tehran Street Deli Pan Pizza with Potato Sticks" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Tehran Deli Hybrid</span>
+                </div>
+                <p class="sku-quote">"Pistachio mortadella, roasted chicken, and the signature potato matchstick crunch."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">02 of 07 • Ultimate Midnight Pan</span>
+                <h3>Pizza Haida Royale</h3>
+                <div class="sku-price">Tehran Street Deli Pan Pizza</div>
+                <p>Fusing the indulgence of Tehran's Haida delis with pan pizza craft. Sliced pistachio mortadella, shredded roast chicken, and garlic butter button mushrooms layered under bubbling mozzarella, crowned straight out of the hearth with crispy golden potato matchsticks.</p>
+
+                <div class="ingredient-tags">
+                  <span>Pistachio Mortadella</span>
+                  <span>Shredded Roast Chicken</span>
+                  <span>Potato Matchsticks</span>
+                  <span>Double Mozzarella</span>
+                  <span>Herb Garlic Swirl</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🍟 <strong>Signature Crunch:</strong> Golden matchstick potatoes add an addictive texture contrast to every slice.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA 2: Pizza Shishlik Zafrani -->
+          <div class="sku-slide" data-pizza-slide="2">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/shishlik-zafrani.png" 
+                    alt="Pizza Shishlik Zafrani - Chef's Special Saffron Pulled Meat Pizza" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544982503-9f984c14501a?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Chef's Special Non-Veg</span>
+                </div>
+                <p class="sku-quote">"Slow-braised saffron meat, ruby barberries, and pistachio dust."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">03 of 07 • Chef's Imperial Masterpiece</span>
+                <h3>Pizza Shishlik Zafrani</h3>
+                <div class="sku-price">Saffron Glazed Pulled Meat & Barberry Pizza</div>
+                <p>The pinnacle of Persian luxury dining. Twelve-hour slow-braised tender pulled meat glazed with Persian Sargol saffron and sumac shallots, nestled over Fior di Latte mozzarella, and topped with honey-bloomed ruby barberries (<em>Zereshk</em>) and roasted pistachios.</p>
+
+                <div class="ingredient-tags">
+                  <span>Saffron Pulled Meat</span>
+                  <span>Ruby Barberries (Zereshk)</span>
+                  <span>Fior di Latte</span>
+                  <span>Shallot Butter</span>
+                  <span>Toasted Pistachios</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  ✨ <strong>Chef's Signature:</strong> An extraordinary marriage of savory richness and Persian sweet-tart balance.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA 3: Pizza Mirza Ghassemi -->
+          <div class="sku-slide" data-pizza-slide="3">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/mirza-ghassemi.png" 
+                    alt="Pizza Mirza Ghassemi - Smoked Aubergine and Confit Garlic Pizza" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Caspian Smoked Hearth</span>
+                </div>
+                <p class="sku-quote">"Fire-roasted eggplant, sweet confit garlic, and crumbled Persian feta."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">04 of 07 • Caspian Woodfire Specialty</span>
+                <h3>Pizza Mirza Ghassemi</h3>
+                <div class="sku-price">Smoked Aubergine & Confit Garlic Deck Pizza</div>
+                <p>Bringing northern Iran's beloved culinary treasure to pizza. Made with a base of fire-charred smoked eggplant, garlic, and charred tomatoes, topped with zucchini ribbons, roasted Roma tomatoes, molten mozzarella, and tangy Persian feta.</p>
+
+                <div class="ingredient-tags">
+                  <span>Smoked Aubergine</span>
+                  <span>Confit Garlic</span>
+                  <span>Persian Feta</span>
+                  <span>Charred Tomatoes</span>
+                  <span>Zucchini Ribbons</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🔥 <strong>Flavor Note:</strong> Deep smoky undertones balanced by rich, silky melted cheeses.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA 4: Pizza Sabzijat Makhsoos -->
+          <div class="sku-slide" data-pizza-slide="4">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/sabzijat-makhsoos.png" 
+                    alt="Pizza Sabzijat Makhsoos - Persian Heirloom Garden Vegetable Pizza" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Vegetarian Classic</span>
+                </div>
+                <p class="sku-quote">"Crisp heirloom peppers, sweet golden corn, and mountain oregano."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">05 of 07 • Persian Garden Veg</span>
+                <h3>Pizza Sabzijat Makhsoos</h3>
+                <div class="sku-price">Heirloom Tehrani Garden Vegetable Pizza</div>
+                <p>The iconic Perperok-style garden pizza. Rich garlic-tomato base topped generously with crisp bell peppers, sliced button mushrooms, sweet golden corn kernels, sliced black olives, and red onions, baked under creamy mozzarella and aged Kashkaval.</p>
+
+                <div class="ingredient-tags">
+                  <span>Button Mushrooms</span>
+                  <span>Golden Sweet Corn</span>
+                  <span>Bell Peppers</span>
+                  <span>Aged Kashkaval</span>
+                  <span>Sumac Oregano</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🌱 <strong>Herb Crust:</strong> Finished with a fragrant sprinkle of mountain oregano and tart sumac.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA 5: Pizza Makhloot Tehrani -->
+          <div class="sku-slide" data-pizza-slide="5">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/makhloot-tehrani.png" 
+                    alt="Pizza Makhloot Tehrani - Classic Mixed Persian Pan Pizza" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Non-Vegetarian Classic</span>
+                </div>
+                <p class="sku-quote">"The legendary Tehran mixed pan pizza seasoned with wild Avishan."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">06 of 07 • Non-Veg Heritage Hero</span>
+                <h3>Pizza Makhloot Tehrani</h3>
+                <div class="sku-price">The Classic Mixed Persian Pan Pizza</div>
+                <p>The definitive taste of Tehran street dining. Slow-fermented thick Barbari dough layered with sliced smoked chicken mortadella, seasoned minced meat, sweet green peppers, and buttered mushrooms, smothered in molten golden mozzarella and dusted with wild Iranian thyme.</p>
+
+                <div class="ingredient-tags">
+                  <span>Chicken Mortadella</span>
+                  <span>Minced Meat</span>
+                  <span>Wild Thyme (Avishan)</span>
+                  <span>Golden Mozzarella</span>
+                  <span>Barbari Dough</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🍕 <strong>Tehran Tradition:</strong> Served piping hot with our signature house-spiced dipping sauce.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA 6: Pizza Sosis Bandari -->
+          <div class="sku-slide" data-pizza-slide="6">
+            <div class="sku-card">
+              <div class="sku-media">
+                <div class="sku-img-wrapper">
+                  <img 
+                    src="assets/sosis-bandari-p.png" 
+                    alt="Pizza Sosis Bandari - Spicy Persian Sausage Deck Pizza" 
+                    class="sku-product-img" 
+                    loading="lazy" 
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=80';"
+                  >
+                  <div class="sku-img-overlay"></div>
+                  <span class="live-tag">Spicy Street Pizza</span>
+                </div>
+                <p class="sku-quote">"Caramelized spiced sausage, tomato-turmeric glaze, and fresh mint."</p>
+              </div>
+
+              <div class="sku-details">
+                <span class="badge" style="width: fit-content;">07 of 07 • Southern Spice Route</span>
+                <h3>Pizza Sosis Bandari</h3>
+                <div class="sku-price">Spicy Southern Sausage Pan Pizza</div>
+                <p>Iran's most celebrated fiery street delicacy reimagined on stone decks. Spiced artisanal chicken sausage coins caramelized with turmeric, sweet onions, and crushed red chilies, balanced with tangy pickled cucumbers and fresh wild mint leaves.</p>
+
+                <div class="ingredient-tags">
+                  <span>Braised Sausage</span>
+                  <span>Caramelized Onions</span>
+                  <span>Turmeric Chili Glaze</span>
+                  <span>Pickled Khiarshoor</span>
+                  <span>Wild Mint</span>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--gray-muted); margin-top: 1rem;">
+                  🌶️ <strong>Heat Level:</strong> Bold, zesty, and exceptionally satisfying with a glass of cold Doogh.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pizza Slider Controls -->
+        <div class="slider-nav-bar">
+          <div class="slider-dots" id="pizzaSliderDots" role="tablist" aria-label="Persian Pizza Showcase Navigation">
+            <button class="slider-dot active" data-pizza-index="0" aria-label="Slide 1: Pizza Paneer Sabzi Khordan"></button>
+            <button class="slider-dot" data-pizza-index="1" aria-label="Slide 2: Pizza Haida Royale"></button>
+            <button class="slider-dot" data-pizza-index="2" aria-label="Slide 3: Pizza Shishlik Zafrani"></button>
+            <button class="slider-dot" data-pizza-index="3" aria-label="Slide 4: Pizza Mirza Ghassemi"></button>
+            <button class="slider-dot" data-pizza-index="4" aria-label="Slide 5: Pizza Sabzijat Makhsoos"></button>
+            <button class="slider-dot" data-pizza-index="5" aria-label="Slide 6: Pizza Makhloot Tehrani"></button>
+            <button class="slider-dot" data-pizza-index="6" aria-label="Slide 7: Pizza Sosis Bandari"></button>
+          </div>
+
+          <div class="slider-arrows">
+            <button class="slider-btn" id="prevPizzaSlideBtn" aria-label="Previous Pizza" title="Previous Pizza">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="slider-btn" id="nextPizzaSlideBtn" aria-label="Next Pizza" title="Next Pizza">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+        Persian - French Drinks & Beverages Showcase Section
+        ============================================================ -->
+  <section class="drinks-section" id="beverages">
+    <div class="drinks-wrap">
+      <div class="section-header">
+        <div class="badge">Artisanal Beverage Program</div>
+        <h2>Persian & French Signature Drinks</h2>
+        <p>A theatrical fusion of Silk Road aromatics and Parisian café culture. From saffron rock-candy tea service to effervescent Doogh and multi-layered Ispahan lattes, engineered specifically for refined Indian palates.</p>
+      </div>
+
+      <!-- Static Display Image Frame (No Zoom / Click Action) -->
+      <div class="drinks-hero-media">
+        <div class="drinks-media-frame">
+          <span class="drinks-badge-overlay">✨ The Launch Lineup</span>
+          <img 
+            src="assets/persian-french-drinks.png" 
+            alt="Maison Barbari Signature Persian and French Drinks collection: Saffron Iranian Chai, Persian Cardamom Espresso, Café Ispahan, Sharbat-e Khakshir, Lavande-Rose Tisane, and Sparkling Doogh" 
+            class="drinks-hero-img" 
+            id="drinksHeroImg" 
+            loading="lazy" 
+            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1400&q=80';"
+          >
+        </div>
+      </div>
+
+      <!-- 6 Signature Drinks Showcase Grid -->
+      <div class="drinks-grid">
+
+        <!-- Drink 1: Saffron Gold Iranian Chai -->
+        <div class="drink-card">
+          <div class="drink-card-top">
+            <span class="drink-tag">Heirloom Tea Ritual • 01</span>
+            <h3>Saffron Gold Iranian Chai</h3>
+            <p>Slow-brewed Nilgiri black tea infused with cracked green cardamom and steeped Sargol saffron. Served in traditional Istakan glassware with an amber Nabat saffron rock-candy crystal stick to swirl directly tableside.</p>
+          </div>
+          <div class="drink-flavor-notes">
+            <span>Sargol Saffron</span>
+            <span>Nabat Swirl</span>
+            <span>Green Cardamom</span>
+            <span>Damask Rose</span>
+          </div>
+        </div>
+
+        <!-- Drink 2: Persian Cardamom & Espresso -->
+        <div class="drink-card">
+          <div class="drink-card-top">
+            <span class="drink-tag">Artisanal Café • 02</span>
+            <h3>Persian Cardamom Espresso</h3>
+            <p>A velvety double pull of French-roast dark espresso steeped with crushed green cardamom, crowned with thick crema and dusted with roasted Iranian pistachio dust. Rich, intense, and naturally fragrant.</p>
+          </div>
+          <div class="drink-flavor-notes">
+            <span>French Dark Roast</span>
+            <span>Cardamom Crema</span>
+            <span>Roasted Pistachio</span>
+            <span>Copper Service</span>
+          </div>
+        </div>
+
+        <!-- Drink 3: Café Ispahan -->
+        <div class="drink-card">
+          <div class="drink-card-top">
+            <span class="drink-tag">Parisian Cloud Latte • 03</span>
+            <h3>Café Ispahan</h3>
+            <p>Inspired by Pierre Hermé’s iconic Paris flavor harmony. Wild raspberry puree and chilled milk layered beneath dark espresso, capped with silky rosewater cold foam and dried ruby Persian barberries.</p>
+          </div>
+          <div class="drink-flavor-notes">
+            <span>Wild Raspberry</span>
+            <span>Rose Cold Foam</span>
+            <span>Barberries (Zereshk)</span>
+            <span>Layered Latte</span>
+          </div>
+        </div>
+
+        <!-- Drink 4: Sharbat-e Khakshir -->
+        <div class="drink-card">
+          <div class="drink-card-top">
+            <span class="drink-tag">Traditional Cooler • 04</span>
+            <h3>Sharbat-e Khakshir</h3>
+            <p>The legendary Persian summer elixir. Tiny flixweed seeds (*khakshir*) delicately suspended in iced rosewater, Persian lime juice, and wild floral honey. Refreshing, detoxifying, and soothing in Delhi heat.</p>
+          </div>
+          <div class="drink-flavor-notes">
+            <span>Flixweed Seeds</span>
+            <span>Distilled Rosewater</span>
+            <span>Persian Lime</span>
+            <span>Digestive Cooler</span>
+          </div>
+        </div>
+
+        <!-- Drink 5: Lavande-Rose French Tisane -->
+        <div class="drink-card">
+          <div class="drink-card-top">
+            <span class="drink-tag">Color-Shifting Tisane • 05</span>
+            <h3>Lavande-Rose French Tisane</h3>
+            <p>Caffeine-free herbal tisane fusing French Provence lavender blossoms and Iranian mountain borage (*Gol Gavzaban*). Shifts tableside from deep royal sapphire to vibrant magenta-pink upon adding fresh citrus.</p>
+          </div>
+          <div class="drink-flavor-notes">
+            <span>Provence Lavender</span>
+            <span>Gol Gavzaban Borage</span>
+            <span>Color-Shifting</span>
+            <span>Caffeine-Free</span>
+          </div>
+        </div>
+
+        <!-- Drink 6: Sparkling Doogh Pétillant -->
+        <div class="drink-card">
+          <div class="drink-card-top">
+            <span class="drink-tag">Effervescent Tonic • 06</span>
+            <h3>Sparkling Doogh Pétillant</h3>
+            <p>Persia’s savory cultured yogurt cooler elevated with French effervescence. Whisked yogurt, mountain mint, and pink salt charged with sparkling soda, served in a dried rosebud-rimmed champagne flute.</p>
+          </div>
+          <div class="drink-flavor-notes">
+            <span>Cultured Yogurt</span>
+            <span>Sparkling Fizz</span>
+            <span>Mountain Mint</span>
+            <span>Rose Petal Rim</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Careers Module -->
   <section class="careers-section" id="careers">
     <div class="careers-wrap">
       <div>
-        <div class="badge">Join the Atelier</div>
-        <h2>Craft Grains. Rekindle Heritage.</h2>
-        <p>We are building Delhi NCR’s premier Persian rice kitchen. We offer an equitable, respectful work environment with structured shifts and comprehensive culinary training.</p>
-        
+        <div class="badge">Join the Hearth</div>
+        <h2>Craft Bread. Rekindle Heritage.</h2>
+        <p>We are building Delhi NCR’s premier specialized Middle Eastern baking team. We offer an equitable, respectful kitchen environment with structured 8-hour shifts, comprehensive fermentation training, and clear growth pathways.</p>
+
         <div class="roles-list">
           <div class="role-item">
-            <h4>Master Rice Chef / Lead Production</h4>
-            <p>Full Time • Experience in steam-infusion, Tahdig preparation, or fine dining rice arts.</p>
+            <h4>Hearth Baker / Lead Production Chef</h4>
+            <p>Full Time • Experience in high-hydration doughs, stone deck ovens, or traditional tandoors.</p>
           </div>
           <div class="role-item">
-            <h4>Culinary Trainee / Commis</h4>
+            <h4>Commis Baker / Kitchen Trainee</h4>
             <p>Full Time / Paid Internship • Graduates from IHM Pusa, Amity, or culinary schools welcome.</p>
+          </div>
+          <div class="role-item">
+            <h4>Dispatch & Packaging Coordinator</h4>
+            <p>Full Time • Managing live orders, packaging quality, and courier handovers.</p>
           </div>
         </div>
       </div>
 
+      <!-- Application Form -->
       <div class="hiring-box">
-        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--cream);">Apply for Kitchen Roles</h3>
-        <p style="font-size: 0.88rem; color: var(--cream-muted); margin-bottom: 1.5rem;">Send your details directly to our culinary leadership team.</p>
+        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Apply for Kitchen Roles</h3>
+        <p style="font-size: 0.88rem; color: var(--gray-muted); margin-bottom: 1.5rem;">Send your details directly to our culinary leadership team.</p>
 
-        <form class="waitlist-form" id="careersForm">
-          <input type="hidden" name="form_type" value="careers">
+        <form class="waitlist-form" id="careersForm" onsubmit="return false;">
           <div id="careersInputFields" style="display: flex; flex-direction: column; gap: 12px;">
             <input type="text" name="full_name" placeholder="Full Name" required>
-            <input type="tel" name="mobile" placeholder="Mobile / WhatsApp" pattern="[0-9]{10,12}" required>
+            <input type="tel" name="mobile" placeholder="Mobile / WhatsApp" pattern="[0-9]{10,12}" title="Please enter a valid 10 to 12 digit phone number" required>
             <input type="email" name="email" placeholder="Email Address" required>
             <select name="position" required>
               <option value="" disabled selected>Position You Are Applying For</option>
-              <option value="Master Chef">Master Rice Chef / Lead</option>
-              <option value="Commis">Culinary Trainee</option>
+              <option value="Hearth Baker">Hearth Baker / Lead</option>
+              <option value="Commis Baker">Commis Baker / Trainee</option>
               <option value="Internship">6-Month Culinary Internship</option>
+              <option value="Dispatch">Dispatch & Operations Lead</option>
             </select>
             <input type="text" name="experience" placeholder="Years of Experience / College Name" required>
             <button type="submit" class="btn-primary" id="careersSubmitBtn" style="margin-top: 6px;">Submit Application</button>
@@ -1902,18 +3173,27 @@
   <!-- Footer -->
   <footer id="contact">
     <div class="footer-inner">
-      
+
+      <!-- Footer Brand Column with Master Emblem Integration -->
       <div class="footer-brand-wrap">
-        <button type="button" class="footer-emblem-btn" id="footerEmblemBtn" aria-label="View enlarged Maison Polow master emblem" title="Click to inspect master crest">
-          <img src="assets/emblem-master.jpg" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" onerror="this.onerror=null; this.src='assets/logo.png';">
-          <div class="footer-brand-title" style="display: flex; flex-direction: column;">
-            <span style="font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; color: #fff;">MAISON POLOW</span>
-            <span style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gold);">Persian Rice Atelier</span>
+        <button type="button" 
+                class="footer-emblem-btn" 
+                id="footerEmblemBtn" 
+                aria-label="View enlarged Maison Barbari master emblem" 
+                title="Click to inspect master crest">
+          <img src="assets/emblem-master.jpg" 
+               alt="Maison Barbari Master Emblem" 
+               class="footer-emblem-img" 
+               id="footerEmblemImg" 
+               onerror="this.onerror=null; this.src='assets/logo.png';">
+          <div class="footer-brand-title">
+            <span>MAISON BARBARI</span>
+            <span>Artisanal Persian Bakehouse</span>
           </div>
         </button>
 
-        <p style="font-size: 0.9rem; color: var(--cream-muted); line-height: 1.6;">
-          Heirloom Persian rice dishes and saffron ateliers crafted daily for Delhi NCR tables.
+        <p style="font-size: 0.9rem; color: #A8A29E; margin-bottom: 0.5rem; line-height: 1.6;">
+          Live-hearth flatbreads and curated mezze crafted daily for Delhi NCR tables.
         </p>
         <p style="font-size: 0.85rem; color: #D6D3D1;">
           📍 Cloud Kitchen Dispatch: South Delhi, Noida & Gurugram Hubs
@@ -1924,9 +3204,12 @@
         <h4>Navigation</h4>
         <ul>
           <li><a href="#heritage">Our Craft</a></li>
-          <li><a href="#signature">Signature Polows</a></li>
-          <li><a href="#emblem">Anatomy of Our Emblem</a></li>
-          <li><a href="#dishes">Signature Dishes</a></li>
+          <li><a href="#signature">Our Breads</a></li>
+          <li><a href="#emblem">The Crest</a></li>
+          <li><a href="#viennoiserie">Viennoiserie</a></li>
+          <li><a href="#sandwiches">Tehran Deli Sandwiches</a></li>
+          <li><a href="#pizzas">Persian Pizza</a></li>
+          <li><a href="#beverages">Beverages</a></li>
           <li><a href="#careers">Careers</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1935,44 +3218,65 @@
       <div class="footer-col">
         <h4>Direct Channels</h4>
         <ul>
-          <li><a href="mailto:concierge@maisonpolow.com">concierge@</a></li>
-          <li><a href="mailto:careers@maisonpolow.com">careers@</a></li>
+          <li><a href="mailto:concierge@maisonbarbari.com">concierge@</a></li>
+          <li><a href="mailto:careers@maisonbarbari.com">careers@</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Connect</h4>
-        <p style="font-size: 0.88rem; color: var(--cream-muted); margin-bottom: 0.75rem;">Follow our saffron trials:</p>
-        
+        <p style="font-size: 0.88rem; color: #A8A29E; margin-bottom: 0.75rem;">Follow our hearth trials and live dough ASMR:</p>
+
         <div class="social-links-wrap">
-          <a href="https://instagram.com/maisonpolow" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <a href="https://instagram.com/maisonbarbaribakehouse" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="social-icon-btn" 
+             aria-label="Follow Maison Barbari on Instagram" 
+             title="@maisonbarbaribakehouse">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
           </a>
-          <a href="https://facebook.com/maisonpolow" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
-            <svg viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.5-10 10 0 5 3.66 9.13 8.44 9.88v-6.99h-2.54v-2.89h2.54v-2.2c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34v6.99c4.78-.75 8.44-4.88 8.44-9.88 0-5.5-4.5-10-10-10z"/></svg>
+
+          <a href="https://facebook.com/maisonbarbaribakehouse/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="social-icon-btn" 
+             aria-label="Follow Maison Barbari on Facebook" 
+             title="Facebook @maisonbarbaribakehouse">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
           </a>
         </div>
       </div>
     </div>
 
     <div class="legal-bar">
-      <div>© 2026 Maison Polow. All rights reserved.</div>
-      <div>Maison Polow™ is a proprietary brand of <strong>ZibaCube Technologies Private Limited</strong>.</div>
+      <div>© 2026 Maison Barbari. All rights reserved.</div>
+      <div>Maison Barbari™ is a proprietary brand of <strong>ZibaCube Technologies Private Limited</strong>.</div>
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
-  <div class="logo-modal-overlay" id="logoModal" role="dialog" aria-modal="true" aria-label="Maison Polow Brand Emblem">
-    <div class="logo-modal-container" id="logoModalContainer">
+  <!-- ============================================================
+        Interactive Logo Zoom Modal (Lightbox) Markup
+        ============================================================ -->
+  <div class="logo-modal-overlay" id="logoModal" role="dialog" aria-modal="true" aria-label="Maison Barbari Brand Emblem">
+    <div class="logo-modal-container">
       <button type="button" class="logo-modal-close" id="closeLogoModal" aria-label="Close enlarged emblem">✕</button>
-      <div class="modal-logo-wrapper" id="modalLogoWrapper" title="Click to zoom image">
-        <img src="" alt="Maison Polow Official Emblem" class="modal-logo-img" id="modalLogoImg">
+      <div class="modal-logo-wrapper">
+        <img src="assets/logo.png" alt="Maison Barbari Official Emblem" class="modal-logo-img" id="modalLogoImg">
       </div>
-      <div class="modal-caption" id="modalCaption"></div>
+      <div class="logo-modal-caption">
+        <h3 id="modalTitle">MAISON BARBARI</h3>
+        <p id="modalSubtitle">Artisanal Persian Bakehouse</p>
+        <span class="modal-hint">Tap anywhere or press ESC to close</span>
+      </div>
     </div>
   </div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript: Universal Lightbox, Smooth Section Glider & Robust Sliders -->
   <script>
     (function() {
       // Background Audio Autoplay / First Interaction Helper
@@ -1996,8 +3300,10 @@
         window.addEventListener('keydown', triggerAudioPlayback, { once: true });
       }
 
+      // 1. Kinetic Smooth-Scroll Section Glider
       function smoothScrollTo(targetElement, duration = 850) {
         if (!targetElement) return;
+
         const header = document.querySelector('header');
         const headerOffset = header ? header.offsetHeight : 78;
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerOffset;
@@ -2023,6 +3329,7 @@
             window.scrollTo(0, targetPosition);
           }
         }
+
         requestAnimationFrame(animationStep);
       }
 
@@ -2039,147 +3346,290 @@
         });
       });
 
-      // Lightbox & Zoom Logic with Scroll Position Preservation
-      let scrollPosition = 0;
+      // 2. Universal Lightbox Handlers
       const headerLogoBtn = document.getElementById('headerLogoBtn');
       const heroLogoTrigger = document.getElementById('heroLogoTrigger');
       const emblemZoomTrigger = document.getElementById('emblemZoomTrigger');
       const footerEmblemBtn = document.getElementById('footerEmblemBtn');
       const logoModal = document.getElementById('logoModal');
-      const modalLogoWrapper = document.getElementById('modalLogoWrapper');
       const closeLogoModal = document.getElementById('closeLogoModal');
       const modalLogoImg = document.getElementById('modalLogoImg');
-      const modalCaption = document.getElementById('modalCaption');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalSubtitle = document.getElementById('modalSubtitle');
 
-      function openModal(imageSrc, captionText) {
-        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-        if (modalLogoImg && imageSrc) modalLogoImg.src = imageSrc;
-        if (modalCaption) modalCaption.textContent = captionText || '';
-        if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
+      function openModal(imageSrc, title, subtitle) {
+        if (modalLogoImg && imageSrc) {
+          modalLogoImg.src = imageSrc;
+        }
+        if (modalTitle && title) {
+          modalTitle.textContent = title;
+        }
+        if (modalSubtitle && subtitle) {
+          modalSubtitle.textContent = subtitle;
+        }
         if (logoModal) {
           logoModal.classList.add('active');
-          document.body.classList.add('modal-open');
+          document.body.style.overflow = 'hidden';
         }
       }
 
       function closeModal() {
         if (logoModal) {
           logoModal.classList.remove('active');
-          document.body.classList.remove('modal-open');
-          if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
-          window.scrollTo(0, scrollPosition);
+          document.body.style.overflow = '';
         }
       }
 
-      // Toggle zoom on clicking the modal image wrapper
-      if (modalLogoWrapper) {
-        modalLogoWrapper.addEventListener('click', (e) => {
-          e.stopPropagation();
-          modalLogoWrapper.classList.toggle('zoomed');
-        });
-      }
-
       if (headerLogoBtn) {
-        headerLogoBtn.addEventListener('click', () => {
-          const img = headerLogoBtn.querySelector('img');
-          openModal(img ? img.src : 'assets/logo.png', img ? img.alt : 'Maison Polow Emblem');
-        });
-      }
-      if (heroLogoTrigger) {
-        heroLogoTrigger.addEventListener('click', () => {
-          const img = heroLogoTrigger.querySelector('img');
-          openModal(img ? img.src : 'assets/logo.png', img ? img.alt : 'Maison Polow Persian Rice Atelier');
-        });
-      }
-      if (emblemZoomTrigger) {
-        emblemZoomTrigger.addEventListener('click', (e) => { 
-          e.preventDefault(); 
-          const img = emblemZoomTrigger.querySelector('img');
-          openModal(img ? img.src : 'assets/emblem-master.jpg', img ? img.alt : 'Maison Polow Master Crest'); 
-        });
-      }
-      if (footerEmblemBtn) {
-        footerEmblemBtn.addEventListener('click', (e) => { 
-          e.preventDefault(); 
-          const img = footerEmblemBtn.querySelector('img');
-          openModal(img ? img.src : 'assets/emblem-master.jpg', img ? img.alt : 'Maison Polow Master Emblem'); 
-        });
-      }
-      
-      // Bind carousel product image zoom triggers dynamically
-      document.querySelectorAll('.sku-img-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        headerLogoBtn.addEventListener('click', function(e) {
           e.preventDefault();
-          const img = btn.querySelector('img');
-          if (img) openModal(img.src, img.alt);
+          e.stopPropagation();
+          const img = document.getElementById('headerLogoImg');
+          openModal(img ? (img.currentSrc || img.src) : 'assets/logo.png', 'MAISON BARBARI', 'Artisanal Persian Bakehouse');
         });
-      });
+      }
 
-      if (closeLogoModal) closeLogoModal.addEventListener('click', closeModal);
-      
+      if (heroLogoTrigger) {
+        heroLogoTrigger.addEventListener('click', function() {
+          const img = document.getElementById('heroLogoImg');
+          openModal(img ? (img.currentSrc || img.src) : 'assets/logo.png', 'MAISON BARBARI', 'Artisanal Persian Bakehouse');
+        });
+      }
+
+      if (emblemZoomTrigger) {
+        emblemZoomTrigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          const img = document.getElementById('emblemArtworkImg');
+          openModal(img ? (img.currentSrc || img.src) : 'assets/emblem-master.jpg', 'THE HEARTH COAT OF ARMS', 'Persian Warmth • Parisian Grace');
+        });
+      }
+
+      if (footerEmblemBtn) {
+        footerEmblemBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const img = document.getElementById('footerEmblemImg');
+          openModal(img ? (img.currentSrc || img.src) : 'assets/emblem-master.jpg', 'MAISON BARBARI', 'Persian Warmth • Parisian Grace');
+        });
+      }
+
+      if (closeLogoModal) {
+        closeLogoModal.addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeModal();
+        });
+      }
+
       if (logoModal) {
-        logoModal.addEventListener('click', (e) => {
-          if (!e.target.closest('.logo-modal-container')) {
+        logoModal.addEventListener('click', function(e) {
+          if (!e.target.closest('.modal-logo-wrapper') && !e.target.closest('.logo-modal-caption')) {
+            closeModal();
+          } else if (e.target.closest('.modal-logo-wrapper')) {
             closeModal();
           }
         });
       }
 
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && logoModal?.classList.contains('active')) closeModal();
+      window.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && logoModal && logoModal.classList.contains('active')) {
+          closeModal();
+        }
       });
 
-      // Async Form Submission Handler
-      async function handleFormSubmit(formId, btnId, fieldsId, feedbackId, successMsg) {
-        const form = document.getElementById(formId);
-        if (!form) return;
+      // 3. Waitlist Form Submission Handler
+      const waitlistForm = document.getElementById('waitlistForm');
+      const waitlistInputFields = document.getElementById('waitlistInputFields');
+      const waitlistSubmitBtn = document.getElementById('waitlistSubmitBtn');
+      const waitlistFeedback = document.getElementById('waitlistFeedback');
 
-        form.addEventListener('submit', async function(e) {
-          e.preventDefault();
-          const btn = document.getElementById(btnId);
-          const feedback = document.getElementById(feedbackId);
-          const inputFields = document.getElementById(fieldsId);
-
-          if (btn) {
-            btn.disabled = true;
-            btn.textContent = 'Transmitting...';
+      if (waitlistForm) {
+        waitlistForm.addEventListener('submit', async function(e) {
+          if (e) {
+            e.preventDefault();
+            e.stopPropagation();
           }
 
+          if (waitlistSubmitBtn) {
+            waitlistSubmitBtn.disabled = true;
+            waitlistSubmitBtn.textContent = 'Securing your invitation...';
+          }
+          if (waitlistFeedback) {
+            waitlistFeedback.className = 'form-feedback';
+            waitlistFeedback.style.display = 'none';
+          }
+
+          const formData = new FormData(waitlistForm);
+          const payload = {
+            form_type: 'waitlist',
+            full_name: formData.get('full_name'),
+            whatsapp: formData.get('whatsapp'),
+            catchment_area: formData.get('catchment_area')
+          };
+
           try {
-            const formData = new FormData(form);
-            const response = await fetch('https://maisonpolow.com/api', {
+            const response = await fetch('/api/waitlist', {
               method: 'POST',
-              body: formData,
-              headers: { 'Accept': 'application/json' }
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(payload)
             });
 
-            if (response.ok) {
-              if (inputFields) inputFields.style.display = 'none';
-              if (feedback) {
-                feedback.className = 'form-feedback success';
-                feedback.innerHTML = successMsg;
+            const result = await response.json().catch(() => ({}));
+
+            if (response.ok && result.success) {
+              if (waitlistInputFields) {
+                waitlistInputFields.style.display = 'none';
+              }
+              if (waitlistFeedback) {
+                waitlistFeedback.className = 'form-feedback success';
+                waitlistFeedback.style.display = 'block';
+                waitlistFeedback.innerHTML = '✨ <strong>Merci!</strong> Your invitation request has been recorded. Our concierge will reach out via WhatsApp prior to the drop.';
               }
             } else {
-              throw new Error('Server submission failed');
+              throw new Error(result.error || result.details || 'Server rejected submission');
             }
-          } catch (error) {
-            if (btn) {
-              btn.disabled = false;
-              btn.textContent = 'Try Again';
+          } catch (err) {
+            if (waitlistSubmitBtn) {
+              waitlistSubmitBtn.disabled = false;
+              waitlistSubmitBtn.textContent = 'Claim Exclusive Invitation';
             }
-            if (feedback) {
-              feedback.className = 'form-feedback error';
-              feedback.innerHTML = '⚠️ Transmission encountered an issue. Please contact concierge@maisonpolow.com directly.';
+            if (waitlistFeedback) {
+              waitlistFeedback.className = 'form-feedback error';
+              waitlistFeedback.style.display = 'block';
+              waitlistFeedback.innerHTML = '⚠️ Could not register your invitation right now. Please message our concierge directly at <a href="mailto:concierge@maisonbarbari.com" style="color: inherit; text-decoration: underline;">concierge@maisonbarbari.com</a>.';
             }
           }
         });
       }
 
-      // Initialize Form Handlers
-      handleFormSubmit('waitlistForm', 'waitlistSubmitBtn', 'waitlistInputFields', 'waitlistFeedback', '✨ <strong>Merci!</strong> Your tasting invitation has been recorded. Our concierge will reach out via WhatsApp.');
-      handleFormSubmit('careersForm', 'careersSubmitBtn', 'careersInputFields', 'careersFeedback', '✨ <strong>Application Received!</strong> Thank you for your interest in joining the atelier.');
+      // 4. Kitchen Careers Form Submission Handler
+      const careersForm = document.getElementById('careersForm');
+      const careersInputFields = document.getElementById('careersInputFields');
+      const careersSubmitBtn = document.getElementById('careersSubmitBtn');
+      const careersFeedback = document.getElementById('careersFeedback');
 
-      // Carousel Slider Factory with Mobile Touch / Swipe Support
+      if (careersForm) {
+        careersForm.addEventListener('submit', async function(e) {
+          if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+
+          if (careersSubmitBtn) {
+            careersSubmitBtn.disabled = true;
+            careersSubmitBtn.textContent = 'Transmitting application...';
+          }
+          if (careersFeedback) {
+            careersFeedback.className = 'form-feedback';
+            careersFeedback.style.display = 'none';
+          }
+
+          const formData = new FormData(careersForm);
+          const payload = {
+            form_type: 'careers',
+            full_name: formData.get('full_name'),
+            mobile: formData.get('mobile'),
+            email: formData.get('email'),
+            position: formData.get('position'),
+            experience: formData.get('experience')
+          };
+
+          try {
+            const response = await fetch('/api/waitlist', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(payload)
+            });
+
+            const result = await response.json().catch(() => ({}));
+
+            if (response.ok && result.success) {
+              if (careersInputFields) {
+                careersInputFields.style.display = 'none';
+              }
+              if (careersFeedback) {
+                careersFeedback.className = 'form-feedback success';
+                careersFeedback.style.display = 'block';
+                careersFeedback.innerHTML = '✨ <strong>Application Received!</strong> Thank you for your interest in joining the hearth. Our culinary team will review your profile and reach out via WhatsApp/Email for trials.';
+              }
+            } else {
+              throw new Error(result.error || result.details || 'Submission failed');
+            }
+          } catch (err) {
+            if (careersSubmitBtn) {
+              careersSubmitBtn.disabled = false;
+              careersSubmitBtn.textContent = 'Submit Application';
+            }
+            if (careersFeedback) {
+              careersFeedback.className = 'form-feedback error';
+              careersFeedback.style.display = 'block';
+              careersFeedback.innerHTML = '⚠️ Could not transmit application. Please email your CV directly to <a href="mailto:careers@maisonbarbari.com" style="color: inherit; text-decoration: underline;">careers@maisonbarbari.com</a>.';
+            }
+          }
+        });
+      }
+
+      // ============================================================
+      // Touch Gesture Handler Helper
+      // ============================================================
+      function enableTouchSwipe(element, onSwipeLeft, onSwipeRight, onTouchActive, onTouchEnd) {
+        if (!element) return;
+        let startX = 0;
+        let startY = 0;
+        let diffX = 0;
+        let diffY = 0;
+        const SWIPE_THRESHOLD = 45;
+
+        element.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 1) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            diffX = 0;
+            diffY = 0;
+            if (typeof onTouchActive === 'function') onTouchActive();
+          }
+        }, { passive: true });
+
+        element.addEventListener('touchmove', function(e) {
+          if (e.touches.length === 1) {
+            diffX = e.touches[0].clientX - startX;
+            diffY = e.touches[0].clientY - startY;
+          }
+        }, { passive: true });
+
+        element.addEventListener('touchend', function() {
+          const absX = Math.abs(diffX);
+          const absY = Math.abs(diffY);
+          if (absX > SWIPE_THRESHOLD && absX > (absY * 1.25)) {
+            if (diffX < 0) {
+              if (typeof onSwipeLeft === 'function') onSwipeLeft();
+            } else {
+              if (typeof onSwipeRight === 'function') onSwipeRight();
+            }
+          }
+          if (typeof onTouchEnd === 'function') onTouchEnd();
+          startX = 0;
+          startY = 0;
+          diffX = 0;
+          diffY = 0;
+        }, { passive: true });
+
+        element.addEventListener('touchcancel', function() {
+          if (typeof onTouchEnd === 'function') onTouchEnd();
+          startX = 0;
+          startY = 0;
+          diffX = 0;
+          diffY = 0;
+        }, { passive: true });
+      }
+
+      // ============================================================
+      // Reusable Carousel Factory (Robust Scoped Carousel Engine)
+      // ============================================================
       function initSlider({ containerId, trackId, slideAttr, dotsContainerId, prevBtnId, nextBtnId, duration }) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -2189,6 +3639,7 @@
         const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.slider-dot')) : [];
         const prevBtn = document.getElementById(prevBtnId);
         const nextBtn = document.getElementById(nextBtnId);
+
         if (!slides.length) return;
 
         let currentIndex = 0;
@@ -2197,49 +3648,86 @@
         function updateSlide(targetIndex) {
           const count = slides.length;
           const nextIdx = (targetIndex % count + count) % count;
-          slides.forEach((s, idx) => s.classList.toggle('active', idx === nextIdx));
-          dots.forEach((d, idx) => d.classList.toggle('active', idx === nextIdx));
+
+          slides.forEach((s, idx) => {
+            if (idx === nextIdx) {
+              s.classList.add('active');
+            } else {
+              s.classList.remove('active');
+            }
+          });
+
+          dots.forEach((d, idx) => {
+            if (idx === nextIdx) {
+              d.classList.add('active');
+            } else {
+              d.classList.remove('active');
+            }
+          });
+
           currentIndex = nextIdx;
         }
 
-        function nextSlide() { updateSlide(currentIndex + 1); }
-        function prevSlide() { updateSlide(currentIndex - 1); }
-        function startAuto() { stopAuto(); timer = setInterval(nextSlide, duration); }
-        function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
+        function nextSlide() {
+          updateSlide(currentIndex + 1);
+        }
 
-        if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); startAuto(); });
-        if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); startAuto(); });
-        dots.forEach((dot, idx) => dot.addEventListener('click', (e) => { e.preventDefault(); updateSlide(idx); startAuto(); }));
+        function prevSlide() {
+          updateSlide(currentIndex - 1);
+        }
+
+        function startAuto() {
+          stopAuto();
+          timer = setInterval(nextSlide, duration);
+        }
+
+        function stopAuto() {
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+            startAuto();
+          });
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+            startAuto();
+          });
+        }
+
+        dots.forEach((dot, idx) => {
+          dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            updateSlide(idx);
+            startAuto();
+          });
+        });
 
         container.addEventListener('mouseenter', stopAuto);
         container.addEventListener('mouseleave', startAuto);
 
-        // Touch Swipe Gestures for Mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        track.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-          stopAuto();
-        }, { passive: true });
-
-        track.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          const diff = touchStartX - touchEndX;
-          if (Math.abs(diff) > 50) {
-            if (diff > 0) {
-              nextSlide();
-            } else {
-              prevSlide();
-            }
-          }
-          startAuto();
-        }, { passive: true });
+        enableTouchSwipe(
+          track,
+          () => { nextSlide(); startAuto(); },
+          () => { prevSlide(); startAuto(); },
+          stopAuto,
+          startAuto
+        );
 
         updateSlide(0);
         startAuto();
       }
 
+      // Initialize all 4 Carousels independently with robust scoped engines
       initSlider({
         containerId: 'skuSliderContainer',
         trackId: 'skuSliderTrack',
@@ -2250,16 +3738,36 @@
         duration: 5200
       });
 
-      // Initialize Signature Dishes Carousel
       initSlider({
-        containerId: 'dishSliderContainer',
-        trackId: 'dishSliderTrack',
-        slideAttr: 'data-dish-slide',
-        dotsContainerId: 'dishSliderDots',
-        prevBtnId: 'prevDishSlideBtn',
-        nextDishId: 'nextDishSlideBtn',
+        containerId: 'croissantSliderContainer',
+        trackId: 'croissantSliderTrack',
+        slideAttr: 'data-croissant-slide',
+        dotsContainerId: 'croissantSliderDots',
+        prevBtnId: 'prevCroissantSlideBtn',
+        nextBtnId: 'nextCroissantSlideBtn',
         duration: 5800
       });
+
+      initSlider({
+        containerId: 'sandwichSliderContainer',
+        trackId: 'sandwichSliderTrack',
+        slideAttr: 'data-sandwich-slide',
+        dotsContainerId: 'sandwichSliderDots',
+        prevBtnId: 'prevSandwichSlideBtn',
+        nextBtnId: 'nextSandwichSlideBtn',
+        duration: 5600
+      });
+
+      initSlider({
+        containerId: 'pizzaSliderContainer',
+        trackId: 'pizzaSliderTrack',
+        slideAttr: 'data-pizza-slide',
+        dotsContainerId: 'pizzaSliderDots',
+        prevBtnId: 'prevPizzaSlideBtn',
+        nextBtnId: 'nextPizzaSlideBtn',
+        duration: 5700
+      });
+
     })();
   </script>
 </body>
