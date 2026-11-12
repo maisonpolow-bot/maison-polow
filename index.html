@@ -1297,9 +1297,9 @@
       </ul>
     </nav>
 
-    <!-- Background Audio Widget -->
+    <!-- Background Audio Widget with ID -->
     <div class="audio-player-widget">
-      <audio autoplay loop controls aria-label="Background music">
+      <audio id="bgAudio" autoplay loop controls aria-label="Background music">
         <source src="assets/Website-مزون بربری.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
@@ -1975,6 +1975,27 @@
   <!-- JavaScript -->
   <script>
     (function() {
+      // Background Audio Autoplay / First Interaction Helper
+      const bgAudio = document.getElementById('bgAudio');
+      if (bgAudio) {
+        bgAudio.volume = 0.5; // Comfortable background volume level
+        
+        const triggerAudioPlayback = () => {
+          bgAudio.play().then(() => {
+            // Successfully playing, remove listeners so it only runs once
+            window.removeEventListener('click', triggerAudioPlayback);
+            window.removeEventListener('touchstart', triggerAudioPlayback);
+            window.removeEventListener('keydown', triggerAudioPlayback);
+          }).catch(err => {
+            console.log("Audio waiting for user gesture:", err);
+          });
+        };
+
+        window.addEventListener('click', triggerAudioPlayback, { once: true });
+        window.addEventListener('touchstart', triggerAudioPlayback, { once: true });
+        window.addEventListener('keydown', triggerAudioPlayback, { once: true });
+      }
+
       function smoothScrollTo(targetElement, duration = 850) {
         if (!targetElement) return;
         const header = document.querySelector('header');
@@ -2236,7 +2257,7 @@
         slideAttr: 'data-dish-slide',
         dotsContainerId: 'dishSliderDots',
         prevBtnId: 'prevDishSlideBtn',
-        nextBtnId: 'nextDishSlideBtn',
+        nextDishId: 'nextDishSlideBtn',
         duration: 5800
       });
     })();
