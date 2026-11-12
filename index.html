@@ -212,20 +212,80 @@
       transform: none;
     }
 
-    /* Background Audio Widget Styles */
-    .audio-player-widget {
+    /* Custom Floating Audio Widget */
+    .floating-audio-widget {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
       display: flex;
       align-items: center;
       gap: 10px;
-      background: var(--bg-card);
+      background: rgba(27, 24, 22, 0.92);
+      backdrop-filter: blur(12px);
       border: 1px solid var(--border-gold);
-      padding: 6px 12px;
-      border-radius: 30px;
-      margin-left: 1rem;
+      padding: 8px 16px 8px 12px;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(197, 155, 39, 0.15);
+      transition: transform 0.25s ease, border-color 0.25s ease;
     }
-    .audio-player-widget audio {
-      height: 32px;
-      width: 180px;
+
+    .floating-audio-widget:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .audio-toggle-btn {
+      background: var(--gold);
+      color: var(--bg-dark);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .audio-toggle-btn:hover {
+      background: var(--gold-light);
+      transform: scale(1.05);
+    }
+
+    .audio-toggle-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .audio-info-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .audio-info-text span:first-child {
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: 0.5px;
+    }
+
+    .audio-info-text span:last-child {
+      color: var(--gold);
+      font-size: 0.68rem;
+    }
+
+    @keyframes pulseSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .audio-toggle-btn.playing svg {
+      animation: pulseSpin 3s linear infinite;
     }
 
     /* Hero Section */
@@ -1267,6 +1327,10 @@
         height: 52vh;
         max-height: 360px;
       }
+      .floating-audio-widget {
+        bottom: 20px;
+        right: 20px;
+      }
     }
   </style>
 </head>
@@ -1296,15 +1360,25 @@
         <li><a href="#waitlist" class="btn-primary">Reserve Tasting Box</a></li>
       </ul>
     </nav>
-
-    <!-- Background Audio Widget with ID -->
-    <div class="audio-player-widget">
-      <audio id="bgAudio" autoplay loop controls aria-label="Background music">
-        <source src="assets/Website-مزون بربری.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
   </header>
+
+  <!-- Floating Custom Audio Control Widget -->
+  <div class="floating-audio-widget" id="floatingAudioWidget" role="region" aria-label="Audio Controls">
+    <audio id="bgAudio" loop preload="auto">
+      <source src="assets/Website-مزون بربری.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <button type="button" class="audio-toggle-btn" id="audioToggleBtn" aria-label="Play or Mute Audio" title="Play / Mute Sound">
+      <!-- Play Icon SVG -->
+      <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <!-- Mute/Pause Icon SVG (hidden by default) -->
+      <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+    <div class="audio-info-text">
+      <span id="audioStatusText">Atelier Sound</span>
+      <span id="audioSubText">Click to Play</span>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -1975,25 +2049,60 @@
   <!-- JavaScript -->
   <script>
     (function() {
-      // Background Audio Autoplay / First Interaction Helper
+      // Custom Floating Audio Player Control Logic
       const bgAudio = document.getElementById('bgAudio');
-      if (bgAudio) {
-        bgAudio.volume = 0.5; // Comfortable background volume level
-        
-        const triggerAudioPlayback = () => {
+      const audioToggleBtn = document.getElementById('audioToggleBtn');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const audioStatusText = document.getElementById('audioStatusText');
+      const audioSubText = document.getElementById('audioSubText');
+
+      if (bgAudio && audioToggleBtn) {
+        bgAudio.volume = 0.5; // Comfortable background level
+
+        function updateAudioUI(isPlaying) {
+          if (isPlaying) {
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+            audioToggleBtn.classList.add('playing');
+            audioStatusText.textContent = 'Playing Saffron Track';
+            audioSubText.textContent = 'Click to Mute';
+          } else {
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+            audioToggleBtn.classList.remove('playing');
+            audioStatusText.textContent = 'Atelier Sound';
+            audioSubText.textContent = 'Click to Play';
+          }
+        }
+
+        audioToggleBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (bgAudio.paused) {
+            bgAudio.play().then(() => {
+              updateAudioUI(true);
+            }).catch(err => {
+              console.log("Playback prevented:", err);
+            });
+          } else {
+            bgAudio.pause();
+            updateAudioUI(false);
+          }
+        });
+
+        // First user interaction auto-play helper to satisfy browser restrictions
+        const autoStartOnFirstInteraction = () => {
           bgAudio.play().then(() => {
-            // Successfully playing, remove listeners so it only runs once
-            window.removeEventListener('click', triggerAudioPlayback);
-            window.removeEventListener('touchstart', triggerAudioPlayback);
-            window.removeEventListener('keydown', triggerAudioPlayback);
-          }).catch(err => {
-            console.log("Audio waiting for user gesture:", err);
-          });
+            updateAudioUI(true);
+            window.removeEventListener('click', autoStartOnFirstInteraction);
+            window.removeEventListener('touchstart', autoStartOnFirstInteraction);
+            window.removeEventListener('keydown', autoStartOnFirstInteraction);
+          }).catch(() => {});
         };
 
-        window.addEventListener('click', triggerAudioPlayback, { once: true });
-        window.addEventListener('touchstart', triggerAudioPlayback, { once: true });
-        window.addEventListener('keydown', triggerAudioPlayback, { once: true });
+        window.addEventListener('click', autoStartOnFirstInteraction, { once: true });
+        window.addEventListener('touchstart', autoStartOnFirstInteraction, { once: true });
+        window.addEventListener('keydown', autoStartOnFirstInteraction, { once: true });
       }
 
       function smoothScrollTo(targetElement, duration = 850) {
@@ -2257,7 +2366,7 @@
         slideAttr: 'data-dish-slide',
         dotsContainerId: 'dishSliderDots',
         prevBtnId: 'prevDishSlideBtn',
-        nextDishId: 'nextDishSlideBtn',
+        nextBtnId: 'nextDishSlideBtn',
         duration: 5800
       });
     })();
