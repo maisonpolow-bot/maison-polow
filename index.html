@@ -7,8 +7,8 @@
   <meta name="description" content="Aromatic saffron grains, golden crispy tahdig, and heirloom Persian rice ateliers. Discover Delhi NCR's premier Persian rice experience.">
   
   <!-- Favicon & Brand Icons -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231B1816'/%3E%3Ccircle cx='50' cy='50' r='43' stroke='%23C59B27' stroke-width='1.5' fill='none'/%3E%3Ctext x='50' y='61' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F4EFEA' text-anchor='middle'%3EMP%3E%3C/text%3E%3C/svg%3E">
-  <meta name="theme-color" content="#12100E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%231F1B17'/%3E%3Ccircle cx='50' cy='50' r='43' stroke='%23C99E2E' stroke-width='1.5' fill='none'/%3E%3Ctext x='50' y='61' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F6F1EC' text-anchor='middle'%3EMP%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#110F0D">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,18 +17,49 @@
 
   <style>
     :root {
-      --bg-dark: #12100E;
-      --bg-card: #1B1816;
-      --bg-card-hover: #24201D;
-      --emerald: #1B3B2B;
-      --emerald-light: #2A5A42;
-      --gold: #C59B27;
-      --gold-light: #E0BA51;
-      --gold-subtle: rgba(197, 155, 39, 0.15);
-      --cream: #F5EFEB;
-      --cream-muted: #D5CEC7;
+      color-scheme: dark;
+
+      /* Core Brand Palette */
+      --gold: #C99E2E;
+      --gold-light: #DFB646;
+      --gold-pressed: #AD8420;
+      --gold-subtle: rgba(201, 158, 46, 0.14);
+
+      --emerald: #163829;
+      --emerald-mid: #1D4734;
+      --emerald-light: #24543F;
+      --ruby-accent: #8C2430;
+
+      /* Neutral Surfaces */
+      --bg-dark: #110F0D;
+      --bg-section: #181512;
+      --bg-card: #1F1B17;
+      --bg-card-inner: #14120F;
+      --bg-card-hover: #28221D;
+      --bg-footer: #0B0908;
+      --parchment-light: #FAF7F0;
+
+      /* Typography Colours */
+      --cream: #F6F1EC;
+      --cream-muted: #D2C9C0;
+      --text-subtle: #9E958B;
       --charcoal: #1C1917;
-      --border-gold: rgba(197, 155, 39, 0.3);
+
+      /* Borders & Overlays */
+      --border-subtle: #2E2823;
+      --border-gold: rgba(201, 158, 46, 0.36);
+      --border-gold-strong: rgba(201, 158, 46, 0.68);
+      --overlay-backdrop: rgba(11, 9, 8, 0.92);
+
+      /* Semantic States */
+      --status-success-bg: rgba(22, 56, 41, 0.88);
+      --status-success-text: #E6F4ED;
+      --status-success-border: #3B8765;
+      --status-error-bg: rgba(66, 20, 26, 0.9);
+      --status-error-text: #FADADD;
+      --status-error-border: #C44554;
+
+      /* Fonts */
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
@@ -37,6 +68,11 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
     }
 
     html, body {
@@ -79,7 +115,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: var(--gold);
+      color: var(--gold-light);
       background-color: var(--gold-subtle);
       padding: 6px 14px;
       border-radius: 50px;
@@ -92,7 +128,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(18, 16, 14, 0.94);
+      background: rgba(17, 15, 13, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-gold);
       padding: 0.85rem 2rem;
@@ -129,14 +165,14 @@
     }
 
     .nav-logo-button:focus-visible {
-      box-shadow: 0 0 0 3px var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-light);
     }
 
     .nav-logo-img {
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      box-shadow: 0 2px 12px rgba(197, 155, 39, 0.35);
+      box-shadow: 0 2px 12px rgba(201, 158, 46, 0.32);
       object-fit: cover;
       display: block;
       border: 1px solid var(--gold);
@@ -161,7 +197,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 2.5px;
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     nav ul {
@@ -181,7 +217,7 @@
     }
 
     nav a:hover {
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     .btn-primary {
@@ -193,8 +229,8 @@
       font-weight: 700;
       border-radius: 8px;
       text-decoration: none;
-      transition: all 0.2s ease;
-      border: none;
+      transition: background-color 0.22s ease, transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
+      border: 1px solid var(--gold-light);
       cursor: pointer;
       text-align: center;
       letter-spacing: 0.5px;
@@ -202,14 +238,43 @@
 
     .btn-primary:hover {
       background: var(--gold-light);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(197, 155, 39, 0.35);
+      color: var(--bg-dark);
+      transform: translateY(-1.5px);
+      box-shadow: 0 8px 24px rgba(201, 158, 46, 0.32);
+    }
+
+    .btn-primary:active {
+      background: var(--gold-pressed);
+      transform: translateY(0);
     }
 
     .btn-primary:disabled {
       opacity: 0.7;
       cursor: not-allowed;
       transform: none;
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: rgba(22, 56, 41, 0.45);
+      color: var(--cream);
+      padding: 11px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid var(--border-gold);
+      cursor: pointer;
+      text-align: center;
+      letter-spacing: 0.4px;
+      transition: background-color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--emerald-light);
+      border-color: var(--gold);
+      transform: translateY(-1.5px);
     }
 
     /* Custom Floating Audio Widget */
@@ -221,12 +286,12 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      background: rgba(27, 24, 22, 0.94);
+      background: rgba(31, 27, 23, 0.94);
       backdrop-filter: blur(12px);
       border: 1px solid var(--border-gold);
       padding: 10px 16px;
       border-radius: 50px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(197, 155, 39, 0.15);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), 0 0 18px rgba(201, 158, 46, 0.14);
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
@@ -238,7 +303,7 @@
     .audio-toggle-btn {
       background: var(--gold);
       color: var(--bg-dark);
-      border: none;
+      border: 1px solid var(--gold-light);
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -247,7 +312,6 @@
       justify-content: center;
       cursor: pointer;
       transition: all 0.2s ease;
-      outline: none;
       flex-shrink: 0;
     }
 
@@ -294,8 +358,7 @@
       width: 80px;
       height: 4px;
       border-radius: 2px;
-      background: #3D3530;
-      outline: none;
+      background: var(--border-subtle);
       cursor: pointer;
     }
 
@@ -305,7 +368,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--gold);
+      background: var(--gold-light);
       cursor: pointer;
       transition: transform 0.1s ease;
     }
@@ -338,12 +401,12 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: 10%;
+      top: 8%;
       left: 50%;
       transform: translateX(-50%);
-      width: 600px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(27,59,43,0.3) 0%, rgba(18,16,14,0) 70%);
+      width: 680px;
+      height: 440px;
+      background: radial-gradient(ellipse 65% 50% at 50% 45%, rgba(22, 56, 41, 0.36) 0%, rgba(201, 158, 46, 0.06) 45%, rgba(17, 15, 13, 0) 75%);
       pointer-events: none;
       z-index: 0;
     }
@@ -361,7 +424,7 @@
     }
 
     .hero-content h1 span {
-      color: var(--gold);
+      color: var(--gold-light);
       font-style: italic;
     }
 
@@ -374,10 +437,10 @@
 
     .hero-card {
       background: var(--bg-card);
-      border-radius: 28px;
+      border-radius: 24px;
       padding: 2.8rem 2.2rem;
       border: 1px solid var(--border-gold);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 24px 48px rgba(0, 0, 0, 0.55);
       text-align: center;
       position: relative;
       z-index: 1;
@@ -394,7 +457,7 @@
       border: 2px solid var(--gold);
       padding: 4px;
       background: var(--bg-dark);
-      box-shadow: 0 10px 30px rgba(197, 155, 39, 0.3);
+      box-shadow: 0 10px 30px rgba(201, 158, 46, 0.28);
     }
 
     .hero-logo-img {
@@ -425,25 +488,30 @@
 
     .waitlist-form input, .waitlist-form select {
       padding: 13px 16px;
-      border: 1px solid var(--border-gold);
+      border: 1px solid var(--border-subtle);
       border-radius: 8px;
       font-family: inherit;
       font-size: 0.95rem;
-      outline: none;
-      background: var(--bg-dark);
+      background: var(--bg-card-inner);
       color: var(--cream);
-      transition: all 0.2s;
+      transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
       width: 100%;
     }
 
+    .waitlist-form select option {
+      background: var(--bg-card);
+      color: var(--cream);
+    }
+
     .waitlist-form input::placeholder {
-      color: #8C847B;
+      color: var(--text-subtle);
     }
 
     .waitlist-form input:focus, .waitlist-form select:focus {
       border-color: var(--gold);
-      background: #1B1816;
-      box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.2);
+      background: var(--bg-card-hover);
+      box-shadow: 0 0 0 3px rgba(201, 158, 46, 0.22);
+      outline: none;
     }
 
     .form-feedback {
@@ -458,24 +526,24 @@
 
     .form-feedback.success {
       display: block;
-      background: rgba(27, 59, 43, 0.8);
-      color: var(--cream);
-      border: 1px solid var(--gold);
+      background: var(--status-success-bg);
+      color: var(--status-success-text);
+      border: 1px solid var(--status-success-border);
     }
 
     .form-feedback.error {
       display: block;
-      background: rgba(153, 27, 27, 0.8);
-      color: #FEE2E2;
-      border: 1px solid #FCA5A5;
+      background: var(--status-error-bg);
+      color: var(--status-error-text);
+      border: 1px solid var(--status-error-border);
     }
 
     /* Craft Section */
     .craft-section {
-      background: var(--bg-card);
+      background: var(--bg-section);
       padding: 6rem 2rem;
-      border-top: 1px solid var(--border-gold);
-      border-bottom: 1px solid var(--border-gold);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .section-header {
@@ -503,22 +571,24 @@
     }
 
     .craft-card {
-      background: var(--bg-dark);
+      background: var(--bg-card-inner);
       padding: 2.5rem 2rem;
-      border-radius: 20px;
-      border: 1px solid var(--border-gold);
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      transition: transform 0.28s ease, border-color 0.28s ease, background-color 0.28s ease, box-shadow 0.28s ease;
     }
 
     .craft-card:hover {
       transform: translateY(-4px);
-      border-color: var(--gold);
+      background: var(--bg-card-hover);
+      border-color: var(--border-gold-strong);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
     }
 
     .craft-card h3 {
       font-size: 1.6rem;
       margin-bottom: 0.75rem;
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     .craft-card p {
@@ -548,7 +618,7 @@
       grid-template-columns: 1fr;
       align-items: stretch;
       overflow: hidden;
-      border-radius: 28px;
+      border-radius: 24px;
       touch-action: pan-y;
       cursor: grab;
     }
@@ -583,15 +653,15 @@
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
       background: var(--bg-card);
-      border-radius: 28px;
+      border-radius: 24px;
       overflow: hidden;
       border: 1px solid var(--border-gold);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 24px 48px rgba(0, 0, 0, 0.55);
       min-height: 480px;
     }
 
     .sku-media {
-      background: radial-gradient(circle at center, #1B3B2B 0%, #12100E 100%);
+      background: radial-gradient(circle at 50% 45%, var(--emerald-mid) 0%, #13291F 55%, var(--bg-dark) 100%);
       padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
@@ -611,7 +681,6 @@
       width: 100%;
       max-width: 400px;
       border-radius: 20px;
-      outline: none;
       text-align: left;
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
     }
@@ -626,7 +695,7 @@
       height: 330px;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
       border: 1px solid var(--gold);
     }
 
@@ -647,7 +716,7 @@
     .sku-img-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 65%, rgba(0,0,0,0.6) 100%);
+      background: linear-gradient(180deg, rgba(17, 15, 13, 0.08) 0%, rgba(17, 15, 13, 0) 50%, rgba(17, 15, 13, 0.78) 100%);
       pointer-events: none;
     }
 
@@ -655,9 +724,9 @@
       position: absolute;
       top: 14px;
       left: 14px;
-      background: rgba(18, 16, 14, 0.9);
+      background: rgba(17, 15, 13, 0.9);
       backdrop-filter: blur(8px);
-      color: var(--gold);
+      color: var(--gold-light);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 1.5px;
@@ -672,9 +741,9 @@
       position: absolute;
       bottom: 14px;
       right: 14px;
-      background: rgba(18, 16, 14, 0.9);
+      background: rgba(17, 15, 13, 0.9);
       backdrop-filter: blur(8px);
-      color: var(--gold);
+      color: var(--gold-light);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 1px;
@@ -710,7 +779,7 @@
     .sku-price {
       font-size: 1.35rem;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--gold-light);
       margin-bottom: 1.25rem;
     }
 
@@ -728,13 +797,13 @@
     }
 
     .ingredient-tags span {
-      background: var(--bg-dark);
+      background: var(--bg-card-inner);
       padding: 6px 12px;
       border-radius: 6px;
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--cream-muted);
-      border: 1px solid var(--border-gold);
+      border: 1px solid var(--border-subtle);
     }
 
     /* Slider Controls */
@@ -757,7 +826,7 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: rgba(197, 155, 39, 0.3);
+      background: rgba(201, 158, 46, 0.3);
       border: none;
       padding: 0;
       cursor: pointer;
@@ -786,15 +855,14 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       transition: all 0.25s ease;
-      outline: none;
     }
 
     .slider-btn:hover {
       background: var(--gold);
       color: var(--bg-dark);
-      border-color: var(--gold);
+      border-color: var(--gold-light);
       transform: translateY(-2px);
     }
 
@@ -806,10 +874,10 @@
 
     /* Emblem Section */
     .emblem-section {
-      background: var(--bg-card);
+      background: var(--bg-section);
       padding: 6rem 2rem;
-      border-top: 1px solid var(--border-gold);
-      border-bottom: 1px solid var(--border-gold);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
       width: 100%;
       overflow: hidden;
     }
@@ -826,11 +894,11 @@
 
     .emblem-artwork-container {
       position: relative;
-      background: radial-gradient(circle at center, #1B3B2B 0%, #12100E 100%);
-      border-radius: 28px;
+      background: radial-gradient(circle at 50% 45%, var(--emerald-mid) 0%, #13291F 55%, var(--bg-dark) 100%);
+      border-radius: 24px;
       padding: 2.5rem;
       border: 1px solid var(--border-gold);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -847,7 +915,6 @@
       width: 100%;
       max-width: 440px;
       border-radius: 20px;
-      outline: none;
       transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
     }
 
@@ -860,9 +927,9 @@
       aspect-ratio: 1 / 1;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
       border: 2px solid var(--gold);
-      background: #FAF7F0;
+      background: var(--parchment-light);
       position: relative;
     }
 
@@ -878,9 +945,9 @@
       position: absolute;
       bottom: 14px;
       right: 14px;
-      background: rgba(18, 16, 14, 0.9);
+      background: rgba(17, 15, 13, 0.9);
       backdrop-filter: blur(8px);
-      color: var(--gold);
+      color: var(--gold-light);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 1px;
@@ -917,19 +984,24 @@
     }
 
     .emblem-pillar-card {
-      background: var(--bg-dark);
+      background: var(--bg-card-inner);
       padding: 1.5rem;
       border-radius: 14px;
+      border: 1px solid var(--border-subtle);
       border-left: 3px solid var(--gold);
-      border-top: 1px solid var(--border-gold);
-      border-right: 1px solid var(--border-gold);
-      border-bottom: 1px solid var(--border-gold);
       word-break: break-word;
+      transition: border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .emblem-pillar-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-gold-strong);
+      border-left: 3px solid var(--gold-light);
     }
 
     .emblem-pillar-card h4 {
       font-size: 1.05rem;
-      color: var(--gold);
+      color: var(--gold-light);
       font-weight: 700;
       margin-bottom: 6px;
     }
@@ -944,7 +1016,7 @@
     .careers-section {
       background: var(--bg-dark);
       padding: 6rem 2rem;
-      border-top: 1px solid var(--border-gold);
+      border-top: 1px solid var(--border-subtle);
       width: 100%;
       overflow: hidden;
     }
@@ -974,11 +1046,16 @@
     .role-item {
       background: var(--bg-card);
       padding: 1.25rem;
-      border-radius: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
       border-left: 4px solid var(--gold);
-      border-top: 1px solid var(--border-gold);
-      border-right: 1px solid var(--border-gold);
-      border-bottom: 1px solid var(--border-gold);
+      transition: border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .role-item:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-gold-strong);
+      border-left: 4px solid var(--gold-light);
     }
 
     .role-item h4 {
@@ -996,15 +1073,16 @@
     .hiring-box {
       background: var(--bg-card);
       padding: 2.5rem;
-      border-radius: 20px;
+      border-radius: 24px;
       border: 1px solid var(--border-gold);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
       width: 100%;
       max-width: 100%;
     }
 
     /* Footer */
     footer {
-      background: #0D0B0A;
+      background: var(--bg-footer);
       color: var(--cream);
       padding: 4.5rem 2rem 2.5rem;
       border-top: 1px solid var(--border-gold);
@@ -1037,7 +1115,6 @@
       align-items: center;
       gap: 14px;
       text-align: left;
-      outline: none;
       width: fit-content;
     }
 
@@ -1047,8 +1124,8 @@
       border-radius: 14px;
       object-fit: cover;
       border: 1.5px solid var(--gold);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      background: #FAF7F0;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
+      background: var(--parchment-light);
       display: block;
       flex-shrink: 0;
     }
@@ -1075,7 +1152,7 @@
     }
 
     .footer-col a:hover {
-      color: var(--gold);
+      color: var(--gold-light);
     }
 
     .social-links-wrap {
@@ -1092,17 +1169,17 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(197, 155, 39, 0.1);
+      background: var(--gold-subtle);
       border: 1px solid var(--border-gold);
-      color: var(--gold);
+      color: var(--gold-light);
       text-decoration: none;
       transition: all 0.25s ease;
     }
 
     .social-icon-btn:hover {
-      background: rgba(197, 155, 39, 0.3);
-      border-color: var(--gold);
-      color: var(--gold-light);
+      background: rgba(201, 158, 46, 0.28);
+      border-color: var(--gold-light);
+      color: var(--cream);
       transform: translateY(-2px);
     }
 
@@ -1116,12 +1193,12 @@
       max-width: 1200px;
       margin: 0 auto;
       padding-top: 2rem;
-      border-top: 1px solid rgba(197, 155, 39, 0.15);
+      border-top: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 0.8rem;
-      color: #8C847B;
+      color: var(--text-subtle);
       width: 100%;
     }
 
@@ -1130,7 +1207,7 @@
       position: fixed;
       inset: 0;
       z-index: 99999;
-      background: rgba(15, 12, 11, 0.92);
+      background: var(--overlay-backdrop);
       backdrop-filter: blur(12px);
       display: none;
       align-items: center;
@@ -1157,7 +1234,7 @@
       height: 60vh;
       max-height: 420px;
       border-radius: 20px;
-      background: #1B1816;
+      background: var(--bg-card);
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 0 2px var(--gold);
       display: flex;
       align-items: center;
@@ -1197,20 +1274,35 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      background: #FFFFFF;
-      border: 1px solid var(--border-gold);
-      color: var(--charcoal);
-      font-size: 1.2rem;
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
+      color: var(--bg-dark);
+      font-size: 1.1rem;
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       z-index: 10;
-      transition: background 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transition: background-color 0.2s ease, transform 0.2s ease;
     }
 
     .logo-modal-close:hover {
-      background: var(--gold);
+      background: var(--gold-light);
+      transform: scale(1.06);
+    }
+
+    /* Reduced Motion Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-logo-container,
+      .audio-toggle-btn.playing svg {
+        animation: none !important;
+      }
+      * {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     /* Mobile Responsive Breakpoints & Center Alignment */
@@ -1381,7 +1473,7 @@
   <header>
     <div class="brand-logo-wrap">
       <button type="button" class="nav-logo-button" id="headerLogoBtn" aria-label="View enlarged Maison Polow emblem" title="Click to view emblem">
-        <img src="assets/logo.png" alt="Maison Polow Emblem" class="nav-logo-img" id="headerLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C59B27\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text></svg>';">
+        <img src="assets/logo.png" alt="Maison Polow Emblem" class="nav-logo-img" id="headerLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231F1B17\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C99E2E\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F6F1EC\' text-anchor=\'middle\'>MP</text></svg>';">
       </button>
       
       <a href="#" style="text-decoration: none; color: inherit;" class="brand-title">
@@ -1440,7 +1532,7 @@
     <!-- Waitlist Card -->
     <div class="hero-card" id="waitlist">
       <div class="hero-logo-container" id="heroLogoTrigger" title="Click to view emblem">
-        <img src="assets/logo.png" alt="Maison Polow Persian Rice Atelier" class="hero-logo-img" id="heroLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231B1816\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C59B27\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F4EFEA\' text-anchor=\'middle\'>MP</text></svg>';">
+        <img src="assets/logo.png" alt="Maison Polow Persian Rice Atelier" class="hero-logo-img" id="heroLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%231F1B17\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C99E2E\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F6F1EC\' text-anchor=\'middle\'>MP</text></svg>';">
       </div>
       
       <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--cream);">Join the First-Tasting Drop</h3>
@@ -2219,15 +2311,15 @@
         <button type="button" class="footer-emblem-btn" id="footerEmblemBtn" aria-label="View enlarged Maison Polow master emblem" title="Click to inspect master crest">
           <img src="assets/emblem-master.jpg" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" onerror="this.onerror=null; this.src='assets/logo.png';">
           <div class="footer-brand-title" style="display: flex; flex-direction: column;">
-            <span style="font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; color: #fff;">MAISON POLOW</span>
-            <span style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gold);">Persian Rice Atelier</span>
+            <span style="font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; color: var(--cream);">MAISON POLOW</span>
+            <span style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-light);">Persian Rice Atelier</span>
           </div>
         </button>
 
         <p style="font-size: 0.9rem; color: var(--cream-muted); line-height: 1.6;">
           Heirloom Persian rice dishes and saffron ateliers crafted daily for Delhi NCR tables.
         </p>
-        <p style="font-size: 0.85rem; color: #D6D3D1;">
+        <p style="font-size: 0.85rem; color: var(--cream-muted);">
           📍 Cloud Kitchen Dispatch: South Delhi, Noida & Gurugram Hubs
         </p>
       </div>
