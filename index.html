@@ -50,7 +50,7 @@
       --border-subtle: #3B2D23;
       --border-gold: rgba(194, 140, 65, 0.38);
       --border-gold-strong: rgba(220, 168, 91, 0.72);
-      --overlay-backdrop: rgba(18, 13, 9, 0.93);
+      --overlay-backdrop: rgba(18, 13, 9, 0.78);
 
       /* Semantic States */
       --status-success-bg: rgba(59, 77, 53, 0.9);
@@ -95,12 +95,6 @@
       font-family: var(--font-sans);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-    }
-
-    body.modal-open {
-      overflow: hidden !important;
-      position: fixed;
-      width: 100%;
     }
 
     h1, h2, h3, .serif {
@@ -1204,21 +1198,30 @@
       width: 100%;
     }
 
-    /* Mobile-Optimized Modal / Popup & Zoom */
+    /* ==========================================
+       LIGHTBOX MODAL (1:1 SQUARE FRAME + SMOOTH TRANSITION)
+       ========================================== */
     .logo-modal-overlay {
       position: fixed;
       inset: 0;
       z-index: 99999;
       background: var(--overlay-backdrop);
-      backdrop-filter: blur(12px);
-      display: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.38s ease;
     }
 
     .logo-modal-overlay.active {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
 
     .logo-modal-container {
@@ -1227,17 +1230,27 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      max-width: 440px;
+      width: min(440px, 82vw);
+      max-width: 100%;
+      opacity: 0;
+      transform: scale(0.92) translateY(14px);
+      transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.38s ease;
+    }
+
+    .logo-modal-overlay.active .logo-modal-container {
+      opacity: 1;
+      transform: scale(1) translateY(0);
     }
 
     .modal-logo-wrapper {
       width: 100%;
-      height: 60vh;
-      max-height: 420px;
+      aspect-ratio: 1 / 1;
+      height: auto;
+      max-height: 75vh;
+      margin: 0 auto;
       border-radius: 20px;
       background: var(--parchment-light);
-      box-shadow: 0 25px 60px rgba(10, 7, 5, 0.85), 0 0 0 2px var(--gold);
+      box-shadow: 0 25px 60px rgba(10, 7, 5, 0.75), 0 0 0 2px var(--gold);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1250,35 +1263,36 @@
       height: 100%;
       object-fit: contain;
       object-position: center;
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .modal-logo-wrapper.zoomed .modal-logo-img {
-      transform: scale(1.5);
+      transform: scale(1.55);
       cursor: zoom-out;
     }
 
     .modal-caption {
-      margin-top: 0.85rem;
+      margin-top: 0.9rem;
       font-family: var(--font-sans);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
-      color: var(--cream);
+      color: var(--gold-light);
       text-align: center;
       letter-spacing: 0.5px;
       padding: 0 1rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
     }
 
     .logo-modal-close {
       position: absolute;
-      top: -12px;
-      right: -12px;
-      width: 38px;
-      height: 38px;
+      top: -16px;
+      right: -16px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: var(--cream);
+      background: var(--bg-card);
       border: 1.5px solid var(--gold);
-      color: var(--bg-dark);
+      color: var(--cream);
       font-size: 1.1rem;
       font-weight: 700;
       display: flex;
@@ -1287,12 +1301,13 @@
       cursor: pointer;
       z-index: 10;
       box-shadow: 0 4px 12px rgba(10, 7, 5, 0.5);
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
 
     .logo-modal-close:hover {
       background: var(--gold-light);
-      transform: scale(1.06);
+      color: var(--bg-dark);
+      transform: rotate(90deg) scale(1.08);
     }
 
     /* Reduced Motion Accessibility */
@@ -1448,13 +1463,6 @@
       }
       nav ul {
         display: none;
-      }
-      .logo-modal-overlay {
-        padding: 0.75rem;
-      }
-      .modal-logo-wrapper {
-        height: 52vh;
-        max-height: 360px;
       }
       /* Hide text and volume slider on mobile to save space */
       .floating-audio-widget {
@@ -2482,8 +2490,7 @@
         });
       });
 
-      // Lightbox & Zoom Logic with Scroll Position Preservation
-      let scrollPosition = 0;
+      // Lightbox & Zoom Logic (Smooth Open/Exit + Scrollbar Width Compensation)
       const headerLogoBtn = document.getElementById('headerLogoBtn');
       const heroLogoTrigger = document.getElementById('heroLogoTrigger');
       const emblemZoomTrigger = document.getElementById('emblemZoomTrigger');
@@ -2493,25 +2500,38 @@
       const closeLogoModal = document.getElementById('closeLogoModal');
       const modalLogoImg = document.getElementById('modalLogoImg');
       const modalCaption = document.getElementById('modalCaption');
+      let closeTimer = null;
 
       function openModal(imageSrc, captionText) {
-        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
         if (modalLogoImg && imageSrc) modalLogoImg.src = imageSrc;
         if (modalCaption) modalCaption.textContent = captionText || '';
         if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
+
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
+        document.body.style.overflow = 'hidden';
+
         if (logoModal) {
-          logoModal.classList.add('active');
-          document.body.classList.add('modal-open');
+          requestAnimationFrame(() => {
+            logoModal.classList.add('active');
+          });
         }
       }
 
       function closeModal() {
-        if (logoModal) {
-          logoModal.classList.remove('active');
-          document.body.classList.remove('modal-open');
+        if (!logoModal || !logoModal.classList.contains('active')) return;
+        logoModal.classList.remove('active');
+
+        closeTimer = setTimeout(() => {
+          document.body.style.overflow = '';
+          document.body.style.paddingRight = '';
           if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
-          window.scrollTo(0, scrollPosition);
-        }
+          closeTimer = null;
+        }, 400);
       }
 
       // Toggle zoom on clicking the modal image wrapper
