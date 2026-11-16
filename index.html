@@ -50,7 +50,7 @@
       --border-subtle: #3B2D23;
       --border-gold: rgba(194, 140, 65, 0.38);
       --border-gold-strong: rgba(220, 168, 91, 0.72);
-      --overlay-backdrop: rgba(18, 13, 9, 0.78);
+      --overlay-backdrop: rgba(18, 13, 9, 0.72);
 
       /* Semantic States */
       --status-success-bg: rgba(59, 77, 53, 0.9);
@@ -1199,7 +1199,7 @@
     }
 
     /* ==========================================
-       LIGHTBOX MODAL (1:1 SQUARE FRAME + SMOOTH TRANSITION)
+       LIGHTBOX MODAL (1:1 SQUARE FRAME + TRANSLUCENT BACKDROP + SMOOTH TRANSITION)
        ========================================== */
     .logo-modal-overlay {
       position: fixed;
@@ -1226,12 +1226,9 @@
 
     .logo-modal-container {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       width: min(440px, 82vw);
       max-width: 100%;
+      text-align: center;
       opacity: 0;
       transform: scale(0.92) translateY(14px);
       transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.38s ease;
@@ -1249,8 +1246,9 @@
       max-height: 75vh;
       margin: 0 auto;
       border-radius: 20px;
-      background: var(--parchment-light);
-      box-shadow: 0 25px 60px rgba(10, 7, 5, 0.75), 0 0 0 2px var(--gold);
+      background: rgba(29, 21, 16, 0.88);
+      border: 2.5px solid var(--gold);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1273,14 +1271,12 @@
 
     .modal-caption {
       margin-top: 0.9rem;
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
       color: var(--gold-light);
       text-align: center;
-      letter-spacing: 0.5px;
       padding: 0 1rem;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     }
 
     .logo-modal-close {
@@ -1299,7 +1295,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 10;
+      z-index: 5;
       box-shadow: 0 4px 12px rgba(10, 7, 5, 0.5);
       transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
@@ -2490,7 +2486,7 @@
         });
       });
 
-      // Lightbox & Zoom Logic (Smooth Open/Exit + Scrollbar Width Compensation)
+      // Lightbox & Zoom Logic (1:1 Frame + Smooth Open/Exit + Scrollbar Width Compensation)
       const headerLogoBtn = document.getElementById('headerLogoBtn');
       const heroLogoTrigger = document.getElementById('heroLogoTrigger');
       const emblemZoomTrigger = document.getElementById('emblemZoomTrigger');
@@ -2511,6 +2507,7 @@
         if (modalCaption) modalCaption.textContent = captionText || '';
         if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
 
+        // Compensate for scrollbar width so background layout never shifts horizontally
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
         document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
         document.body.style.overflow = 'hidden';
@@ -2526,6 +2523,7 @@
         if (!logoModal || !logoModal.classList.contains('active')) return;
         logoModal.classList.remove('active');
 
+        // Wait for the 380ms fade/scale-out animation to finish before unlocking scroll
         closeTimer = setTimeout(() => {
           document.body.style.overflow = '';
           document.body.style.paddingRight = '';
