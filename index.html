@@ -12,16 +12,96 @@
   <link rel="apple-touch-icon" href="assets/logo.png">
   <meta name="theme-color" content="#1A130E">
 
-  <!-- Above-the-Fold Priority Asset Preloads (WebP Primary) -->
+  <!-- Above-the-Fold Priority Asset Preloads (WebP Primary & Self-Hosted Core Fonts) -->
   <link rel="preload" as="image" href="assets/webp/logo.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/webp/Zereshk-Polow.webp" type="image/webp" fetchpriority="high">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" href="/assets/fonts/CormorantGaramond-Bold.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="/assets/fonts/PlusJakartaSans-Regular.woff2" type="font/woff2" crossorigin>
 
   <style>
+    /* ============================================================
+       Self-Hosted Typography — Maison Polow
+       ============================================================ */
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      src: url('/assets/fonts/CormorantGaramond-Italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      src: url('/assets/fonts/CormorantGaramond-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      src: url('/assets/fonts/CormorantGaramond-SemiBold.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      src: url('/assets/fonts/CormorantGaramond-SemiBoldItalic.woff2') format('woff2');
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      src: url('/assets/fonts/CormorantGaramond-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('/assets/fonts/PlusJakartaSans-Light.woff2') format('woff2');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('/assets/fonts/PlusJakartaSans-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('/assets/fonts/PlusJakartaSans-Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('/assets/fonts/PlusJakartaSans-SemiBold.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('/assets/fonts/PlusJakartaSans-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       color-scheme: dark;
 
