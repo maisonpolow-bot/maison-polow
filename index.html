@@ -13,6 +13,7 @@
   <meta name="theme-color" content="#1A130E">
 
   <!-- Above-the-Fold Priority Asset Preloads (WebP Primary & Self-Hosted Core Fonts) -->
+  <link rel="preload" as="image" href="assets/webp/MP.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/webp/logo.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/webp/Zereshk-Polow.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="font" href="/assets/fonts/CormorantGaramond-Bold.woff2" type="font/woff2" crossorigin>
@@ -187,6 +188,314 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    body.preloader-active {
+      overflow: hidden;
+    }
+
+    /* ============================================================
+       5-Second Maison Polow Splash Screen with Persian Girih, Shamseh & Arabesques
+       ============================================================ */
+    .polow-splash {
+      position: fixed;
+      inset: 0;
+      z-index: 100000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 2rem 5.25rem;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 44%, rgba(220, 168, 91, 0.2) 0%, rgba(59, 77, 53, 0.22) 36%, rgba(26, 19, 14, 0.98) 80%, #120D09 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 1;
+      transform: scale(1);
+      visibility: visible;
+      transition:
+        opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0.75s ease;
+    }
+
+    .polow-splash.dismissed {
+      opacity: 0;
+      transform: scale(1.06);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Persian Girih Star & Octagonal Lattice Backdrop */
+    .persian-girih-backdrop {
+      position: absolute;
+      inset: -48px;
+      pointer-events: none;
+      opacity: 0.26;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='104' viewBox='0 0 104 104'%3E%3Cg fill='none' stroke='%23DCA85B' stroke-width='0.95'%3E%3Cpolygon points='52,4 65,39 100,52 65,65 52,100 39,65 4,52 39,39'/%3E%3Cpolygon points='52,15 78,26 89,52 78,78 52,89 26,78 15,52 26,26' stroke='%235C7450' stroke-width='0.9'%3E%3C/polygon%3E%3Cpolygon points='52,28 69,35 76,52 69,69 52,76 35,69 28,52 35,35' stroke='%23C28C41' stroke-width='0.75'/%3E%3Cpath d='M0,0 L26,26 M104,0 L78,26 M0,104 L26,78 M104,104 L78,78' stroke='%23DCA85B' stroke-width='0.6'/%3E%3Ccircle cx='52' cy='52' r='4' stroke='%23DCA85B' stroke-width='0.8'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 104px 104px;
+      -webkit-mask-image: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.96) 22%, rgba(0, 0, 0, 0.48) 62%, transparent 90%);
+      mask-image: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.96) 22%, rgba(0, 0, 0, 0.48) 62%, transparent 90%);
+      animation: girihDrift 16s linear infinite alternate;
+    }
+
+    /* Subtle Botanical & Saffron Rays Behind Medallion */
+    .persian-saffron-rays {
+      position: absolute;
+      width: min(620px, 95vw);
+      height: min(620px, 95vw);
+      border-radius: 50%;
+      pointer-events: none;
+      background:
+        repeating-conic-gradient(
+          from 0deg,
+          rgba(220, 168, 91, 0.08) 0deg 4deg,
+          transparent 4deg 15deg
+        );
+      -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.85) 18%, transparent 68%);
+      mask-image: radial-gradient(circle, rgba(0, 0, 0, 0.85) 18%, transparent 68%);
+      animation: raysPulse 5s ease-in-out infinite alternate;
+    }
+
+    /* Ornate Persian Corner Arabesque Scrollwork */
+    .persian-corner-arabesques {
+      position: fixed;
+      inset: 14px;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .corner-arabesque {
+      position: absolute;
+      width: clamp(92px, 16vw, 176px);
+      height: clamp(92px, 16vw, 176px);
+      opacity: 0.88;
+      animation: arabesqueGlow 4.5s ease-in-out infinite alternate;
+    }
+
+    .corner-arabesque svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
+
+    .corner-arabesque--tl { top: 0; left: 0; }
+    .corner-arabesque--tr { top: 0; right: 0; transform: scaleX(-1); }
+    .corner-arabesque--bl { bottom: 0; left: 0; transform: scaleY(-1); }
+    .corner-arabesque--br { bottom: 0; right: 0; transform: scale(-1, -1); }
+
+    .splash-stage {
+      position: relative;
+      width: min(265px, 65vw);
+      height: min(265px, 65vw);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    /* Persian Shamseh Geometric Medallion Framing the Emblem */
+    .persian-shamseh-ornament {
+      position: absolute;
+      inset: -54px;
+      width: calc(100% + 108px);
+      height: calc(100% + 108px);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .persian-shamseh-ornament svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .shamseh-layer-outer {
+      transform-origin: 180px 180px;
+      animation: shamsehBreatheOuter 6s ease-in-out infinite alternate;
+    }
+
+    .shamseh-layer-inner {
+      transform-origin: 180px 180px;
+      animation: shamsehBreatheInner 6s ease-in-out infinite alternate;
+    }
+
+    .splash-emblem-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 26px;
+      overflow: hidden;
+      background: #F6F2EB;
+      border: 2px solid rgba(220, 168, 91, 0.85);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.72),
+        0 0 42px rgba(194, 140, 65, 0.26),
+        inset 0 0 0 1px rgba(59, 77, 53, 0.35);
+      transform: scale(0.92);
+      animation: emblemUnveil 5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      z-index: 2;
+    }
+
+    .polow-splash.dismissed .splash-emblem-card {
+      transform: scale(1.1);
+    }
+
+    .splash-emblem-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      animation: emblemSlowZoom 5s ease-out forwards;
+    }
+
+    .splash-shimmer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        transparent 20%,
+        rgba(246, 242, 235, 0.45) 48%,
+        rgba(220, 168, 91, 0.28) 54%,
+        transparent 75%
+      );
+      transform: translateX(-140%);
+      animation: parchmentSweep 2.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+      pointer-events: none;
+    }
+
+    .splash-caption {
+      position: relative;
+      z-index: 2;
+      margin-top: 2.35rem;
+      text-align: center;
+      color: var(--cream);
+    }
+
+    .splash-brand {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #F6F2EB;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
+    }
+
+    .splash-tagline {
+      margin-top: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2.6px;
+      color: #DCA85B;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    .splash-progress-track {
+      width: min(220px, 58vw);
+      height: 3px;
+      margin: 1.15rem auto 0;
+      border-radius: 999px;
+      background: rgba(246, 242, 235, 0.16);
+      overflow: hidden;
+    }
+
+    .splash-progress-bar {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #5C7450, #DCA85B);
+      transform-origin: left center;
+      transform: scaleX(0);
+      animation: fiveSecFill 5s linear forwards;
+    }
+
+    .splash-skip-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      background: rgba(246, 242, 235, 0.12);
+      color: #F6F2EB;
+      border: 1px solid rgba(220, 168, 91, 0.5);
+      padding: 7px 18px;
+      border-radius: 999px;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .splash-skip-btn:hover {
+      background: #C28C41;
+      border-color: #DCA85B;
+      color: #1A130E;
+      transform: translateX(-50%) translateY(-1px);
+    }
+
+    @keyframes girihDrift {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(24px, 18px, 0) scale(1.04); }
+    }
+
+    @keyframes raysPulse {
+      0% { opacity: 0.55; transform: scale(0.96); }
+      100% { opacity: 0.95; transform: scale(1.04); }
+    }
+
+    @keyframes arabesqueGlow {
+      0% { opacity: 0.72; }
+      100% { opacity: 0.98; }
+    }
+
+    @keyframes shamsehBreatheOuter {
+      0% { transform: scale(0.95) rotate(-6deg); opacity: 0.65; }
+      100% { transform: scale(1.03) rotate(6deg); opacity: 0.96; }
+    }
+
+    @keyframes shamsehBreatheInner {
+      0% { transform: scale(1.02) rotate(28.5deg); opacity: 0.82; }
+      100% { transform: scale(0.96) rotate(16.5deg); opacity: 0.55; }
+    }
+
+    @keyframes emblemUnveil {
+      0% { transform: scale(0.9); opacity: 0; }
+      18% { transform: scale(1); opacity: 1; }
+      85% { transform: scale(1.02); opacity: 1; }
+      100% { transform: scale(1.05); opacity: 0.96; }
+    }
+
+    @keyframes emblemSlowZoom {
+      0% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes parchmentSweep {
+      0% { transform: translateX(-140%); }
+      65%, 100% { transform: translateX(140%); }
+    }
+
+    @keyframes fiveSecFill {
+      0% { transform: scaleX(0); }
+      100% { transform: scaleX(1); }
+    }
+
+    header, section, footer {
+      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), filter 0.75s ease;
+    }
+
+    body.preloader-active header,
+    body.preloader-active section,
+    body.preloader-active footer {
+      filter: blur(2px);
+      transform: scale(0.992);
+    }
+
     h1, h2, h3, .serif {
       font-family: var(--font-serif);
       font-weight: 700;
@@ -341,28 +650,6 @@
       box-shadow: none;
     }
 
-    .btn-secondary {
-      display: inline-block;
-      background: rgba(59, 77, 53, 0.55);
-      color: var(--cream);
-      padding: 11px 24px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      border-radius: 8px;
-      text-decoration: none;
-      border: 1px solid var(--border-gold);
-      cursor: pointer;
-      text-align: center;
-      letter-spacing: 0.4px;
-      transition: background-color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
-    }
-
-    .btn-secondary:hover {
-      background: var(--emerald-light);
-      border-color: var(--gold-light);
-      transform: translateY(-1.5px);
-    }
-
     /* Custom Floating Audio Control Widget */
     .floating-audio-widget {
       position: fixed;
@@ -386,7 +673,7 @@
       transform: translateY(-2px);
     }
 
-    /* Floating Bottom-Left WhatsApp Widget (Matching Audio Widget Theme & Dimensions) */
+    /* Floating Bottom-Left WhatsApp Widget */
     .floating-whatsapp-widget {
       position: fixed;
       bottom: 30px;
@@ -1459,7 +1746,16 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-logo-container,
       .audio-toggle-btn.playing svg,
-      .whatsapp-icon-btn.spinning svg {
+      .whatsapp-icon-btn.spinning svg,
+      .persian-girih-backdrop,
+      .persian-saffron-rays,
+      .corner-arabesque,
+      .shamseh-layer-outer,
+      .shamseh-layer-inner,
+      .splash-emblem-card,
+      .splash-emblem-img,
+      .splash-shimmer,
+      .splash-progress-bar {
         animation: none !important;
       }
       * {
@@ -1610,7 +1906,6 @@
       nav ul {
         display: none;
       }
-      /* Hide text and volume slider on mobile to save space */
       .floating-audio-widget {
         bottom: 20px;
         right: 20px;
@@ -1630,9 +1925,143 @@
         display: none;
       }
     }
+
+    @media (max-height: 520px) and (orientation: landscape) {
+      .polow-splash {
+        padding-bottom: 3.5rem;
+      }
+      .splash-stage {
+        width: min(170px, 40vh);
+        height: min(170px, 40vh);
+      }
+      .persian-shamseh-ornament {
+        inset: -36px;
+        width: calc(100% + 72px);
+        height: calc(100% + 72px);
+      }
+      .persian-corner-arabesques {
+        inset: 8px;
+      }
+      .corner-arabesque {
+        width: 72px;
+        height: 72px;
+      }
+      .splash-caption {
+        margin-top: 1.35rem;
+      }
+      .splash-skip-btn {
+        bottom: 12px;
+        padding: 5px 14px;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="preloader-active">
+
+  <!-- 5-Second Maison Polow Splash Screen with Persian Girih, Shamseh & Corner Arabesques -->
+  <div class="polow-splash" id="polowSplash" role="status" aria-live="polite" aria-label="Loading Maison Polow">
+    <div class="persian-girih-backdrop" aria-hidden="true"></div>
+    <div class="persian-saffron-rays" aria-hidden="true"></div>
+
+    <!-- Ornate Persian Corner Arabesque Scrollwork -->
+    <div class="persian-corner-arabesques" aria-hidden="true">
+      <div class="corner-arabesque corner-arabesque--tl">
+        <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 126 V26 C6 14.9543 14.9543 6 26 6 H126" stroke="#DCA85B" stroke-width="1.4" />
+          <path d="M12 104 V30 C12 20.0589 20.0589 12 30 12 H104" stroke="#5C7450" stroke-width="1.15" stroke-dasharray="5 3" />
+          <path d="M18 118 C18 72 34 42 64 26 C86 14 106 18 116 30 C124 40 116 54 102 52 C90 50 88 37 98 33" stroke="#DCA85B" stroke-width="1.35" stroke-linecap="round" />
+          <path d="M26 18 C64 18 94 34 114 62 C126 78 122 100 108 110 C96 118 82 110 84 96 C86 84 98 82 102 91" stroke="#C28C41" stroke-width="1.2" stroke-linecap="round" />
+          <path d="M6 6 C28 10 44 24 52 46 C34 42 20 28 6 6 Z" fill="rgba(220, 168, 91, 0.22)" stroke="#DCA85B" stroke-width="1.1" />
+          <circle cx="24" cy="24" r="3.5" fill="#DCA85B" />
+          <circle cx="64" cy="26" r="2.5" fill="#5C7450" />
+          <circle cx="26" cy="64" r="2.5" fill="#5C7450" />
+        </svg>
+      </div>
+      <div class="corner-arabesque corner-arabesque--tr">
+        <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 126 V26 C6 14.9543 14.9543 6 26 6 H126" stroke="#DCA85B" stroke-width="1.4" />
+          <path d="M12 104 V30 C12 20.0589 20.0589 12 30 12 H104" stroke="#5C7450" stroke-width="1.15" stroke-dasharray="5 3" />
+          <path d="M18 118 C18 72 34 42 64 26 C86 14 106 18 116 30 C124 40 116 54 102 52 C90 50 88 37 98 33" stroke="#DCA85B" stroke-width="1.35" stroke-linecap="round" />
+          <path d="M26 18 C64 18 94 34 114 62 C126 78 122 100 108 110 C96 118 82 110 84 96 C86 84 98 82 102 91" stroke="#C28C41" stroke-width="1.2" stroke-linecap="round" />
+          <path d="M6 6 C28 10 44 24 52 46 C34 42 20 28 6 6 Z" fill="rgba(220, 168, 91, 0.22)" stroke="#DCA85B" stroke-width="1.1" />
+          <circle cx="24" cy="24" r="3.5" fill="#DCA85B" />
+          <circle cx="64" cy="26" r="2.5" fill="#5C7450" />
+          <circle cx="26" cy="64" r="2.5" fill="#5C7450" />
+        </svg>
+      </div>
+      <div class="corner-arabesque corner-arabesque--bl">
+        <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 126 V26 C6 14.9543 14.9543 6 26 6 H126" stroke="#DCA85B" stroke-width="1.4" />
+          <path d="M12 104 V30 C12 20.0589 20.0589 12 30 12 H104" stroke="#5C7450" stroke-width="1.15" stroke-dasharray="5 3" />
+          <path d="M18 118 C18 72 34 42 64 26 C86 14 106 18 116 30 C124 40 116 54 102 52 C90 50 88 37 98 33" stroke="#DCA85B" stroke-width="1.35" stroke-linecap="round" />
+          <path d="M26 18 C64 18 94 34 114 62 C126 78 122 100 108 110 C96 118 82 110 84 96 C86 84 98 82 102 91" stroke="#C28C41" stroke-width="1.2" stroke-linecap="round" />
+          <path d="M6 6 C28 10 44 24 52 46 C34 42 20 28 6 6 Z" fill="rgba(220, 168, 91, 0.22)" stroke="#DCA85B" stroke-width="1.1" />
+          <circle cx="24" cy="24" r="3.5" fill="#DCA85B" />
+          <circle cx="64" cy="26" r="2.5" fill="#5C7450" />
+          <circle cx="26" cy="64" r="2.5" fill="#5C7450" />
+        </svg>
+      </div>
+      <div class="corner-arabesque corner-arabesque--br">
+        <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 126 V26 C6 14.9543 14.9543 6 26 6 H126" stroke="#DCA85B" stroke-width="1.4" />
+          <path d="M12 104 V30 C12 20.0589 20.0589 12 30 12 H104" stroke="#5C7450" stroke-width="1.15" stroke-dasharray="5 3" />
+          <path d="M18 118 C18 72 34 42 64 26 C86 14 106 18 116 30 C124 40 116 54 102 52 C90 50 88 37 98 33" stroke="#DCA85B" stroke-width="1.35" stroke-linecap="round" />
+          <path d="M26 18 C64 18 94 34 114 62 C126 78 122 100 108 110 C96 118 82 110 84 96 C86 84 98 82 102 91" stroke="#C28C41" stroke-width="1.2" stroke-linecap="round" />
+          <path d="M6 6 C28 10 44 24 52 46 C34 42 20 28 6 6 Z" fill="rgba(220, 168, 91, 0.22)" stroke="#DCA85B" stroke-width="1.1" />
+          <circle cx="24" cy="24" r="3.5" fill="#DCA85B" />
+          <circle cx="64" cy="26" r="2.5" fill="#5C7450" />
+          <circle cx="26" cy="64" r="2.5" fill="#5C7450" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="splash-stage">
+      <div class="persian-shamseh-ornament" aria-hidden="true">
+        <svg viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g class="shamseh-layer-outer">
+            <rect x="64" y="64" width="232" height="232" rx="34" stroke="rgba(220, 168, 91, 0.68)" stroke-width="1.45" />
+            <rect x="64" y="64" width="232" height="232" rx="34" transform="rotate(45 180 180)" stroke="rgba(220, 168, 91, 0.68)" stroke-width="1.45" />
+            <rect x="76" y="76" width="208" height="208" rx="28" transform="rotate(22.5 180 180)" stroke="rgba(92, 116, 80, 0.78)" stroke-width="1.25" stroke-dasharray="4 4" />
+            <polygon points="180,8 186,18 180,28 174,18" fill="rgba(220, 168, 91, 0.9)" />
+            <polygon points="180,352 186,342 180,332 174,342" fill="rgba(220, 168, 91, 0.9)" />
+            <polygon points="8,180 18,174 28,180 18,186" fill="rgba(220, 168, 91, 0.9)" />
+            <polygon points="352,180 342,174 332,180 342,186" fill="rgba(220, 168, 91, 0.9)" />
+            <circle cx="58" cy="58" r="3.2" fill="#DCA85B" />
+            <circle cx="302" cy="58" r="3.2" fill="#DCA85B" />
+            <circle cx="58" cy="302" r="3.2" fill="#DCA85B" />
+            <circle cx="302" cy="302" r="3.2" fill="#DCA85B" />
+          </g>
+          <g class="shamseh-layer-inner">
+            <rect x="82" y="82" width="196" height="196" rx="26" stroke="rgba(220, 168, 91, 0.55)" stroke-width="1.25" />
+            <rect x="82" y="82" width="196" height="196" rx="26" transform="rotate(45 180 180)" stroke="rgba(92, 116, 80, 0.72)" stroke-width="1.25" />
+          </g>
+        </svg>
+      </div>
+      <div class="splash-emblem-card">
+        <picture>
+          <source srcset="assets/webp/MP.webp" type="image/webp">
+          <source srcset="assets/avif/MP.avif" type="image/avif">
+          <img src="assets/MP.png"
+               alt="Maison Polow Emblem"
+               class="splash-emblem-img"
+               loading="eager"
+               decoding="async"
+               fetchpriority="high"
+               onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
+        </picture>
+        <div class="splash-shimmer"></div>
+      </div>
+    </div>
+
+    <div class="splash-caption">
+      <div class="splash-brand">MAISON POLOW</div>
+      <div class="splash-tagline">Persian Rice Atelier • Tahdig • Tahchin</div>
+      <div class="splash-progress-track" aria-hidden="true">
+        <div class="splash-progress-bar"></div>
+      </div>
+    </div>
+    <button type="button" class="splash-skip-btn" id="skipSplashBtn" aria-label="Skip intro splash screen">Skip</button>
+  </div>
 
   <!-- Navigation -->
   <header>
@@ -1668,7 +2097,6 @@
   <!-- Floating Bottom-Left WhatsApp Widget -->
   <a href="#" id="floatingWhatsappWidget" class="floating-whatsapp-widget" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
     <div class="whatsapp-icon-btn" id="whatsappIconBtn">
-      <!-- WhatsApp Icon SVG -->
       <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </div>
     <span class="whatsapp-label">Concierge</span>
@@ -1682,16 +2110,13 @@
     </audio>
     
     <button type="button" class="audio-toggle-btn" id="audioToggleBtn" aria-label="Play or Pause Audio" title="Play / Pause Sound">
-      <!-- Play Icon SVG -->
       <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      <!-- Pause Icon SVG (hidden by default) -->
       <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </button>
 
     <div class="audio-details-wrap">
       <div class="audio-title">Atelier Sound</div>
       <div class="volume-slider-wrap">
-        <!-- Speaker Icon -->
         <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
         <input type="range" min="0" max="1" step="0.05" value="0.5" class="volume-slider" id="volumeSlider" aria-label="Volume Slider" title="Adjust Volume">
       </div>
@@ -2089,9 +2514,9 @@
         <button type="button" class="emblem-zoom-button" id="emblemZoomTrigger" aria-label="Zoom in on the Maison Polow Master Crest" title="Click to view high-resolution emblem">
           <div class="emblem-artwork-frame">
             <picture>
-              <source srcset="assets/webp/emblem-master.webp" type="image/webp">
-              <source srcset="assets/avif/emblem-master.avif" type="image/avif">
-              <img src="assets/emblem-master.jpg" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/logo.png';">
+              <source srcset="assets/webp/MP.webp" type="image/webp">
+              <source srcset="assets/avif/MP.avif" type="image/avif">
+              <img src="assets/MP.png" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
             </picture>
             <span class="emblem-hint-overlay">🔍 Click to Inspect</span>
           </div>
@@ -2564,9 +2989,9 @@
       <div class="footer-brand-wrap">
         <button type="button" class="footer-emblem-btn" id="footerEmblemBtn" aria-label="View enlarged Maison Polow master emblem" title="Click to inspect master crest">
           <picture>
-            <source srcset="assets/webp/emblem-master.webp" type="image/webp">
-            <source srcset="assets/avif/emblem-master.avif" type="image/avif">
-            <img src="assets/emblem-master.jpg" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/logo.png';">
+            <source srcset="assets/webp/MP.webp" type="image/webp">
+            <source srcset="assets/avif/MP.avif" type="image/avif">
+            <img src="assets/MP.png" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
           </picture>
           <div class="footer-brand-title" style="display: flex; flex-direction: column;">
             <span style="font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; color: var(--cream);">MAISON POLOW</span>
@@ -2639,6 +3064,44 @@
   <script>
     (function() {
       // ============================================================
+      // 5-Second Maison Polow Splash Screen with Smooth Curtain Transition
+      // ============================================================
+      const polowSplash = document.getElementById('polowSplash');
+      const skipSplashBtn = document.getElementById('skipSplashBtn');
+      let splashDismissed = false;
+      let splashTimer = null;
+
+      function dismissPolowSplash() {
+        if (splashDismissed) return;
+        splashDismissed = true;
+        if (splashTimer) {
+          clearTimeout(splashTimer);
+          splashTimer = null;
+        }
+        if (polowSplash) {
+          polowSplash.classList.add('dismissed');
+        }
+        document.body.classList.remove('preloader-active');
+        setTimeout(() => {
+          if (polowSplash && polowSplash.parentNode) {
+            polowSplash.remove();
+          }
+        }, 820);
+      }
+
+      if (polowSplash) {
+        splashTimer = setTimeout(dismissPolowSplash, 5000);
+      }
+
+      if (skipSplashBtn) {
+        skipSplashBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dismissPolowSplash();
+        });
+      }
+
+      // ============================================================
       // Staged Idle Image Preloader (Prioritizes WebP -> AVIF -> Fallback)
       // ============================================================
       const preloadedImageCache = new Map();
@@ -2670,7 +3133,6 @@
       }
 
       function preloadMaisonPolowImages() {
-        // Above-the-fold priority images are already eagerly loaded; queue off-screen/lazy images for idle time
         document.querySelectorAll('img').forEach(imgEl => {
           const isLazy = imgEl.getAttribute('loading') === 'lazy';
           const preferredSrc = resolvePreferredMediaSrc(imgEl, '');
@@ -2746,7 +3208,7 @@
       const volumeSlider = document.getElementById('volumeSlider');
 
       if (bgAudio && audioToggleBtn) {
-        bgAudio.volume = 0.5; // Default 50% volume
+        bgAudio.volume = 0.5;
 
         function updateAudioUI(isPlaying) {
           if (isPlaying) {
@@ -2781,7 +3243,6 @@
           });
         }
 
-        // First user interaction auto-start handler
         const autoStartOnFirstInteraction = () => {
           bgAudio.preload = 'auto';
           bgAudio.play().then(() => {
@@ -2840,7 +3301,7 @@
         });
       });
 
-      // Lightbox & Zoom Logic (1:1 Frame + Smooth Open/Exit + Scrollbar Width Compensation)
+      // Lightbox & Zoom Logic
       const headerLogoBtn = document.getElementById('headerLogoBtn');
       const heroLogoTrigger = document.getElementById('heroLogoTrigger');
       const emblemZoomTrigger = document.getElementById('emblemZoomTrigger');
@@ -2862,7 +3323,6 @@
         if (modalCaption) modalCaption.textContent = captionText || '';
         if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
 
-        // Compensate for scrollbar width so background layout never shifts horizontally
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
         document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
         document.body.style.overflow = 'hidden';
@@ -2878,7 +3338,6 @@
         if (!logoModal || !logoModal.classList.contains('active')) return;
         logoModal.classList.remove('active');
 
-        // Wait for the 380ms fade/scale-out animation to finish before unlocking scroll
         closeTimer = setTimeout(() => {
           document.body.style.overflow = '';
           document.body.style.paddingRight = '';
@@ -2887,7 +3346,6 @@
         }, 400);
       }
 
-      // Toggle zoom on clicking the modal image wrapper
       if (modalLogoWrapper) {
         modalLogoWrapper.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -2911,18 +3369,17 @@
         emblemZoomTrigger.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = emblemZoomTrigger.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/emblem-master.webp'), img ? img.alt : 'Maison Polow Master Crest'); 
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/MP.webp'), img ? img.alt : 'Maison Polow Master Crest'); 
         });
       }
       if (footerEmblemBtn) {
         footerEmblemBtn.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = footerEmblemBtn.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/emblem-master.webp'), img ? img.alt : 'Maison Polow Master Emblem'); 
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/MP.webp'), img ? img.alt : 'Maison Polow Master Emblem'); 
         });
       }
       
-      // Bind carousel product image zoom triggers dynamically
       document.querySelectorAll('.sku-img-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
@@ -2991,7 +3448,6 @@
         });
       }
 
-      // Initialize Form Handlers
       handleFormSubmit('waitlistForm', 'waitlistSubmitBtn', 'waitlistInputFields', 'waitlistFeedback', '✨ <strong>Merci!</strong> Your tasting invitation has been recorded. Our concierge will reach out via WhatsApp.');
       handleFormSubmit('careersForm', 'careersSubmitBtn', 'careersInputFields', 'careersFeedback', '✨ <strong>Application Received!</strong> Thank you for your interest in joining the atelier.');
 
@@ -3048,7 +3504,6 @@
         });
         container.addEventListener('mouseleave', startAuto);
 
-        // Touch Swipe Gestures for Mobile
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -3074,7 +3529,6 @@
         startAuto();
       }
 
-      // Initialize Signature Polows Carousel
       initSlider({
         containerId: 'skuSliderContainer',
         trackId: 'skuSliderTrack',
@@ -3085,7 +3539,6 @@
         duration: 5200
       });
 
-      // Initialize Royal Non-Veg Plates Carousel
       initSlider({
         containerId: 'platterSliderContainer',
         trackId: 'platterSliderTrack',
@@ -3096,7 +3549,6 @@
         duration: 5500
       });
 
-      // Initialize Signature Dishes (Khoresht) Carousel
       initSlider({
         containerId: 'dishSliderContainer',
         trackId: 'dishSliderTrack',
