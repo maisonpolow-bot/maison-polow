@@ -13,6 +13,7 @@
   <meta name="theme-color" content="#1A130E">
 
   <!-- Above-the-Fold Priority Asset Preloads (WebP Primary & Self-Hosted Core Fonts) -->
+  <link rel="preload" as="image" href="assets/webp/MP.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/webp/logo.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/webp/Zereshk-Polow.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="font" href="/assets/fonts/CormorantGaramond-Bold.woff2" type="font/woff2" crossorigin>
@@ -296,9 +297,9 @@
     /* Persian Shamseh Geometric Medallion Framing the Emblem */
     .persian-shamseh-ornament {
       position: absolute;
-      inset: -54px;
-      width: calc(100% + 108px);
-      height: calc(100% + 108px);
+      inset: -66px;
+      width: calc(100% + 132px);
+      height: calc(100% + 132px);
       pointer-events: none;
       display: flex;
       align-items: center;
@@ -309,6 +310,16 @@
       width: 100%;
       height: 100%;
       overflow: visible;
+    }
+
+    .shamseh-rotating-ring {
+      transform-origin: 180px 180px;
+      animation: medallionOrbitSpin 28s linear infinite;
+    }
+
+    .shamseh-rotating-ring-reverse {
+      transform-origin: 180px 180px;
+      animation: medallionOrbitSpinReverse 38s linear infinite;
     }
 
     .shamseh-layer-outer {
@@ -368,7 +379,7 @@
     .splash-caption {
       position: relative;
       z-index: 2;
-      margin-top: 2.35rem;
+      margin-top: 2.6rem;
       text-align: center;
       color: var(--cream);
     }
@@ -435,6 +446,16 @@
       border-color: #DCA85B;
       color: #1A130E;
       transform: translateX(-50%) translateY(-1px);
+    }
+
+    @keyframes medallionOrbitSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes medallionOrbitSpinReverse {
+      0% { transform: rotate(360deg); }
+      100% { transform: rotate(0deg); }
     }
 
     @keyframes girihDrift {
@@ -1749,6 +1770,8 @@
       .persian-girih-backdrop,
       .persian-saffron-rays,
       .corner-arabesque,
+      .shamseh-rotating-ring,
+      .shamseh-rotating-ring-reverse,
       .shamseh-layer-outer,
       .shamseh-layer-inner,
       .splash-emblem-card,
@@ -1934,9 +1957,9 @@
         height: min(170px, 40vh);
       }
       .persian-shamseh-ornament {
-        inset: -36px;
-        width: calc(100% + 72px);
-        height: calc(100% + 72px);
+        inset: -44px;
+        width: calc(100% + 88px);
+        height: calc(100% + 88px);
       }
       .persian-corner-arabesques {
         inset: 8px;
@@ -1946,7 +1969,7 @@
         height: 72px;
       }
       .splash-caption {
-        margin-top: 1.35rem;
+        margin-top: 1.5rem;
       }
       .splash-skip-btn {
         bottom: 12px;
@@ -1957,7 +1980,7 @@
 </head>
 <body class="preloader-active">
 
-  <!-- 5-Second Maison Polow Splash Screen with Persian Girih, Shamseh & Corner Arabesques -->
+  <!-- 5-Second Maison Polow Splash Screen with Rotating Persian Geometric Medallion Ring -->
   <div class="polow-splash" id="polowSplash" role="status" aria-live="polite" aria-label="Loading Maison Polow">
     <div class="persian-girih-backdrop" aria-hidden="true"></div>
     <div class="persian-saffron-rays" aria-hidden="true"></div>
@@ -2017,14 +2040,41 @@
     <div class="splash-stage">
       <div class="persian-shamseh-ornament" aria-hidden="true">
         <svg viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="polowMedallionRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#DCA85B" stop-opacity="0.82" />
+              <stop offset="50%" stop-color="#5C7450" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#C28C41" stop-opacity="0.82" />
+            </linearGradient>
+          </defs>
+
+          <!-- Subtle Slow-Rotating Persian Geometric Medallion Ring (16-Pointed Shamsa Filigree) -->
+          <g class="shamseh-rotating-ring">
+            <circle cx="180" cy="180" r="171" stroke="url(#polowMedallionRingGrad)" stroke-width="1.15" />
+            <circle cx="180" cy="180" r="163" stroke="rgba(220, 168, 91, 0.48)" stroke-width="0.95" stroke-dasharray="2.5 5.5" />
+            <!-- Interlocking 16-Pointed Shamsa Rosette Polygons -->
+            <polygon points="180,6 196,42 228,22 232,60 268,52 258,88 296,94 274,126 308,144 276,166 302,194 264,204 280,238 242,236 246,274 210,258 202,296 174,270 154,302 136,268 106,292 100,254 64,266 72,228 34,228 54,194 18,180 48,156 18,132 54,118 34,84 72,84 64,46 100,58 106,20 136,44 154,10 174,42" stroke="rgba(220, 168, 91, 0.34)" stroke-width="0.95" />
+            <!-- Cardinal & Diagonal Gold Jewels on Medallion Perimeter -->
+            <polygon points="180,2 184,8 180,14 176,8" fill="rgba(220, 168, 91, 0.85)" />
+            <polygon points="180,346 184,352 180,358 176,352" fill="rgba(220, 168, 91, 0.85)" />
+            <polygon points="2,180 8,176 14,180 8,184" fill="rgba(220, 168, 91, 0.85)" />
+            <polygon points="346,180 352,176 358,180 352,184" fill="rgba(220, 168, 91, 0.85)" />
+            <circle cx="59" cy="59" r="2.6" fill="rgba(220, 168, 91, 0.78)" />
+            <circle cx="301" cy="59" r="2.6" fill="rgba(220, 168, 91, 0.78)" />
+            <circle cx="59" cy="301" r="2.6" fill="rgba(220, 168, 91, 0.78)" />
+            <circle cx="301" cy="301" r="2.6" fill="rgba(220, 168, 91, 0.78)" />
+          </g>
+
+          <!-- Counter-Rotating Inner Botanical Bead Ring -->
+          <g class="shamseh-rotating-ring-reverse">
+            <circle cx="180" cy="180" r="154" stroke="rgba(92, 116, 80, 0.62)" stroke-width="1" stroke-dasharray="1.5 7.5" stroke-linecap="round" />
+          </g>
+
+          <!-- Breathing Octagonal Shamseh Cartouche -->
           <g class="shamseh-layer-outer">
             <rect x="64" y="64" width="232" height="232" rx="34" stroke="rgba(220, 168, 91, 0.68)" stroke-width="1.45" />
             <rect x="64" y="64" width="232" height="232" rx="34" transform="rotate(45 180 180)" stroke="rgba(220, 168, 91, 0.68)" stroke-width="1.45" />
             <rect x="76" y="76" width="208" height="208" rx="28" transform="rotate(22.5 180 180)" stroke="rgba(92, 116, 80, 0.78)" stroke-width="1.25" stroke-dasharray="4 4" />
-            <polygon points="180,8 186,18 180,28 174,18" fill="rgba(220, 168, 91, 0.9)" />
-            <polygon points="180,352 186,342 180,332 174,342" fill="rgba(220, 168, 91, 0.9)" />
-            <polygon points="8,180 18,174 28,180 18,186" fill="rgba(220, 168, 91, 0.9)" />
-            <polygon points="352,180 342,174 332,180 342,186" fill="rgba(220, 168, 91, 0.9)" />
             <circle cx="58" cy="58" r="3.2" fill="#DCA85B" />
             <circle cx="302" cy="58" r="3.2" fill="#DCA85B" />
             <circle cx="58" cy="302" r="3.2" fill="#DCA85B" />
@@ -2038,9 +2088,9 @@
       </div>
       <div class="splash-emblem-card">
         <picture>
-          <source srcset="assets/webp/logo.webp" type="image/webp">
-          <source srcset="assets/avif/logo.avif" type="image/avif">
-          <img src="assets/logo.png"
+          <source srcset="assets/webp/MP.webp" type="image/webp">
+          <source srcset="assets/avif/MP.avif" type="image/avif">
+          <img src="assets/MP.png"
                alt="Maison Polow Emblem"
                class="splash-emblem-img"
                loading="eager"
@@ -2513,9 +2563,9 @@
         <button type="button" class="emblem-zoom-button" id="emblemZoomTrigger" aria-label="Zoom in on the Maison Polow Master Crest" title="Click to view high-resolution emblem">
           <div class="emblem-artwork-frame">
             <picture>
-              <source srcset="assets/webp/logo.webp" type="image/webp">
-              <source srcset="assets/avif/logo.avif" type="image/avif">
-              <img src="assets/logo.png" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
+              <source srcset="assets/webp/MP.webp" type="image/webp">
+              <source srcset="assets/avif/MP.avif" type="image/avif">
+              <img src="assets/MP.png" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
             </picture>
             <span class="emblem-hint-overlay">🔍 Click to Inspect</span>
           </div>
@@ -2988,9 +3038,9 @@
       <div class="footer-brand-wrap">
         <button type="button" class="footer-emblem-btn" id="footerEmblemBtn" aria-label="View enlarged Maison Polow master emblem" title="Click to inspect master crest">
           <picture>
-            <source srcset="assets/webp/logo.webp" type="image/webp">
-            <source srcset="assets/avif/logo.avif" type="image/avif">
-            <img src="assets/logo.png" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
+            <source srcset="assets/webp/MP.webp" type="image/webp">
+            <source srcset="assets/avif/MP.avif" type="image/avif">
+            <img src="assets/MP.png" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
           </picture>
           <div class="footer-brand-title" style="display: flex; flex-direction: column;">
             <span style="font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; color: var(--cream);">MAISON POLOW</span>
@@ -3368,14 +3418,14 @@
         emblemZoomTrigger.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = emblemZoomTrigger.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Master Crest'); 
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/MP.webp'), img ? img.alt : 'Maison Polow Master Crest'); 
         });
       }
       if (footerEmblemBtn) {
         footerEmblemBtn.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = footerEmblemBtn.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Master Emblem'); 
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/MP.webp'), img ? img.alt : 'Maison Polow Master Emblem'); 
         });
       }
       
