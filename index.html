@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#1A130E">
 
   <!-- Above-the-Fold Priority Asset Preloads (WebP Primary & Self-Hosted Core Fonts) -->
-  <link rel="preload" as="image" href="assets/webp/MP.webp" type="image/webp" fetchpriority="high">
+
   <link rel="preload" as="image" href="assets/webp/logo.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/webp/Zereshk-Polow.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="font" href="/assets/fonts/CormorantGaramond-Bold.woff2" type="font/woff2" crossorigin>
@@ -2088,9 +2088,9 @@
       </div>
       <div class="splash-emblem-card">
         <picture>
-          <source srcset="assets/webp/MP.webp" type="image/webp">
-          <source srcset="assets/avif/MP.avif" type="image/avif">
-          <img src="assets/MP.png"
+          <source srcset="assets/webp/logo.webp" type="image/webp">
+          <source srcset="assets/avif/logo.avif" type="image/avif">
+          <img src="assets/logo.png"
                alt="Maison Polow Emblem"
                class="splash-emblem-img"
                loading="eager"
@@ -2563,9 +2563,9 @@
         <button type="button" class="emblem-zoom-button" id="emblemZoomTrigger" aria-label="Zoom in on the Maison Polow Master Crest" title="Click to view high-resolution emblem">
           <div class="emblem-artwork-frame">
             <picture>
-              <source srcset="assets/webp/MP.webp" type="image/webp">
-              <source srcset="assets/avif/MP.avif" type="image/avif">
-              <img src="assets/MP.png" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
+              <source srcset="assets/webp/logo.webp" type="image/webp">
+              <source srcset="assets/avif/logo.avif" type="image/avif">
+              <img src="assets/logo.png" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
             </picture>
             <span class="emblem-hint-overlay">🔍 Click to Inspect</span>
           </div>
@@ -3038,9 +3038,9 @@
       <div class="footer-brand-wrap">
         <button type="button" class="footer-emblem-btn" id="footerEmblemBtn" aria-label="View enlarged Maison Polow master emblem" title="Click to inspect master crest">
           <picture>
-            <source srcset="assets/webp/MP.webp" type="image/webp">
-            <source srcset="assets/avif/MP.avif" type="image/avif">
-            <img src="assets/MP.png" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
+            <source srcset="assets/webp/logo.webp" type="image/webp">
+            <source srcset="assets/avif/logo.avif" type="image/avif">
+            <img src="assets/logo.png" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/emblem-master.jpg';">
           </picture>
           <div class="footer-brand-title" style="display: flex; flex-direction: column;">
             <span style="font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; color: var(--cream);">MAISON POLOW</span>
@@ -3418,14 +3418,14 @@
         emblemZoomTrigger.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = emblemZoomTrigger.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/MP.webp'), img ? img.alt : 'Maison Polow Master Crest'); 
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Master Crest'); 
         });
       }
       if (footerEmblemBtn) {
         footerEmblemBtn.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = footerEmblemBtn.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/MP.webp'), img ? img.alt : 'Maison Polow Master Emblem'); 
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Master Emblem'); 
         });
       }
       
