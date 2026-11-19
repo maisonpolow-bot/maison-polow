@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#1A130E">
 
   <!-- Above-the-Fold Priority Asset Preloads (WebP Primary & Self-Hosted Core Fonts) -->
-
+  <link rel="preload" as="image" href="assets/webp/MP.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/webp/logo.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="image" href="assets/webp/Zereshk-Polow.webp" type="image/webp" fetchpriority="high">
   <link rel="preload" as="font" href="/assets/fonts/CormorantGaramond-Bold.woff2" type="font/woff2" crossorigin>
@@ -137,7 +137,7 @@
       --border-subtle: #3B2D23;
       --border-gold: rgba(194, 140, 65, 0.38);
       --border-gold-strong: rgba(220, 168, 91, 0.72);
-      --overlay-backdrop: rgba(18, 13, 9, 0.72);
+      --overlay-backdrop: rgba(18, 13, 9, 0.78);
 
       /* Semantic States */
       --status-success-bg: rgba(59, 77, 53, 0.9);
@@ -668,6 +668,28 @@
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: rgba(59, 77, 53, 0.55);
+      color: var(--cream);
+      padding: 11px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid var(--border-gold);
+      cursor: pointer;
+      text-align: center;
+      letter-spacing: 0.4px;
+      transition: background-color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--emerald-light);
+      border-color: var(--gold-light);
+      transform: translateY(-1.5px);
     }
 
     /* Custom Floating Audio Control Widget */
@@ -1655,15 +1677,15 @@
     }
 
     /* ==========================================
-       LIGHTBOX MODAL (1:1 SQUARE FRAME + TRANSLUCENT BACKDROP + SMOOTH TRANSITION)
+       LIGHTBOX MODAL (SECTION-SCOPED PREV/NEXT + 1:1 FRAME)
        ========================================== */
     .logo-modal-overlay {
       position: fixed;
       inset: 0;
       z-index: 99999;
       background: var(--overlay-backdrop);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1682,7 +1704,7 @@
 
     .logo-modal-container {
       position: relative;
-      width: min(440px, 82vw);
+      width: min(560px, 92vw);
       max-width: 100%;
       text-align: center;
       opacity: 0;
@@ -1695,21 +1717,30 @@
       transform: scale(1) translateY(0);
     }
 
+    .modal-stage-row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+    }
+
     .modal-logo-wrapper {
-      width: 100%;
+      width: min(440px, 74vw);
       aspect-ratio: 1 / 1;
       height: auto;
-      max-height: 75vh;
+      max-height: 70vh;
       margin: 0 auto;
       border-radius: 20px;
-      background: rgba(29, 21, 16, 0.88);
+      background: rgba(29, 21, 16, 0.9);
       border: 2.5px solid var(--gold);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       cursor: zoom-in;
+      flex-shrink: 1;
     }
 
     .modal-logo-img {
@@ -1717,7 +1748,12 @@
       height: 100%;
       object-fit: contain;
       object-position: center;
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
+    }
+
+    .modal-logo-img.swapping {
+      opacity: 0.25;
+      transform: scale(0.96);
     }
 
     .modal-logo-wrapper.zoomed .modal-logo-img {
@@ -1725,20 +1761,92 @@
       cursor: zoom-out;
     }
 
-    .modal-caption {
+    .modal-nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1.5px solid var(--gold);
+      color: var(--cream);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      z-index: 6;
+      box-shadow: 0 6px 16px rgba(10, 7, 5, 0.55);
+      transition: background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+    }
+
+    .modal-nav-btn.hidden-nav {
+      display: none;
+    }
+
+    .modal-nav-btn:hover {
+      background: var(--gold-light);
+      color: var(--bg-dark);
+      border-color: var(--gold-light);
+      transform: scale(1.08);
+    }
+
+    .modal-nav-btn:active {
+      transform: scale(0.96);
+    }
+
+    .modal-nav-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      pointer-events: none;
+    }
+
+    .modal-meta {
       margin-top: 0.9rem;
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      color: var(--gold-light);
       text-align: center;
-      padding: 0 1rem;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      padding: 0 0.75rem;
+    }
+
+    .modal-caption {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+    }
+
+    .modal-submeta-row {
+      margin-top: 0.45rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .modal-counter {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-gold);
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+
+    .modal-counter.hidden-counter {
+      display: none;
+    }
+
+    .modal-hint {
+      font-size: 0.72rem;
+      color: var(--cream-muted);
+      letter-spacing: 0.4px;
     }
 
     .logo-modal-close {
       position: absolute;
       top: -16px;
-      right: -16px;
+      right: -12px;
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -1751,7 +1859,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 5;
+      z-index: 7;
       box-shadow: 0 4px 12px rgba(10, 7, 5, 0.5);
       transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
@@ -1946,6 +2054,19 @@
       .whatsapp-label {
         display: none;
       }
+      .modal-stage-row {
+        gap: 0.45rem;
+      }
+      .modal-nav-btn {
+        width: 38px;
+        height: 38px;
+      }
+      .logo-modal-close {
+        top: -14px;
+        right: 0;
+        width: 36px;
+        height: 36px;
+      }
     }
 
     @media (max-height: 520px) and (orientation: landscape) {
@@ -2052,9 +2173,7 @@
           <g class="shamseh-rotating-ring">
             <circle cx="180" cy="180" r="171" stroke="url(#polowMedallionRingGrad)" stroke-width="1.15" />
             <circle cx="180" cy="180" r="163" stroke="rgba(220, 168, 91, 0.48)" stroke-width="0.95" stroke-dasharray="2.5 5.5" />
-            <!-- Interlocking 16-Pointed Shamsa Rosette Polygons -->
             <polygon points="180,6 196,42 228,22 232,60 268,52 258,88 296,94 274,126 308,144 276,166 302,194 264,204 280,238 242,236 246,274 210,258 202,296 174,270 154,302 136,268 106,292 100,254 64,266 72,228 34,228 54,194 18,180 48,156 18,132 54,118 34,84 72,84 64,46 100,58 106,20 136,44 154,10 174,42" stroke="rgba(220, 168, 91, 0.34)" stroke-width="0.95" />
-            <!-- Cardinal & Diagonal Gold Jewels on Medallion Perimeter -->
             <polygon points="180,2 184,8 180,14 176,8" fill="rgba(220, 168, 91, 0.85)" />
             <polygon points="180,346 184,352 180,358 176,352" fill="rgba(220, 168, 91, 0.85)" />
             <polygon points="2,180 8,176 14,180 8,184" fill="rgba(220, 168, 91, 0.85)" />
@@ -3098,14 +3217,31 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
-  <div class="logo-modal-overlay" id="logoModal" role="dialog" aria-modal="true" aria-label="Maison Polow Brand Emblem">
+  <!-- Lightbox Modal with Section-Scoped Previous & Next Navigation -->
+  <div class="logo-modal-overlay" id="logoModal" role="dialog" aria-modal="true" aria-label="Maison Polow Image Viewer">
     <div class="logo-modal-container" id="logoModalContainer">
-      <button type="button" class="logo-modal-close" id="closeLogoModal" aria-label="Close enlarged emblem">✕</button>
-      <div class="modal-logo-wrapper" id="modalLogoWrapper" title="Click to zoom image">
-        <img src="assets/webp/logo.webp" alt="Maison Polow Official Emblem" class="modal-logo-img" id="modalLogoImg" decoding="async">
+      <button type="button" class="logo-modal-close" id="closeLogoModal" aria-label="Close enlarged image">✕</button>
+      <div class="modal-stage-row" id="modalStageRow">
+        <button type="button" class="modal-nav-btn" id="modalPrevBtn" aria-label="Previous image in this section" title="Previous Image (Left Arrow)">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+
+        <div class="modal-logo-wrapper" id="modalLogoWrapper" title="Click image to toggle zoom">
+          <img src="assets/webp/logo.webp" alt="Maison Polow Official Emblem" class="modal-logo-img" id="modalLogoImg" decoding="async">
+        </div>
+
+        <button type="button" class="modal-nav-btn" id="modalNextBtn" aria-label="Next image in this section" title="Next Image (Right Arrow)">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
       </div>
-      <div class="modal-caption" id="modalCaption"></div>
+
+      <div class="modal-meta">
+        <div class="modal-caption" id="modalCaption"></div>
+        <div class="modal-submeta-row">
+          <span class="modal-counter" id="modalCounter">1 / 1</span>
+          <span class="modal-hint" id="modalHint">Click image to zoom • Use Prev/Next, swipe, or arrow keys</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -3350,37 +3486,118 @@
         });
       });
 
-      // Lightbox & Zoom Logic
+      // ============================================================
+      // Section-Scoped Lightbox Modal with Previous / Next Navigation
+      // ============================================================
       const headerLogoBtn = document.getElementById('headerLogoBtn');
       const heroLogoTrigger = document.getElementById('heroLogoTrigger');
       const emblemZoomTrigger = document.getElementById('emblemZoomTrigger');
       const footerEmblemBtn = document.getElementById('footerEmblemBtn');
       const logoModal = document.getElementById('logoModal');
+      const modalStageRow = document.getElementById('modalStageRow');
+      const modalPrevBtn = document.getElementById('modalPrevBtn');
+      const modalNextBtn = document.getElementById('modalNextBtn');
       const modalLogoWrapper = document.getElementById('modalLogoWrapper');
       const closeLogoModal = document.getElementById('closeLogoModal');
       const modalLogoImg = document.getElementById('modalLogoImg');
       const modalCaption = document.getElementById('modalCaption');
-      let closeTimer = null;
+      const modalCounter = document.getElementById('modalCounter');
+      const modalHint = document.getElementById('modalHint');
 
-      function openModal(imageSrc, captionText) {
+      let activeSectionItems = [];
+      let currentSectionIndex = 0;
+      let closeTimer = null;
+      let isScrollLockedForModal = false;
+
+      const sliderControllersById = {};
+      const sectionCollectionsBySliderId = {};
+      const allProductEntries = [];
+
+      function syncCarouselForItem(item) {
+        if (!item || !item.sliderController || typeof item.slideIndex !== 'number') return;
+        item.sliderController.goTo(item.slideIndex, true);
+      }
+
+      function renderSectionModalItem(index, animateSwap = false) {
+        if (!activeSectionItems.length) return;
+        const count = activeSectionItems.length;
+        const safeIndex = ((index % count) + count) % count;
+        currentSectionIndex = safeIndex;
+        const item = activeSectionItems[safeIndex];
+
+        syncCarouselForItem(item);
+
+        const hasMultiple = count > 1;
+        if (modalPrevBtn) modalPrevBtn.classList.toggle('hidden-nav', !hasMultiple);
+        if (modalNextBtn) modalNextBtn.classList.toggle('hidden-nav', !hasMultiple);
+        if (modalCounter) modalCounter.classList.toggle('hidden-counter', !hasMultiple);
+        if (modalHint) {
+          modalHint.textContent = hasMultiple
+            ? 'Click image to zoom • Use Prev/Next, swipe, or arrow keys'
+            : 'Click image to zoom • Tap outside or press ESC to close';
+        }
+
+        const applyItem = () => {
+          const resolvedSrc = item.getSrc ? item.getSrc() : item.src;
+          if (resolvedSrc) preloadSingleImage(resolvedSrc);
+          if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
+          if (modalLogoImg && resolvedSrc) {
+            modalLogoImg.src = resolvedSrc;
+            modalLogoImg.alt = item.caption || 'Maison Polow';
+          }
+          if (modalCaption) {
+            modalCaption.textContent = item.caption || '';
+          }
+          if (modalCounter && hasMultiple) {
+            modalCounter.textContent = `${safeIndex + 1} / ${count}`;
+          }
+        };
+
+        if (animateSwap && modalLogoImg) {
+          modalLogoImg.classList.add('swapping');
+          setTimeout(() => {
+            applyItem();
+            requestAnimationFrame(() => {
+              modalLogoImg.classList.remove('swapping');
+            });
+          }, 80);
+        } else {
+          applyItem();
+        }
+      }
+
+      function openSectionModal(items, startIndex = 0) {
+        if (!items || !items.length) return;
         if (closeTimer) {
           clearTimeout(closeTimer);
           closeTimer = null;
         }
-        if (imageSrc) preloadSingleImage(imageSrc);
-        if (modalLogoImg && imageSrc) modalLogoImg.src = imageSrc;
-        if (modalCaption) modalCaption.textContent = captionText || '';
-        if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
 
-        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-        document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
-        document.body.style.overflow = 'hidden';
+        activeSectionItems = items;
+        items.forEach(it => {
+          const s = it.getSrc ? it.getSrc() : it.src;
+          if (s) preloadSingleImage(s);
+        });
+
+        renderSectionModalItem(startIndex, false);
+
+        if (!isScrollLockedForModal) {
+          const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+          document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
+          document.body.style.overflow = 'hidden';
+          isScrollLockedForModal = true;
+        }
 
         if (logoModal) {
           requestAnimationFrame(() => {
             logoModal.classList.add('active');
           });
         }
+      }
+
+      function stepSectionModal(delta) {
+        if (activeSectionItems.length <= 1) return;
+        renderSectionModalItem(currentSectionIndex + delta, true);
       }
 
       function closeModal() {
@@ -3390,11 +3607,13 @@
         closeTimer = setTimeout(() => {
           document.body.style.overflow = '';
           document.body.style.paddingRight = '';
+          isScrollLockedForModal = false;
           if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
           closeTimer = null;
         }, 400);
       }
 
+      // Toggle zoom on clicking the modal image wrapper
       if (modalLogoWrapper) {
         modalLogoWrapper.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -3402,40 +3621,106 @@
         });
       }
 
+      // Single-image brand crest pop-ups (scoped strictly to the clicked crest)
       if (headerLogoBtn) {
         headerLogoBtn.addEventListener('click', () => {
           const img = headerLogoBtn.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Emblem');
+          openSectionModal([{
+            getSrc: () => resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'),
+            src: 'assets/webp/logo.webp',
+            caption: img ? img.alt : 'Maison Polow Emblem'
+          }], 0);
         });
       }
       if (heroLogoTrigger) {
         heroLogoTrigger.addEventListener('click', () => {
           const img = heroLogoTrigger.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Persian Rice Atelier');
+          openSectionModal([{
+            getSrc: () => resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'),
+            src: 'assets/webp/logo.webp',
+            caption: img ? img.alt : 'Maison Polow Persian Rice Atelier'
+          }], 0);
         });
       }
       if (emblemZoomTrigger) {
         emblemZoomTrigger.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = emblemZoomTrigger.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Master Crest'); 
+          openSectionModal([{
+            getSrc: () => resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'),
+            src: 'assets/webp/logo.webp',
+            caption: img ? img.alt : 'Maison Polow Master Crest'
+          }], 0);
         });
       }
       if (footerEmblemBtn) {
         footerEmblemBtn.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = footerEmblemBtn.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Master Emblem'); 
+          openSectionModal([{
+            getSrc: () => resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'),
+            src: 'assets/webp/logo.webp',
+            caption: img ? img.alt : 'Maison Polow Master Emblem'
+          }], 0);
         });
       }
-      
+
+      // Group carousel dish/plate/stew triggers strictly by parent slider section
       document.querySelectorAll('.sku-img-btn').forEach(btn => {
+        const img = btn.querySelector('img');
+        const slideEl = btn.closest('.sku-slide');
+        const sliderContainer = btn.closest('.sku-slider-container');
+        const card = btn.closest('.sku-card');
+        const titleEl = card ? card.querySelector('.sku-details h3') : null;
+        const captionText = titleEl ? titleEl.textContent.trim() : (img ? img.alt : 'Maison Polow');
+
+        let slideIndex = null;
+        if (slideEl && slideEl.parentElement) {
+          const siblingSlides = Array.from(slideEl.parentElement.children).filter(el => el.classList.contains('sku-slide'));
+          slideIndex = siblingSlides.indexOf(slideEl);
+        }
+
+        const sliderId = sliderContainer ? sliderContainer.id : 'default';
+        if (!sectionCollectionsBySliderId[sliderId]) {
+          sectionCollectionsBySliderId[sliderId] = [];
+        }
+
+        const sectionList = sectionCollectionsBySliderId[sliderId];
+        const indexWithinSection = sectionList.length;
+
+        const entry = {
+          getSrc: () => resolvePreferredMediaSrc(img, ''),
+          src: resolvePreferredMediaSrc(img, ''),
+          caption: captionText,
+          sliderId: sliderId,
+          slideIndex: slideIndex,
+          sliderController: null
+        };
+
+        sectionList.push(entry);
+        allProductEntries.push(entry);
+
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          const img = btn.querySelector('img');
-          if (img) openModal(resolvePreferredMediaSrc(img), img.alt);
+          openSectionModal(sectionList, indexWithinSection);
         });
       });
+
+      if (modalPrevBtn) {
+        modalPrevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          stepSectionModal(-1);
+        });
+      }
+
+      if (modalNextBtn) {
+        modalNextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          stepSectionModal(1);
+        });
+      }
 
       if (closeLogoModal) closeLogoModal.addEventListener('click', closeModal);
       
@@ -3447,8 +3732,45 @@
         });
       }
 
+      // Touch swipe inside modal stage for section navigation
+      if (modalStageRow) {
+        let modalTouchStartX = 0;
+        let modalTouchEndX = 0;
+
+        modalStageRow.addEventListener('touchstart', (e) => {
+          if (e.touches.length === 1) {
+            modalTouchStartX = e.touches[0].clientX;
+            modalTouchEndX = modalTouchStartX;
+          }
+        }, { passive: true });
+
+        modalStageRow.addEventListener('touchmove', (e) => {
+          if (e.touches.length === 1) {
+            modalTouchEndX = e.touches[0].clientX;
+          }
+        }, { passive: true });
+
+        modalStageRow.addEventListener('touchend', () => {
+          const diff = modalTouchStartX - modalTouchEndX;
+          if (Math.abs(diff) > 45 && activeSectionItems.length > 1) {
+            stepSectionModal(diff > 0 ? 1 : -1);
+          }
+          modalTouchStartX = 0;
+          modalTouchEndX = 0;
+        }, { passive: true });
+      }
+
       window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && logoModal?.classList.contains('active')) closeModal();
+        if (!logoModal || !logoModal.classList.contains('active')) return;
+        if (e.key === 'Escape') {
+          closeModal();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          stepSectionModal(1);
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          stepSectionModal(-1);
+        }
       });
 
       // Async Form Submission Handler
@@ -3503,14 +3825,14 @@
       // Carousel Slider Factory with Neighbor Image Preload & Mobile Touch / Swipe Support
       function initSlider({ containerId, trackId, slideAttr, dotsContainerId, prevBtnId, nextBtnId, duration }) {
         const container = document.getElementById(containerId);
-        if (!container) return;
+        if (!container) return null;
         const track = document.getElementById(trackId) || container;
         const slides = Array.from(track.querySelectorAll(`[${slideAttr}]`));
         const dotsContainer = document.getElementById(dotsContainerId);
         const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.slider-dot')) : [];
         const prevBtn = document.getElementById(prevBtnId);
         const nextBtn = document.getElementById(nextBtnId);
-        if (!slides.length) return;
+        if (!slides.length) return null;
 
         let currentIndex = 0;
         let timer = null;
@@ -3576,6 +3898,14 @@
 
         updateSlide(0);
         startAuto();
+
+        const controller = {
+          goTo: (idx) => updateSlide(idx),
+          getIndex: () => currentIndex
+        };
+
+        sliderControllersById[containerId] = controller;
+        return controller;
       }
 
       initSlider({
@@ -3606,6 +3936,12 @@
         prevBtnId: 'prevDishSlideBtn',
         nextBtnId: 'nextDishSlideBtn',
         duration: 5800
+      });
+
+      allProductEntries.forEach(item => {
+        if (item.sliderId && sliderControllersById[item.sliderId]) {
+          item.sliderController = sliderControllersById[item.sliderId];
+        }
       });
     })();
   </script>
