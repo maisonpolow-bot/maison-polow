@@ -8,7 +8,13 @@
   
   <!-- Favicon & Brand Icons -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23251B14'/%3E%3Ccircle cx='50' cy='50' r='43' stroke='%23C28C41' stroke-width='1.5' fill='none'/%3E%3Ctext x='50' y='61' font-family='Georgia,serif' font-size='34' font-weight='bold' fill='%23F6F2EB' text-anchor='middle'%3EMP%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
   <meta name="theme-color" content="#1A130E">
+
+  <!-- Above-the-Fold Priority Asset Preloads (WebP Primary) -->
+  <link rel="preload" as="image" href="assets/webp/logo.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/webp/Zereshk-Polow.webp" type="image/webp" fetchpriority="high">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1555,7 +1561,7 @@
         <picture>
           <source srcset="assets/webp/logo.webp" type="image/webp">
           <source srcset="assets/avif/logo.avif" type="image/avif">
-          <img src="assets/logo.png" alt="Maison Polow Emblem" class="nav-logo-img" id="headerLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%23251B14\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C28C41\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F6F2EB\' text-anchor=\'middle\'>MP</text></svg>';">
+          <img src="assets/logo.png" alt="Maison Polow Emblem" class="nav-logo-img" id="headerLogoImg" loading="eager" decoding="async" fetchpriority="high" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%23251B14\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C28C41\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F6F2EB\' text-anchor=\'middle\'>MP</text></svg>';">
         </picture>
       </button>
       
@@ -1590,7 +1596,7 @@
 
   <!-- Custom Floating Audio Control Widget -->
   <div class="floating-audio-widget" id="floatingAudioWidget" role="region" aria-label="Audio Controls">
-    <audio id="bgAudio" loop preload="auto">
+    <audio id="bgAudio" loop preload="none">
       <source src="assets/Website-مزون پلو.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
@@ -1606,7 +1612,7 @@
       <div class="audio-title">Atelier Sound</div>
       <div class="volume-slider-wrap">
         <!-- Speaker Icon -->
-        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77-2.99-7.86-7-8.77z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
         <input type="range" min="0" max="1" step="0.05" value="0.5" class="volume-slider" id="volumeSlider" aria-label="Volume Slider" title="Adjust Volume">
       </div>
     </div>
@@ -1627,7 +1633,7 @@
         <picture>
           <source srcset="assets/webp/logo.webp" type="image/webp">
           <source srcset="assets/avif/logo.avif" type="image/avif">
-          <img src="assets/logo.png" alt="Maison Polow Persian Rice Atelier" class="hero-logo-img" id="heroLogoImg" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%23251B14\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C28C41\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F6F2EB\' text-anchor=\'middle\'>MP</text></svg>';">
+          <img src="assets/logo.png" alt="Maison Polow Persian Rice Atelier" class="hero-logo-img" id="heroLogoImg" loading="eager" decoding="async" fetchpriority="high" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'><circle cx=\'100\' cy=\'100\' r=\'96\' fill=\'%23251B14\'/><circle cx=\'100\' cy=\'100\' r=\'88\' stroke=\'%23C28C41\' stroke-width=\'2\' fill=\'none\'/><text x=\'100\' y=\'130\' font-family=\'Georgia,serif\' font-size=\'68\' font-weight=\'bold\' fill=\'%23F6F2EB\' text-anchor=\'middle\'>MP</text></svg>';">
         </picture>
       </div>
       
@@ -1688,7 +1694,7 @@
     <div class="sku-slider-container" id="skuSliderContainer">
       <div class="sku-slider-track" id="skuSliderTrack">
         
-        <!-- DISH 1: Zereshk Polow -->
+        <!-- DISH 1: Zereshk Polow (Above-the-fold priority) -->
         <div class="sku-slide active" data-slide="0">
           <div class="sku-card">
             <div class="sku-media">
@@ -1697,7 +1703,7 @@
                   <picture>
                     <source srcset="assets/webp/Zereshk-Polow.webp" type="image/webp">
                     <source srcset="assets/avif/Zereshk-Polow.avif" type="image/avif">
-                    <img src="assets/Zereshk-Polow.png" alt="Zereshk Polow - Barberry Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Zereshk-Polow.png" alt="Zereshk Polow - Barberry Rice" class="sku-product-img" loading="eager" decoding="async" fetchpriority="high" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Celebratory Classic</span>
@@ -1732,7 +1738,7 @@
                   <picture>
                     <source srcset="assets/webp/Baghali-Polow.webp" type="image/webp">
                     <source srcset="assets/avif/Baghali-Polow.avif" type="image/avif">
-                    <img src="assets/Baghali-Polow.png" alt="Baghali Polow - Dill and Fava Bean Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Baghali-Polow.png" alt="Baghali Polow - Dill and Fava Bean Rice" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Spring Celebration</span>
@@ -1767,7 +1773,7 @@
                   <picture>
                     <source srcset="assets/webp/Adas-Polow.webp" type="image/webp">
                     <source srcset="assets/avif/Adas-Polow.avif" type="image/avif">
-                    <img src="assets/Adas-Polow.png" alt="Adas Polow - Lentil Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Adas-Polow.png" alt="Adas Polow - Lentil Rice" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Homestyle Comfort</span>
@@ -1802,7 +1808,7 @@
                   <picture>
                     <source srcset="assets/webp/Lubia-Polow.webp" type="image/webp">
                     <source srcset="assets/avif/Lubia-Polow.avif" type="image/avif">
-                    <img src="assets/Lubia-Polow.png" alt="Lubia Polow - Spiced Green Bean & Beef Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Lubia-Polow.png" alt="Lubia Polow - Spiced Green Bean & Beef Rice" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Family Classic</span>
@@ -1837,7 +1843,7 @@
                   <picture>
                     <source srcset="assets/webp/Sabzi-Polow.webp" type="image/webp">
                     <source srcset="assets/avif/Sabzi-Polow.avif" type="image/avif">
-                    <img src="assets/Sabzi-Polow.png" alt="Sabzi Polow - Herb Rice with Fish" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Sabzi-Polow.png" alt="Sabzi Polow - Herb Rice with Fish" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Festive Tradition</span>
@@ -1872,7 +1878,7 @@
                   <picture>
                     <source srcset="assets/webp/Saffron-Polow.webp" type="image/webp">
                     <source srcset="assets/avif/Saffron-Polow.avif" type="image/avif">
-                    <img src="assets/Saffron-Polow.png" alt="Saffron Polow - Golden Saffron Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Saffron-Polow.png" alt="Saffron Polow - Golden Saffron Rice" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Atelier Signature</span>
@@ -1907,7 +1913,7 @@
                   <picture>
                     <source srcset="assets/webp/Shirin-Polow.webp" type="image/webp">
                     <source srcset="assets/avif/Shirin-Polow.avif" type="image/avif">
-                    <img src="assets/Shirin-Polow.png" alt="Shirin Polow - Sweet Jeweled Rice" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Shirin-Polow.png" alt="Shirin Polow - Sweet Jeweled Rice" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Royal Feast</span>
@@ -1942,7 +1948,7 @@
                   <picture>
                     <source srcset="assets/webp/Tahchin.webp" type="image/webp">
                     <source srcset="assets/avif/Tahchin.avif" type="image/avif">
-                    <img src="assets/Tahchin.png" alt="Tahchin - Saffron Rice Cake" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Tahchin.png" alt="Tahchin - Saffron Rice Cake" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Baked Showpiece</span>
@@ -2005,7 +2011,7 @@
             <picture>
               <source srcset="assets/webp/emblem-master.webp" type="image/webp">
               <source srcset="assets/avif/emblem-master.avif" type="image/avif">
-              <img src="assets/emblem-master.jpg" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" onerror="this.onerror=null; this.src='assets/logo.png';">
+              <img src="assets/emblem-master.jpg" alt="Maison Polow Master Crest" class="emblem-artwork-img" id="emblemArtworkImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/logo.png';">
             </picture>
             <span class="emblem-hint-overlay">🔍 Click to Inspect</span>
           </div>
@@ -2062,7 +2068,7 @@
                   <picture>
                     <source srcset="assets/webp/Zereshk-Polow-ba-Morgh.webp" type="image/webp">
                     <source srcset="assets/avif/Zereshk-Polow-ba-Morgh.avif" type="image/avif">
-                    <img src="assets/Zereshk-Polow-ba-Morgh.png" alt="Zereshk Polow ba Morgh - Barberry Rice with Saffron Chicken" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Zereshk-Polow-ba-Morgh.png" alt="Zereshk Polow ba Morgh - Barberry Rice with Saffron Chicken" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Royal Poultry Plate</span>
@@ -2097,7 +2103,7 @@
                   <picture>
                     <source srcset="assets/webp/Baghali-Polow-ba-Mahiche.webp" type="image/webp">
                     <source srcset="assets/avif/Baghali-Polow-ba-Mahiche.avif" type="image/avif">
-                    <img src="assets/Baghali-Polow-ba-Mahiche.png" alt="Baghali Polow ba Mahiche - Dill & Fava Bean Rice with Lamb Shank" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Baghali-Polow-ba-Mahiche.png" alt="Baghali Polow ba Mahiche - Dill & Fava Bean Rice with Lamb Shank" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Imperial Banquet</span>
@@ -2132,7 +2138,7 @@
                   <picture>
                     <source srcset="assets/webp/Baghali-Polow-ba-Morgh.webp" type="image/webp">
                     <source srcset="assets/avif/Baghali-Polow-ba-Morgh.avif" type="image/avif">
-                    <img src="assets/Baghali-Polow-ba-Morgh.png" alt="Baghali Polow ba Morgh - Dill & Fava Bean Rice with Chicken" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Baghali-Polow-ba-Morgh.png" alt="Baghali Polow ba Morgh - Dill & Fava Bean Rice with Chicken" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Garden & Saffron</span>
@@ -2167,7 +2173,7 @@
                   <picture>
                     <source srcset="assets/webp/Adas-Polow-ba-Ghosht.webp" type="image/webp">
                     <source srcset="assets/avif/Adas-Polow-ba-Ghosht.avif" type="image/avif">
-                    <img src="assets/Adas-Polow-ba-Ghosht.png" alt="Adas Polow ba Ghosht - Lentil Rice with Braised Lamb" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Adas-Polow-ba-Ghosht.png" alt="Adas Polow ba Ghosht - Lentil Rice with Braised Lamb" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Heritage Braise</span>
@@ -2202,7 +2208,7 @@
                   <picture>
                     <source srcset="assets/webp/Adas-Polow-ba-Morgh.webp" type="image/webp">
                     <source srcset="assets/avif/Adas-Polow-ba-Morgh.avif" type="image/avif">
-                    <img src="assets/Adas-Polow-ba-Morgh.png" alt="Adas Polow ba Morgh - Lentil Rice with Saffron Chicken" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Adas-Polow-ba-Morgh.png" alt="Adas Polow ba Morgh - Lentil Rice with Saffron Chicken" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Sweet & Savoury</span>
@@ -2272,7 +2278,7 @@
                   <picture>
                     <source srcset="assets/webp/Ghormeh-Sabzi.webp" type="image/webp">
                     <source srcset="assets/avif/Ghormeh-Sabzi.avif" type="image/avif">
-                    <img src="assets/Ghormeh-Sabzi.png" alt="Ghormeh Sabzi - Herb Stew" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Ghormeh-Sabzi.png" alt="Ghormeh Sabzi - Herb Stew" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Iconic Herb Stew</span>
@@ -2307,7 +2313,7 @@
                   <picture>
                     <source srcset="assets/webp/Gheymeh.webp" type="image/webp">
                     <source srcset="assets/avif/Gheymeh.avif" type="image/avif">
-                    <img src="assets/Gheymeh.png" alt="Khoresh Gheymeh - Yellow Split Pea Stew" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Gheymeh.png" alt="Khoresh Gheymeh - Yellow Split Pea Stew" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Golden Potato Crunch</span>
@@ -2342,7 +2348,7 @@
                   <picture>
                     <source srcset="assets/webp/Fesenjan.webp" type="image/webp">
                     <source srcset="assets/avif/Fesenjan.avif" type="image/avif">
-                    <img src="assets/Fesenjan.png" alt="Fesenjan - Pomegranate Walnut Stew" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Fesenjan.png" alt="Fesenjan - Pomegranate Walnut Stew" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Royal Walnut Glaze</span>
@@ -2377,7 +2383,7 @@
                   <picture>
                     <source srcset="assets/webp/Bademjan.webp" type="image/webp">
                     <source srcset="assets/avif/Bademjan.avif" type="image/avif">
-                    <img src="assets/Bademjan.png" alt="Khoresh Bademjan - Eggplant Stew" class="sku-product-img" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1000&q=80';">
+                    <img src="assets/Bademjan.png" alt="Khoresh Bademjan - Eggplant Stew" class="sku-product-img" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1000&q=80';">
                   </picture>
                   <div class="sku-img-overlay"></div>
                   <span class="live-tag">Golden Eggplant Braise</span>
@@ -2480,7 +2486,7 @@
           <picture>
             <source srcset="assets/webp/emblem-master.webp" type="image/webp">
             <source srcset="assets/avif/emblem-master.avif" type="image/avif">
-            <img src="assets/emblem-master.jpg" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" onerror="this.onerror=null; this.src='assets/logo.png';">
+            <img src="assets/emblem-master.jpg" alt="Maison Polow Master Emblem" class="footer-emblem-img" id="footerEmblemImg" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='assets/logo.png';">
           </picture>
           <div class="footer-brand-title" style="display: flex; flex-direction: column;">
             <span style="font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700; color: var(--cream);">MAISON POLOW</span>
@@ -2543,7 +2549,7 @@
     <div class="logo-modal-container" id="logoModalContainer">
       <button type="button" class="logo-modal-close" id="closeLogoModal" aria-label="Close enlarged emblem">✕</button>
       <div class="modal-logo-wrapper" id="modalLogoWrapper" title="Click to zoom image">
-        <img src="" alt="Maison Polow Official Emblem" class="modal-logo-img" id="modalLogoImg">
+        <img src="assets/webp/logo.webp" alt="Maison Polow Official Emblem" class="modal-logo-img" id="modalLogoImg" decoding="async">
       </div>
       <div class="modal-caption" id="modalCaption"></div>
     </div>
@@ -2552,6 +2558,84 @@
   <!-- JavaScript -->
   <script>
     (function() {
+      // ============================================================
+      // Staged Idle Image Preloader (Prioritizes WebP -> AVIF -> Fallback)
+      // ============================================================
+      const preloadedImageCache = new Map();
+      const queuedPreloadUrls = new Set();
+
+      function resolvePreferredMediaSrc(img, fallbackSrc = '') {
+        if (!img) return fallbackSrc;
+        if (img.currentSrc) return img.currentSrc;
+        const picture = img.closest('picture');
+        if (picture) {
+          const webpSource = picture.querySelector('source[type="image/webp"]');
+          if (webpSource && webpSource.getAttribute('srcset')) {
+            return webpSource.getAttribute('srcset').split(',')[0].trim().split(/\s+/)[0];
+          }
+          const avifSource = picture.querySelector('source[type="image/avif"]');
+          if (avifSource && avifSource.getAttribute('srcset')) {
+            return avifSource.getAttribute('srcset').split(',')[0].trim().split(/\s+/)[0];
+          }
+        }
+        return img.getAttribute('src') || fallbackSrc;
+      }
+
+      function preloadSingleImage(url) {
+        if (!url || preloadedImageCache.has(url)) return;
+        const img = new Image();
+        img.decoding = 'async';
+        img.src = url;
+        preloadedImageCache.set(url, img);
+      }
+
+      function preloadMaisonPolowImages() {
+        // Above-the-fold priority images are already eagerly loaded; queue off-screen/lazy images for idle time
+        document.querySelectorAll('img').forEach(imgEl => {
+          const isLazy = imgEl.getAttribute('loading') === 'lazy';
+          const preferredSrc = resolvePreferredMediaSrc(imgEl, '');
+          if (isLazy && preferredSrc && !preferredSrc.startsWith('data:')) {
+            queuedPreloadUrls.add(preferredSrc);
+          }
+        });
+
+        const queue = Array.from(queuedPreloadUrls);
+        let cursor = 0;
+
+        function pumpOneDuringIdle() {
+          while (cursor < queue.length && preloadedImageCache.has(queue[cursor])) {
+            cursor += 1;
+          }
+          if (cursor < queue.length) {
+            preloadSingleImage(queue[cursor]);
+            cursor += 1;
+          }
+          if (cursor < queue.length) {
+            scheduleNextIdle();
+          }
+        }
+
+        function scheduleNextIdle() {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(pumpOneDuringIdle, { timeout: 1200 });
+          } else {
+            setTimeout(pumpOneDuringIdle, 250);
+          }
+        }
+
+        function startAfterInitialRender() {
+          setTimeout(scheduleNextIdle, 350);
+        }
+
+        if (document.readyState === 'complete') {
+          startAfterInitialRender();
+        } else {
+          window.addEventListener('load', startAfterInitialRender, { once: true });
+        }
+      }
+
+      preloadMaisonPolowImages();
+
       // Dynamic WhatsApp Link Router (Web vs Native App with Default Message & Continuous Spin on Click)
       const whatsappWidget = document.getElementById('floatingWhatsappWidget');
       const whatsappIconBtn = document.getElementById('whatsappIconBtn');
@@ -2599,6 +2683,7 @@
         audioToggleBtn.addEventListener('click', (e) => {
           e.preventDefault();
           if (bgAudio.paused) {
+            bgAudio.preload = 'auto';
             bgAudio.play().then(() => {
               updateAudioUI(true);
             }).catch(err => {
@@ -2618,6 +2703,7 @@
 
         // First user interaction auto-start handler
         const autoStartOnFirstInteraction = () => {
+          bgAudio.preload = 'auto';
           bgAudio.play().then(() => {
             updateAudioUI(true);
             window.removeEventListener('click', autoStartOnFirstInteraction);
@@ -2674,23 +2760,6 @@
         });
       });
 
-      function resolvePreferredMediaSrc(img) {
-        if (!img) return '';
-        if (img.currentSrc) return img.currentSrc;
-        const picture = img.closest('picture');
-        if (picture) {
-          const webpSource = picture.querySelector('source[type="image/webp"]');
-          if (webpSource && webpSource.getAttribute('srcset')) {
-            return webpSource.getAttribute('srcset').trim();
-          }
-          const avifSource = picture.querySelector('source[type="image/avif"]');
-          if (avifSource && avifSource.getAttribute('srcset')) {
-            return avifSource.getAttribute('srcset').trim();
-          }
-        }
-        return img.getAttribute('src') || '';
-      }
-
       // Lightbox & Zoom Logic (1:1 Frame + Smooth Open/Exit + Scrollbar Width Compensation)
       const headerLogoBtn = document.getElementById('headerLogoBtn');
       const heroLogoTrigger = document.getElementById('heroLogoTrigger');
@@ -2708,6 +2777,7 @@
           clearTimeout(closeTimer);
           closeTimer = null;
         }
+        if (imageSrc) preloadSingleImage(imageSrc);
         if (modalLogoImg && imageSrc) modalLogoImg.src = imageSrc;
         if (modalCaption) modalCaption.textContent = captionText || '';
         if (modalLogoWrapper) modalLogoWrapper.classList.remove('zoomed');
@@ -2748,27 +2818,27 @@
       if (headerLogoBtn) {
         headerLogoBtn.addEventListener('click', () => {
           const img = headerLogoBtn.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img) || 'assets/webp/logo.webp', img ? img.alt : 'Maison Polow Emblem');
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Emblem');
         });
       }
       if (heroLogoTrigger) {
         heroLogoTrigger.addEventListener('click', () => {
           const img = heroLogoTrigger.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img) || 'assets/webp/logo.webp', img ? img.alt : 'Maison Polow Persian Rice Atelier');
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/logo.webp'), img ? img.alt : 'Maison Polow Persian Rice Atelier');
         });
       }
       if (emblemZoomTrigger) {
         emblemZoomTrigger.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = emblemZoomTrigger.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img) || 'assets/webp/emblem-master.webp', img ? img.alt : 'Maison Polow Master Crest'); 
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/emblem-master.webp'), img ? img.alt : 'Maison Polow Master Crest'); 
         });
       }
       if (footerEmblemBtn) {
         footerEmblemBtn.addEventListener('click', (e) => { 
           e.preventDefault(); 
           const img = footerEmblemBtn.querySelector('img');
-          openModal(resolvePreferredMediaSrc(img) || 'assets/webp/emblem-master.webp', img ? img.alt : 'Maison Polow Master Emblem'); 
+          openModal(resolvePreferredMediaSrc(img, 'assets/webp/emblem-master.webp'), img ? img.alt : 'Maison Polow Master Emblem'); 
         });
       }
       
@@ -2845,7 +2915,7 @@
       handleFormSubmit('waitlistForm', 'waitlistSubmitBtn', 'waitlistInputFields', 'waitlistFeedback', '✨ <strong>Merci!</strong> Your tasting invitation has been recorded. Our concierge will reach out via WhatsApp.');
       handleFormSubmit('careersForm', 'careersSubmitBtn', 'careersInputFields', 'careersFeedback', '✨ <strong>Application Received!</strong> Thank you for your interest in joining the atelier.');
 
-      // Carousel Slider Factory with Mobile Touch / Swipe Support
+      // Carousel Slider Factory with Neighbor Image Preload & Mobile Touch / Swipe Support
       function initSlider({ containerId, trackId, slideAttr, dotsContainerId, prevBtnId, nextBtnId, duration }) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -2860,11 +2930,26 @@
         let currentIndex = 0;
         let timer = null;
 
+        function warmAdjacentSlides(centerIdx) {
+          const count = slides.length;
+          [-1, 1].forEach(offset => {
+            const adjIdx = ((centerIdx + offset) % count + count) % count;
+            const adjImg = slides[adjIdx] ? slides[adjIdx].querySelector('img') : null;
+            if (adjImg) {
+              const preferredSrc = resolvePreferredMediaSrc(adjImg, '');
+              if (preferredSrc && !preferredSrc.startsWith('data:')) {
+                preloadSingleImage(preferredSrc);
+              }
+            }
+          });
+        }
+
         function updateSlide(targetIndex) {
           const count = slides.length;
           const nextIdx = (targetIndex % count + count) % count;
           slides.forEach((s, idx) => s.classList.toggle('active', idx === nextIdx));
           dots.forEach((d, idx) => d.classList.toggle('active', idx === nextIdx));
+          warmAdjacentSlides(nextIdx);
           currentIndex = nextIdx;
         }
 
@@ -2877,7 +2962,10 @@
         if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); startAuto(); });
         dots.forEach((dot, idx) => dot.addEventListener('click', (e) => { e.preventDefault(); updateSlide(idx); startAuto(); }));
 
-        container.addEventListener('mouseenter', stopAuto);
+        container.addEventListener('mouseenter', () => {
+          stopAuto();
+          warmAdjacentSlides(currentIndex);
+        });
         container.addEventListener('mouseleave', startAuto);
 
         // Touch Swipe Gestures for Mobile
