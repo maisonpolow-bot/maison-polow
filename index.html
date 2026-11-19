@@ -1843,33 +1843,6 @@
       letter-spacing: 0.4px;
     }
 
-    .logo-modal-close {
-      position: absolute;
-      top: -16px;
-      right: -12px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--bg-card);
-      border: 1.5px solid var(--gold);
-      color: var(--cream);
-      font-size: 1.1rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 7;
-      box-shadow: 0 4px 12px rgba(10, 7, 5, 0.5);
-      transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
-    }
-
-    .logo-modal-close:hover {
-      background: var(--gold-light);
-      color: var(--bg-dark);
-      transform: rotate(90deg) scale(1.08);
-    }
-
     /* Reduced Motion Accessibility */
     @media (prefers-reduced-motion: reduce) {
       .hero-logo-container,
@@ -2060,12 +2033,6 @@
       .modal-nav-btn {
         width: 38px;
         height: 38px;
-      }
-      .logo-modal-close {
-        top: -14px;
-        right: 0;
-        width: 36px;
-        height: 36px;
       }
     }
 
@@ -3217,10 +3184,9 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal with Section-Scoped Previous & Next Navigation -->
+  <!-- Lightbox Modal with Section-Scoped Previous & Next Navigation (No Close Button) -->
   <div class="logo-modal-overlay" id="logoModal" role="dialog" aria-modal="true" aria-label="Maison Polow Image Viewer">
     <div class="logo-modal-container" id="logoModalContainer">
-      <button type="button" class="logo-modal-close" id="closeLogoModal" aria-label="Close enlarged image">✕</button>
       <div class="modal-stage-row" id="modalStageRow">
         <button type="button" class="modal-nav-btn" id="modalPrevBtn" aria-label="Previous image in this section" title="Previous Image (Left Arrow)">
           <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -3239,7 +3205,7 @@
         <div class="modal-caption" id="modalCaption"></div>
         <div class="modal-submeta-row">
           <span class="modal-counter" id="modalCounter">1 / 1</span>
-          <span class="modal-hint" id="modalHint">Click image to zoom • Use Prev/Next, swipe, or arrow keys</span>
+          <span class="modal-hint" id="modalHint">Click image to zoom • Tap outside or press ESC to close</span>
         </div>
       </div>
     </div>
@@ -3487,7 +3453,7 @@
       });
 
       // ============================================================
-      // Section-Scoped Lightbox Modal with Previous / Next Navigation
+      // Section-Scoped Lightbox Modal with Previous / Next Navigation (No Close Button)
       // ============================================================
       const headerLogoBtn = document.getElementById('headerLogoBtn');
       const heroLogoTrigger = document.getElementById('heroLogoTrigger');
@@ -3498,7 +3464,6 @@
       const modalPrevBtn = document.getElementById('modalPrevBtn');
       const modalNextBtn = document.getElementById('modalNextBtn');
       const modalLogoWrapper = document.getElementById('modalLogoWrapper');
-      const closeLogoModal = document.getElementById('closeLogoModal');
       const modalLogoImg = document.getElementById('modalLogoImg');
       const modalCaption = document.getElementById('modalCaption');
       const modalCounter = document.getElementById('modalCounter');
@@ -3533,7 +3498,7 @@
         if (modalCounter) modalCounter.classList.toggle('hidden-counter', !hasMultiple);
         if (modalHint) {
           modalHint.textContent = hasMultiple
-            ? 'Click image to zoom • Use Prev/Next, swipe, or arrow keys'
+            ? 'Click image to zoom • Use Prev/Next, swipe, or arrow keys • Tap outside or press ESC to close'
             : 'Click image to zoom • Tap outside or press ESC to close';
         }
 
@@ -3722,8 +3687,6 @@
         });
       }
 
-      if (closeLogoModal) closeLogoModal.addEventListener('click', closeModal);
-      
       if (logoModal) {
         logoModal.addEventListener('click', (e) => {
           if (!e.target.closest('.logo-modal-container')) {
