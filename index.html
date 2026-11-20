@@ -1818,7 +1818,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
     }
 
     .modal-counter {
@@ -1838,6 +1838,18 @@
     }
 
     .modal-hint {
+      font-size: 0.72rem;
+      color: var(--cream-muted);
+      letter-spacing: 0.4px;
+    }
+
+    .modal-hint-bullets {
+      list-style: disc;
+      list-style-position: inside;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
       font-size: 0.72rem;
       color: var(--cream-muted);
       letter-spacing: 0.4px;
@@ -3205,7 +3217,7 @@
         <div class="modal-caption" id="modalCaption"></div>
         <div class="modal-submeta-row">
           <span class="modal-counter" id="modalCounter">1 / 1</span>
-          <span class="modal-hint" id="modalHint">Click image to zoom • Tap outside or press ESC to close</span>
+          <div id="modalHintContainer"></div>
         </div>
       </div>
     </div>
@@ -3467,7 +3479,7 @@
       const modalLogoImg = document.getElementById('modalLogoImg');
       const modalCaption = document.getElementById('modalCaption');
       const modalCounter = document.getElementById('modalCounter');
-      const modalHint = document.getElementById('modalHint');
+      const modalHintContainer = document.getElementById('modalHintContainer');
 
       let activeSectionItems = [];
       let currentSectionIndex = 0;
@@ -3483,6 +3495,39 @@
         item.sliderController.goTo(item.slideIndex, true);
       }
 
+      function renderModalHint(hasMultiple) {
+        if (!modalHintContainer) return;
+        const isMobileView = window.matchMedia('(max-width: 900px)').matches;
+        if (isMobileView) {
+          const list = document.createElement('ul');
+          list.className = 'modal-hint-bullets';
+
+          const zoomLi = document.createElement('li');
+          zoomLi.textContent = 'Click image to zoom';
+          list.appendChild(zoomLi);
+
+          if (hasMultiple) {
+            const navLi = document.createElement('li');
+            navLi.textContent = 'Use swipe or arrow keys';
+            list.appendChild(navLi);
+          }
+
+          const closeLi = document.createElement('li');
+          closeLi.textContent = 'Tap outside to close';
+          list.appendChild(closeLi);
+
+          modalHintContainer.replaceChildren(list);
+          return;
+        }
+
+        const p = document.createElement('p');
+        p.className = 'modal-hint';
+        p.textContent = hasMultiple
+          ? 'Click image to zoom • Use Prev/Next, swipe, or arrow keys • Tap outside or press ESC to close'
+          : 'Click image to zoom • Tap outside or press ESC to close';
+        modalHintContainer.replaceChildren(p);
+      }
+
       function renderSectionModalItem(index, animateSwap = false) {
         if (!activeSectionItems.length) return;
         const count = activeSectionItems.length;
@@ -3496,11 +3541,7 @@
         if (modalPrevBtn) modalPrevBtn.classList.toggle('hidden-nav', !hasMultiple);
         if (modalNextBtn) modalNextBtn.classList.toggle('hidden-nav', !hasMultiple);
         if (modalCounter) modalCounter.classList.toggle('hidden-counter', !hasMultiple);
-        if (modalHint) {
-          modalHint.textContent = hasMultiple
-            ? 'Click image to zoom • Use Prev/Next, swipe, or arrow keys • Tap outside or press ESC to close'
-            : 'Click image to zoom • Tap outside or press ESC to close';
-        }
+        renderModalHint(hasMultiple);
 
         const applyItem = () => {
           const resolvedSrc = item.getSrc ? item.getSrc() : item.src;
@@ -3577,6 +3618,12 @@
           closeTimer = null;
         }, 400);
       }
+
+      window.addEventListener('resize', () => {
+        if (logoModal && logoModal.classList.contains('active')) {
+          renderModalHint(activeSectionItems.length > 1);
+        }
+      }, { passive: true });
 
       // Toggle zoom on clicking the modal image wrapper
       if (modalLogoWrapper) {
